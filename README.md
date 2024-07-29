@@ -5,10 +5,11 @@
 - [Project Overview](#project-overview)
 - [IoT Cloud-based Repos](#iot-cloud-based-repos)
 - [Architecture](#architecture)
-  - [Devices](#devices)
-  - [Sensors](#sensors)
-  - [Schema](#schema)
+  - [Physical Devices](#physical-devices)
+  - [Physical Sensors](#physical-sensors)
+  - [Logical Schema](#logical-schema)
 - [Setup Raspberry Pi 3 Model B](#setup-raspberry-pi-3-model-b)
+  - [Create *watchdog_raspi.service*](#create-watchdog_raspiservice)
 - [Authors](#authors)
 
 ## Project Overview
@@ -24,10 +25,9 @@ You can find all project repos in the following locations:
 ## Architecture
 The IoT Cloud-based architecture we are going to consider represents the configuration of a domotic door that allows access into the home via a fingerprint reader and proximity sensor (it detects the presence of strangers). 
 
-### Devices
-The devices involved in the architecture are as follows:
+### Physical Devices
+The devices involved in the architecture are as follows and their datasheet are placed **[here](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/documents/datasheet/boards)**:
 
-<br>
 <div align="center">
   
 | WeMos D1 ESP8266 WiFi Board | TTGO LoRa32-OLED       |
@@ -37,17 +37,23 @@ The devices involved in the architecture are as follows:
 | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/boards/arduino.png" alt="Arduino" width="300"></p>          | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/boards/raspberry.png" alt="Raspberry" width="400"></p> |
 
 </div>
+<br>
 
-### Sensors
-The sensors involved in the architecture are as follows:
+### Physical Sensors
+The sensors involved in the architecture are as follows and their datasheet are placed **[here](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/documents/datasheet/sensors)**:
 
+<div align="center">
+  
 |               | Arduino Uno WiFi  |  ESP32 |
 |---------------|-------------------|-------------------|
-| **Buzzer 3 Pins**     | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/buzzer.png" alt="buzzer" width="150"></p> | |
-| **HC-SR501 Pir Motion Detector**   | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/HC-SR501.png" alt="HC-SR501" width="150"></p>| |
-| **Adafruit Fingerprint Sensor** | | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/fingerprint.png" alt="fingerprint" width="200"></p> |
+| **Buzzer 3 Pins**     | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/buzzer.png" alt="buzzer" width="130"></p> | |
+| **HC-SR501 Pir Motion Detector**   | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/HC-SR501.png" alt="HC-SR501" width="130"></p>| |
+| **Adafruit Fingerprint Sensor** | | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/fingerprint.png" alt="fingerprint" width="140"></p> |
 
-### Schema
+</div>
+<br>
+
+### Logical Schema
 The logic of the architecture is divided into several levels:
 
 - **End nodes**: *ESP32* with fingerprint sensor and *Arduino Uno WiFi Rev2* with proximity sensors and buzzer;
@@ -62,7 +68,40 @@ The logic of the architecture is divided into several levels:
 </p>
 
 ## Setup Raspberry Pi 3 Model B
+The Raspberry Pi acts as both Access Point and MQTT broker. The Access Point was configured via **hostapd** allowing the boards to connect and communicate with each other. The boards do not communicate with the outside world, so no IP forwarding is used, but only communicate with the Raspberry Pi and with each other. IP addresses are provided by the Raspberry Pi, which acts as a DHCP server via **dnsmasq**. First, a static IP was assigned to the Raspberry Pi with **dhcpcd**, then the pool of addresses to be assigned to each device was set up (randomly). Next, the **Mosquitto broker** was installed on the Raspberry Pi.
 
+### ❗❗❗ ATTENTION - Ubuntu OS❗❗❗
+If you want to connect the Rasberry Pi via Ethernet to the PC instead of the modem, follow these steps on your PC with Ubuntu OS:
+- plug the Ethernet cable into your network card
+- go to `Settings - Network` 
+- in the ethernet connection settings go to `identity`
+- set the `Name` to `bridge`
+- set the `MAC Address` to `eno2`
+- in the `IPv4` section set the flag to `Shared with other computers`
+
+If ssh access does not work, try unplugging and re-plugging the ethernet cable. SSH Raspberry credentials:
+- **username**:  `alberto`
+- **password**: `alberto`
+
+### Create *watchdog_raspi.service*
+Rendiamo un servizio il programma creato in python seguendo questi passaggi:
+• sudo nano /etc/systemd/system/watchdog raspi.service
+[Unit ]
+– Description=Script Python che permette di collegarsi a Google Drive e filtrare il traffico tra le schede
+– After=network.target
+[Service ]
+– ExecStart=python /home/alberto/watchdog raspi/cloud-raspy.py
+– WorkingDirectory=/home/alberto/watchdog raspi/
+– StandardOutput=inherit
+– StandardError=inherit
+– Restart=always
+– RestartSec=5
+[Install ]
+– WantedBy=multi-user.target
+Successivamente eseguiamo:
+• sudo systemctl daemon-reload
+• sudo systemctl enable watchdog raspi.service
+• sudo systemctl start watchdog raspi.service
 
 ## Authors
 | Name | Description |
