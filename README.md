@@ -71,7 +71,7 @@ The logic of the architecture is divided into several levels:
 The Raspberry Pi acts as both Access Point and MQTT broker. The Access Point was configured via **hostapd** allowing the boards to connect and communicate with each other. The boards do not communicate with the outside world, so no IP forwarding is used, but only communicate with the Raspberry Pi and with each other. IP addresses are provided by the Raspberry Pi, which acts as a DHCP server via **dnsmasq**. First, a static IP was assigned to the Raspberry Pi with **dhcpcd**, then the pool of addresses to be assigned to each device was set up (randomly). Next, the **Mosquitto broker** was installed on the Raspberry Pi.
 
 ---
-> ### ❗❗❗ ATTENTION - Raspberry Pi OS ❗❗❗ 
+> <h3> ❗❗❗ ATTENTION - Raspberry Pi OS ❗❗❗ </h3>
 > For this configuration, the Raspberry Pi must have `Debian version Bullseye` as OS in order to use `dhcpcd` as the network interface. In fact, in later versions *dhcpcd* is replaced with the *Network Manager*. <
 ---
 > ### ❗❗❗ ATTENTION - Wired Connection ❗❗❗
