@@ -70,14 +70,19 @@ The logic of the architecture is divided into several levels:
 ## Setup Raspberry Pi 3 Model B
 The Raspberry Pi acts as both Access Point and MQTT broker. The Access Point was configured via **hostapd** allowing the boards to connect and communicate with each other. The boards do not communicate with the outside world, so no IP forwarding is used, but only communicate with the Raspberry Pi and with each other. IP addresses are provided by the Raspberry Pi, which acts as a DHCP server via **dnsmasq**. First, a static IP was assigned to the Raspberry Pi with **dhcpcd**, then the pool of addresses to be assigned to each device was set up (randomly). Next, the **Mosquitto broker** was installed on the Raspberry Pi.
 
-### ❗❗❗ ATTENTION - Ubuntu OS❗❗❗
-If you want to connect the Rasberry Pi via Ethernet to the PC instead of the modem, follow these steps on your PC with Ubuntu OS:
-- plug the Ethernet cable into your network card
-- go to `Settings - Network` 
-- in the ethernet connection settings go to `identity`
-- set the `Name` to `bridge`
-- set the `MAC Address` to `eno2`
-- in the `IPv4` section set the flag to `Shared with other computers`
+---
+> ### ❗❗❗ ATTENTION - Raspberry Pi OS ❗❗❗ 
+> For this configuration, the Raspberry Pi must have `Debian version Bullseye` as OS in order to use `dhcpcd` as the network interface. In fact, in later versions *dhcpcd* is replaced with the *Network Manager*. <
+---
+> ### ❗❗❗ ATTENTION - Wired Connection ❗❗❗
+> If you want to connect the Rasberry Pi via Ethernet to the PC instead of the modem, follow these steps on your PC with Ubuntu OS:
+> - plug the Ethernet cable into your network card
+> - go to `Settings - Network` 
+> - in the ethernet connection settings go to `identity`
+> - set the `Name` to `bridge`
+> - set the `MAC Address` to `eno2`
+> - in the `IPv4` section set the flag to `Shared with other computers`
+---
 
 If ssh access does not work, try unplugging and re-plugging the ethernet cable. SSH Raspberry credentials:
 - **username**:  `alberto`
