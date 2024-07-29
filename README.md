@@ -20,7 +20,7 @@ You can find all project repos in the following locations:
 - ...
 
 
-## Architectures
+## Architecture
 The IoT Cloud-based architecture we are going to consider represents the configuration of a domotic door that allows access into the home via a fingerprint reader and proximity sensor (it detects the presence of strangers). 
 
 ### Devices
