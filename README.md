@@ -79,8 +79,8 @@ The Raspberry Pi acts as both Access Point and MQTT broker. The Access Point was
 > - plug the Ethernet cable into your network card
 > - go to `Settings - Network` 
 > - in the ethernet connection settings go to `identity`
-> - set the `Name` to `bridge`
-> - set the `MAC Address` to `eno2`
+  > - set the `Name` to `bridge`
+  > - set the `MAC Address` to `eno2`
 > - in the `IPv4` section set the flag to `Shared with other computers`
 ---
 
