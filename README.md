@@ -1,6 +1,18 @@
 # Dataset of cyber attacks on a real IoT Cloud-based Architecture
 ....
 
+## Table of Contents
+- [Project Overview](#project-overview)
+- [IoT Cloud-based Repos](#iot-cloud-based-repos)
+- [Architectures](#architectures)
+  - [Devices](#devices)
+  - [Schema](#schema)
+- [Setup Raspberry Pi 3 Model B](#setup-raspberry-pi-3-model-b)
+- [Authors](#authors)
+
+## Project Overview
+...
+
 ## IoT Cloud-based Repos
 You can find all project repos in the following locations:
 - [IoT_sketches](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/IoT_sketches): here you can find a documentation of how the devices used were configured and programmed;
@@ -39,7 +51,7 @@ The logic of the architecture is divided into several levels:
   <img src="documents/img/architecture.svg" alt="Architecture IoT" width="600">
 </p>
 
-## Setup Raspberry Pi
+## Setup Raspberry Pi 3 Model B
 
 
 ## Authors
