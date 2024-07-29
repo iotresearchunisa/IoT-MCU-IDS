@@ -4,8 +4,9 @@
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [IoT Cloud-based Repos](#iot-cloud-based-repos)
-- [Architectures](#architectures)
+- [Architecture](#architecture)
   - [Devices](#devices)
+  - [Sensors](#sensors)
   - [Schema](#schema)
 - [Setup Raspberry Pi 3 Model B](#setup-raspberry-pi-3-model-b)
 - [Authors](#authors)
@@ -31,11 +32,20 @@ The devices involved in the architecture are as follows:
   
 | WeMos D1 ESP8266 WiFi Board | TTGO LoRa32-OLED       |
 |-----------------------------|------------------------|
-| <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/esp8266.png" alt="Esp8266" width="300"></p>            | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/esp32.png" alt="Esp32" width="300"></p>       |
+| <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/boards/esp8266.png" alt="Esp8266" width="300"></p>            | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/boards/esp32.png" alt="Esp32" width="300"></p>       |
 | Arduino Uno WiFi Rev2       | Raspberry Pi 3 Model B |
-| <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/arduino.png" alt="Arduino" width="300"></p>          | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/raspberry.png" alt="Raspberry" width="400"></p> |
+| <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/boards/arduino.png" alt="Arduino" width="300"></p>          | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/boards/raspberry.png" alt="Raspberry" width="400"></p> |
 
 </div>
+
+### Sensors
+The sensors involved in the architecture are as follows:
+
+|               | Arduino Uno WiFi  |  ESP32 |
+|---------------|-------------------|-------------------|
+| **Buzzer 3 Pins**     | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/buzzer.png" alt="buzzer" width="150"></p> | |
+| **HC-SR501 Pir Motion Detector**   | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/HC-SR501.png" alt="HC-SR501" width="150"></p>| |
+| **Adafruit Fingerprint Sensor** | | <p align="center"><img src="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/blob/main/documents/img/sensors/fingerprint.png" alt="fingerprint" width="200"></p> |
 
 ### Schema
 The logic of the architecture is divided into several levels:
