@@ -55,7 +55,7 @@ Make sure you have `pip` installed and use the following command to install the 
 pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 ```
 
-### Placement of Credentials
+## Placement of Credentials
 The OAuth JSON file (credentials.json) should be placed in the `clent` folder. This is used by the client applications. 
 
 The service account token (service-account-file.json) should be placed in the `server_raspi` folder. This is used by the Raspberry Pi. 
