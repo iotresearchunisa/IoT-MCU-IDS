@@ -26,7 +26,7 @@ This repository contains the code and documentation for an dataset of cyber atta
 - **[papers](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/papers)**: the papers we used as a reference;
 
 ## Architecture
-The IoT Cloud-based architecture we are going to consider represents the configuration of a domotic door that allows access into the home via a fingerprint reader and proximity sensor (it detects the presence of strangers). 
+The IoT Cloud-based architecture we are going to consider represents the configuration of a domotic door that allows access into the home via a fingerprint reader and proximity sensor: it detects the presence of strangers. 
 
 ### Physical Devices
 The devices involved in the architecture are as follows and their datasheet are placed **[here](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/documents/datasheet/boards)**:
