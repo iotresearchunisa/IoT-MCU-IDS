@@ -48,7 +48,7 @@ This guide shows you how to generate the necessary tokens to access Google Drive
 4. Set the permissions to **Editor**.
 5. Click **Send**.
 
-### 6. Install Python Libraries
+## Install Python Libraries
 Make sure you have `pip` installed and use the following command to install the necessary libraries:
 
 ```sh
