@@ -82,8 +82,10 @@ The Raspberry Pi acts as both Access Point and MQTT broker. The Access Point was
 > If you want to connect the Rasberry Pi via Ethernet to the PC instead of the modem, follow these steps on your PC with Ubuntu OS:
 > 1. plug the Ethernet cable into your network card
 > 2. go to `Settings - Network` 
-> 3. in the ethernet connection settings go to `identity`: set the `Name` to `bridge` and set the `MAC Address` to `eno2`
-> 4. in the `IPv4` section set the flag to `Shared with other computers`
+> 3. in the ethernet connection settings go to `identity`:
+> - set the `Name` to `bridge`
+> - set the `MAC Address` to `eno2`
+> 5. in the `IPv4` section set the flag to `Shared with other computers`
 ---
 
 If ssh access does not work, try unplugging and re-plugging the ethernet cable. SSH Raspberry credentials:
