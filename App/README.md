@@ -8,6 +8,9 @@ This guide shows you how to generate the necessary tokens to access Google Drive
 
 3. **Python**: ensure you have Python installed on your system. You can download it from [python.org](https://www.python.org/).
 
+4. **Conda**: ensure you have Conda installed on your system. You can download it from [conda.io](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+
+
 ## Steps to Configure Access to Google Drive
 ### 1. Create a CSV File on Google Drive
 1. Open your Google Drive.
@@ -47,13 +50,6 @@ This guide shows you how to generate the necessary tokens to access Google Drive
 3. In the **Share with people and groups** dialog, add the email address of your service account. The email will be in the form `your-service-account-name@your-project-id.iam.gserviceaccount.com`.
 4. Set the permissions to **Editor**.
 5. Click **Send**.
-
-## Install Python Libraries
-Make sure you have `pip` installed and use the following command to install the necessary libraries:
-
-```sh
-pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-```
 
 ## Placement of Credentials
 The OAuth JSON file (credentials.json) should be placed in the `clent` folder. This is used by the client applications. 
