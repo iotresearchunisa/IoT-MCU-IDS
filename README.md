@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [IoT Cloud-based Repos](#iot-cloud-based-repos)
+- [Folder Structure](#folder-structure)
 - [Architecture](#architecture)
   - [Physical Devices](#physical-devices)
   - [Physical Sensors](#physical-sensors)
@@ -17,12 +17,13 @@
 ## Project Overview
 ...
 
-## IoT Cloud-based Repos
-You can find all project repos in the following locations:
-- [IoT_sketches](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/IoT_sketches): here you can find a documentation of how the devices used were configured and programmed;
-- [papers](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/papers): here you can find the papers we used as a reference;
-- ...
-
+## Folder Structure
+This repository contains the code and documentation for an dataset of cyber attacks on a IoT cloud-based thesis project:
+- **[App](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/App)**: contains the server-side code and APIs used to manage IoT devices and data and the CLI for interacting with domotic door
+- **[IoT_sketches](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/IoT_sketches)**: scripts to develop the different boards
+- **[dataset](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/dataset)**: dataset of the benign and cyber attacks traffic
+- **[documents](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/documents)**: contains the datasheet of boards and sensors
+- **[papers](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/papers)**: the papers we used as a reference;
 
 ## Architecture
 The IoT Cloud-based architecture we are going to consider represents the configuration of a domotic door that allows access into the home via a fingerprint reader and proximity sensor (it detects the presence of strangers). 
