@@ -58,4 +58,4 @@ pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-pyt
 ### Placement of Credentials
 The OAuth JSON file (credentials.json) should be placed in the `clent` folder. This is used by the client applications. 
 
-The service account token (service-account-file.json) should be placed in the `server` folder. This is used by the Raspberry Pi. 
+The service account token (service-account-file.json) should be placed in the `server_raspi` folder. This is used by the Raspberry Pi. 
