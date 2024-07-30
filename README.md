@@ -10,6 +10,8 @@
   - [Logical Schema](#logical-schema)
 - [Setup Raspberry Pi 3 Model B](#setup-raspberry-pi-3-model-b)
   - [Create *watchdog_raspi.service*](#create-watchdog_raspiservice)
+  - [Create Network](#create-network)
+  - [Secure Configuration](#secure-configuration) 
 - [Authors](#authors)
 
 ## Project Overview
@@ -71,42 +73,324 @@ The logic of the architecture is divided into several levels:
 The Raspberry Pi acts as both Access Point and MQTT broker. The Access Point was configured via **hostapd** allowing the boards to connect and communicate with each other. The boards do not communicate with the outside world, so no IP forwarding is used, but only communicate with the Raspberry Pi and with each other. IP addresses are provided by the Raspberry Pi, which acts as a DHCP server via **dnsmasq**. First, a static IP was assigned to the Raspberry Pi with **dhcpcd**, then the pool of addresses to be assigned to each device was set up (randomly). Next, the **Mosquitto broker** was installed on the Raspberry Pi.
 
 ---
-> <h3> ❗❗❗ ATTENTION - Raspberry Pi OS ❗❗❗ </h3>
-> For this configuration, the Raspberry Pi must have `Debian version Bullseye` as OS in order to use `dhcpcd` as the network interface. In fact, in later versions *dhcpcd* is replaced with the *Network Manager*. <
+> ### ❗❗❗ ATTENTION - Raspberry Pi OS ❗❗❗
+> For this configuration, the Raspberry Pi must have <b>Debian version Bullseye</b> as OS in order to use <b>dhcpcd</b> as the network interface. In fact, in later versions dhcpcd is replaced with the <b>Network Manager</b>. 
+> To install OS for Raspberry Pi follow this <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system">guide</a>.
 ---
 > ### ❗❗❗ ATTENTION - Wired Connection ❗❗❗
 > If you want to connect the Rasberry Pi via Ethernet to the PC instead of the modem, follow these steps on your PC with Ubuntu OS:
-> - plug the Ethernet cable into your network card
-> - go to `Settings - Network` 
-> - in the ethernet connection settings go to `identity`
-  > - set the `Name` to `bridge`
-  > - set the `MAC Address` to `eno2`
-> - in the `IPv4` section set the flag to `Shared with other computers`
+> 1. plug the Ethernet cable into your network card
+> 2. go to `Settings - Network` 
+> 3. in the ethernet connection settings go to `identity`: set the `Name` to `bridge` and set the `MAC Address` to `eno2`
+> 4. in the `IPv4` section set the flag to `Shared with other computers`
 ---
 
 If ssh access does not work, try unplugging and re-plugging the ethernet cable. SSH Raspberry credentials:
 - **username**:  `alberto`
 - **password**: `alberto`
 
+Once logged in, the first thing to do is to update the system:
+```
+sudo apt update
+```
+```
+sudo apt upgrade -y
+```
+
 ### Create *watchdog_raspi.service*
-Rendiamo un servizio il programma creato in python seguendo questi passaggi:
-• sudo nano /etc/systemd/system/watchdog raspi.service
-[Unit ]
-– Description=Script Python che permette di collegarsi a Google Drive e filtrare il traffico tra le schede
-– After=network.target
-[Service ]
-– ExecStart=python /home/alberto/watchdog raspi/cloud-raspy.py
-– WorkingDirectory=/home/alberto/watchdog raspi/
-– StandardOutput=inherit
-– StandardError=inherit
-– Restart=always
-– RestartSec=5
-[Install ]
-– WantedBy=multi-user.target
-Successivamente eseguiamo:
-• sudo systemctl daemon-reload
-• sudo systemctl enable watchdog raspi.service
-• sudo systemctl start watchdog raspi.service
+The **watchdog_raspi** application allows the Raspberry Pi device to check for updates to the CSV file on Google Drive. The CSV file is a log file where all actions chosen by the user or performed by the device are stored. In fact, when devices exchange information, this is retrieved from the Raspberry Pi and via the application saved to Google Drive. So, if a user, via the client application, performs an operation, it is saved on the CSV, retrieved from the Raspberry Pi and sent to the boards to execute commands.
+
+In order for the python application to be launched automatically each time the system is booted, we create a new service by following these steps:
+
+``` 
+sudo nano /etc/systemd/system/watchdog_raspi.service
+```
+
+Inside the new file paste this script:
+
+``` 
+[Unit]
+Description=Script Python che permette di collegarsi a Google Drive e filtrare il traffico tra le schede
+After=network.target
+
+[Service]
+ExecStart=python /home/alberto/watchdog_raspi/cloud-raspy.py
+WorkingDirectory=/home/alberto/watchdog_raspi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+``` 
+Finally, we enable the new service:
+
+``` 
+sudo systemctl daemon-reload
+```
+
+``` 
+sudo systemctl enable watchdog_raspi.service
+```
+
+``` 
+sudo systemctl start watchdog_raspi.service
+```
+
+### Create Network
+The reference guide used is as follows: **[LINK](https://pimylifeup.com/raspberry-pi-wireless-access-point/)**
+
+**Initial Setup**
+```
+sudo apt install -y hostapd dnsmasq iptables
+
+sudo systemctl unmask hostapd
+sudo systemctl enable hostapd
+```
+Set the WLAN language to `IT` with `sudo raspi-config nonint do_wifi_country IT` or following these steps:
+- `sudo raspi-config` 
+  - `Localisation Options` 
+  - `L4 WLAN Country` 
+  - `IT` 
+
+<br>
+
+**Static IP** <br>
+Next, we type `sudo nano /etc/dhcpcd.conf` and within this file we must add the following lines (with the respective spaces) to the end of the file to create the static ip of the Raspberry Pi:
+```
+interface wlan0
+    static ip_address=192.168.14.240/24
+    nohook wpa_supplicant
+```
+
+<br>
+
+**Setup *dnsmasq***<br>
+Now you configure **dnsmasq** to assign the address pool to the clients that will connect to the Raspberry PI:
+```
+sudo nano /etc/dnsmasq.conf
+```
+Add these lines to the end of the file:
+```
+interface=wlan0
+dhcp-range=192.168.14.20,192.168.14.30,255.255.255.0,24h
+```
+We give a higher range so that there are no problems; the lease is set for 24 hours after which the device is assigned a new IP. To delete the leases and reset everything we do:
+```
+sudo systemctl stop dnsmasq
+sudo rm /var/lib/misc/dnsmasq.leases
+sudo systemctl start dnsmasq
+sudo systemctl restart hostapd
+```
+
+<br>
+
+**Access Point**<br>
+Let's set up the access point configuration:
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
+In the `hostapd.conf` file write this:
+```
+country_code=IT
+interface=wlan0
+driver=nl80211
+
+hw_mode=g
+ieee80211n=1
+channel=7
+wmm_enabled=0
+macaddr_acl=0
+ignore_broadcast_ssid=0
+
+auth_algs=1
+wpa=2
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+# This is the name of the network
+ssid=Rasberry-AP
+
+# The network passphrase
+wpa_passphrase=Password123
+```
+In the end:
+```
+sudo nano /etc/default/hostapd
+```
+```
+DAEMON CONF=”/etc/hostapd/hostapd.conf”
+```
+Before continuing, do `sudo reboot`. Also, to see if the Raspberry Pi's WLAN IP has changed and all the setup went well, analyse the routing tables with the `route` command; if all went well we will see the different networks:
+- `198.168.1.0`
+- `198.168.14.0`
+
+<br>
+
+**Broker Mosquitto**<br>
+Now install the Mosquitto broker:
+```
+sudo apt install mosquitto mosquitto-clients -y
+```
+And change the configuration file:
+```
+sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+```
+```
+listener 1883
+protocol mqtt
+allow_anonymous true
+
+# log settings
+log_type error
+log_type warning
+log_type notice
+log_type information
+```
+
+### Secure Configuration
+**Access Point**
+If you would like to have a secure configuration of the network you created add follow these steps:
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
+```
+country_code=IT
+interface=wlan0
+driver=nl80211
+
+hw_mode=g
+ieee80211n=1
+channel=7
+wmm_enabled=0
+max_num_sta=3
+macaddr_acl=1
+accept_mac_file=/etc/hostapd/hostapd.accept
+ignore_broadcast_ssid=0
+
+auth_algs=1
+wpa=2
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+ssid=Rasberry-AP
+wpa_passphrase=%3LaB6_!oT4%
+```
+Set the MAC address white list:
+```
+sudo nano /etc/hostapd/hostapd.accept
+```
+```
+# Esp8266 
+DC:4F:22:60:82:BF
+
+# Esp32
+78:21:84:89:02:E4
+
+# Arduino
+34:94:54:23:13:58
+```
+
+<br>
+
+**Broker Mosquitto**<br>
+Now let's set up the **TLS 1.2** protocol in Mosquitto broker:
+```
+sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+```
+```
+user root
+listener 1883
+protocol mqtt
+cafile /etc/mosquitto/certs/ca.crt
+certfile /etc/mosquitto/certs/broker.crt
+keyfile /etc/mosquitto/certs/broker.key
+require_certificate true
+allow_anonymous false
+password_file /etc/mosquitto/passwd
+tls_version tlsv1.2
+acl_file /etc/mosquitto/aclfile
+
+# log settings
+log_type error
+log_type warning
+log_type notice
+log_type information
+```
+
+<br>
+
+Sets passwords for authenticating client devices:
+```
+sudo mosquitto passwd -c /etc/mosquitto/passwd esp8266
+```
+- **Password: `%Esp_82!!%`**
+
+```
+sudo mosquitto passwd -c /etc/mosquitto/passwd esp32
+```
+- **Password: `%Esp_32%AlB`**
+
+```
+sudo mosquitto passwd -c /etc/mosquitto/passwd arduino
+```
+- **Password: `%A3duino_W!F%`**
+
+```
+sudo mosquitto passwd -c /etc/mosquitto/passwd broker
+```
+- **Password: `%BR0k3_I!t%`**
+
+<br>
+
+Sets acl file post and subscribe only to certain topics:
+```
+sudo nano /etc/mosquitto/aclfile
+```
+```
+ser broker
+topic readwrite rasberry/topic
+
+user esp8266
+topic write rasberry/topic
+topic write esp32/topic
+topic write arduino/topic
+topic read esp8266/topic
+
+user esp32
+topic write esp8266/topic
+topic read esp32/topoc
+
+user arduino
+topic write esp8266/topic
+topic read arduino/topic
+```
+
+<br>
+
+To create the certificates, this guide was taken as a reference: **[LINK](https://openest.io/en/services/mqtts-how-to-use-mqtt-with-tls/)**
+```
+sudo mkdir -p /etc/mosquitto/certs
+```
+
+<br>
+
+**[CERTIFICATI CA] - CN Name must be different from the others**<br>
+```
+sudo openssl req -new -x509 -days 3650 -extensions v3 ca -keyout /etc/mosquitto/certs/ca.key -out /etc/-
+mosquitto/certs/ca.crt
+```
+
+```
+```
+
+```
+
+```
+PEM pass phrase: %M0ss_aL3!2%
 
 ## Authors
 | Name | Description |
