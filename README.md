@@ -251,7 +251,7 @@ log_type information
 ```
 
 ### Secure Configuration
-**Access Point**
+**Access Point**<br>
 If you would like to have a secure configuration of the network you created add follow these steps:
 ```
 sudo nano /etc/hostapd/hostapd.conf
@@ -378,19 +378,118 @@ sudo mkdir -p /etc/mosquitto/certs
 
 <br>
 
-**[CERTIFICATI CA] - CN Name must be different from the others**<br>
+> **❗❗❗ ATTENTION - CN Name ❗❗❗** <br>
+> CN Name of CA must be different from the others:
+> - CN Name of CA is <b>unisa.com</b>
+> - CN Name of other certificates is <b>client</b>.
+
+<br>
+
+**[CERTIFICATE CA]** <br>
 ```
-sudo openssl req -new -x509 -days 3650 -extensions v3 ca -keyout /etc/mosquitto/certs/ca.key -out /etc/-
-mosquitto/certs/ca.crt
+sudo openssl req -new -x509 -days 3650 -extensions v3 ca -keyout /etc/mosquitto/certs/ca.key -out /etc/mosquitto/certs/ca.crt
+```
+- **PEM pass phrase: `%M0ss_aL3!2%`**
+
+<br>
+
+**[CERTIFICATE BROKER]** <br>
+```
+sudo openssl genrsa -out /etc/mosquitto/certs/broker.key 2048
+```
+```
+sudo openssl req -out /etc/mosquitto/certs/broker.csr -key /etc/mosquitto/certs/broker.key -new
+```
+```
+sudo openssl x509 -req -in /etc/mosquitto/certs/broker.csr -CA /etc/mosquitto/certs/ca.crt -CAkey /etc/mosquitto/certs/ca.key -CAcreateserial -out /etc/mosquitto/certs/broker.crt -days 3650
+```
+```
+sudo rm -rf /etc/mosquitto/certs/broker.csr
+```
+
+<br>
+
+**[CERTIFICATE ESP8266]** <br>
+```
+sudo openssl genrsa -out /etc/mosquitto/certs/esp8266.key 2048
+```
+```
+sudo openssl req -out /etc/mosquitto/certs/esp8266.csr -key /etc/mosquitto/certs/esp8266.key -new
+```
+```
+sudo openssl x509 -req -in /etc/mosquitto/certs/esp8266.csr -CA /etc/mosquitto/certs/ca.crt -CAkey /etc/mosquitto/certs/ca.key -CAcreateserial -out /etc/mosquitto/certs/esp8266.crt -days 3650
+```
+
+<br>
+
+**[CERTIFICATE ESP32]** <br>
+```
+sudo openssl genrsa -out /etc/mosquitto/certs/esp32.key 2048
+```
+```
+sudo openssl req -out /etc/mosquitto/certs/esp32.csr -key /etc/mosquitto/certs/esp32.key -new
+```
+```
+sudo openssl x509 -req -in /etc/mosquitto/certs/esp32.csr -CA /etc/mosquitto/certs/ca.crt -CAkey /etc/mosquitto/certs/ca.key -CAcreateserial -out /etc/mosquitto/certs/esp32.crt -days 3650
+```
+
+<br>
+
+**[CERTIFICATE ESP32]** <br>
+```
+sudo openssl genrsa -out /etc/mosquitto/certs/arduino.key 2048
+```
+```
+sudo openssl req -out /etc/mosquitto/certs/arduino.csr -key /etc/mosquitto/certs/arduino.key -new
+```
+```
+sudo openssl x509 -req -in /etc/mosquitto/certs/arduino.csr -CA /etc/mosquitto/certs/ca.crt -CAkey /etc/mosquitto/certs/ca.key -CAcreateserial -out /etc/mosquitto/certs/arduino.crt -days 3650
+```
+
+<br>
+
+**Setup NTP Server**<br>
+To synchronise the clocks on the boards and on the Raspberry Pi we use the **NTP sever**. This is used to validate certificates during handshake TLS:
+```
+sudo apt install ntp
+sudo nano /etc/ntp.conf
+```
+Add the row:
+```
+restrict 192.168.14.240 mask 255.255.255.0 nomodify notrap
 ```
 
 ```
+sudo systemctl disable ntp
+sudo systemctl restart ntp
 ```
 
+<br>
+
+You create a script that is started at Raspberry Pi boot to synchronise its clock:
+```
+sudo nano /etc/init.d/ntp-sync.sh
+```
+```
+#!/bin/sh
+
+sudo ntpd -gq
+sudo systemctl start ntp
+```
+```
+sudo chmod +x /etc/init.d/ntp-sync.sh
+sudo nano /etc/rc.local
+```
+```
+sh /etc/init.d/ntp-sync.sh
 ```
 
+<br>
+
+To see the updated time, enter this command:
 ```
-PEM pass phrase: %M0ss_aL3!2%
+timedatectl status
+```
 
 ## Authors
 | Name | Description |
