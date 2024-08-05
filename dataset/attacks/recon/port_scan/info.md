@@ -30,7 +30,4 @@ sudo nmap -sW -p- <target>
 sudo nmap -sM -p- <target>
 
 # UDP Scan
-sudo nmap -sU -p- <target>
-
-# UDP Scan
-unicornscan -m U -Iv <target>:1-65535
+sudo unicornscan -m U -Iv <target>:1-65535
