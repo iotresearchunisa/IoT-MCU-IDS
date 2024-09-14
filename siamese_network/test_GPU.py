@@ -9,7 +9,6 @@ Specifically, it:
 3. Displays the number of GPUs detected by PyTorch.
 4. If CUDA is available, it prints the name of the first GPU. Otherwise, it notifies that no GPU was detected.
 
-This information is essential for ensuring that the environment is correctly set up for GPU-accelerated computations using PyTorch.
 """
 
 import torch
