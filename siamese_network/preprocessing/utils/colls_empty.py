@@ -1,63 +1,87 @@
+"""
+
+This Python script analyzes CSV files within a specified directory, with the following key functionalities:
+
+1. **Check for Malformed Rows**:
+   - The script examines each CSV file to detect rows where the number of columns differs from the expected number (determined by the first row).
+   - Any malformed rows (i.e., rows with missing or extra columns) are reported along with the row number and content for easier debugging.
+
+2. **Identify Empty or Zero-Filled Columns**:
+   - It identifies columns across all CSV files that are completely empty, filled with zeros (`0`), or contain only `NaN` or `False` values.
+   - The script checks each CSV file and flags columns that are empty or zero-filled consistently across all the files analyzed.
+
+3. **Generate a Final Report**:
+   - After processing all CSV files, the script generates a report listing columns that are entirely empty or contain only zeros, `NaN`, or `False` values across all CSV files.
+
+4. **Handles Errors Gracefully**:
+   - The script includes error handling to gracefully skip problematic files and report any issues encountered during file processing.
+
+"""
+
 import os
 import pandas as pd
+
 
 def analyze_csv_files(root_directory):
     column_status = {}
 
-    # Funzione per verificare se una colonna è completamente vuota o contiene solo zeri o NaN
+    # Function to check if a column is completely empty or contains only zeros, NaN, or False
     def is_empty_or_zero(column):
-        # Escludiamo solo le colonne che contengono esclusivamente 0 o NaN o False
+        # Check if the entire column contains only NaNs, 0, "0.0", or False
         return (column.isna() | (column == 0) | (column == "0.0") | (column == "False") | (column == False)).all()
-    
-    # Funzione per rilevare e stampare righe malformate
+
+    # Function to detect and print malformed rows (rows with incorrect number of columns)
     def check_malformed_rows(file_path):
         with open(file_path, 'r') as file:
-            # Legge solo la prima riga per determinare il numero di colonne attese
+            # Read the first line to determine the expected number of columns
             first_line = file.readline()
             expected_columns = len(first_line.split(';'))
 
             malformed_rows = []
-            for i, line in enumerate(file, start=2):  # start=2 per contare correttamente le righe
+            # Start from the second line (row 2) to check for malformed rows
+            for i, line in enumerate(file, start=2):
                 num_columns = len(line.split(';'))
                 if num_columns != expected_columns:
                     malformed_rows.append((i, num_columns, expected_columns, line.strip()))
 
             if malformed_rows:
-                print(f"Righe malformate trovate nel file {file_path}:")
+                print(f"Malformed rows found in file {file_path}:")
                 for row in malformed_rows:
-                    print(f"  Riga {row[0]} ha {row[1]} colonne, attese {row[2]}. Contenuto: {row[3]}")
+                    print(f"  Row {row[0]} has {row[1]} columns, expected {row[2]}. Content: {row[3]}")
 
-    # Cerca i file CSV all'interno delle sottodirectory
+    # Search for CSV files within the subdirectories
     for subdir, dirs, files in os.walk(root_directory):
         for file in files:
             if file.endswith(".csv"):
-                file_path = os.path.join(subdir, file)
-                print(f"Analizzando il file: {file_path}")
+                file_path = str(os.path.join(subdir, file))
+                print(f"Analyzing file: {file_path}")
                 try:
-                    # Controllo righe malformate prima di caricare il CSV
+                    # Check for malformed rows before loading the CSV
                     check_malformed_rows(file_path)
 
+                    # Read the CSV file into a pandas DataFrame
                     df = pd.read_csv(file_path, delimiter=';', low_memory=False)
 
-                    # Verifica se ci sono colonne vuote o uguali a zero
+                    # Check each column to see if it is empty or filled with zeros/NaNs/False
                     for col in df.columns:
                         if col not in column_status:
-                            column_status[col] = True  # Assume che la colonna sia vuota o zero in tutti i file
+                            column_status[col] = True  # Initially assume the column is empty/zero in all files
                         if not is_empty_or_zero(df[col]):
-                            column_status[col] = False  # Se la colonna non è vuota/zero in questo file, segna come False
+                            column_status[col] = False  # If the column is not empty/zero, mark it as False
                 except Exception as e:
-                    print(f"Errore durante la lettura del file {file_path}: {e}")
+                    print(f"Error while reading file {file_path}: {e}")
 
-    # Stampa solo le colonne che sono vuote o uguali a zero in tutti i CSV
+    # Print only the columns that are empty or contain only zeros/NaNs in all CSVs
     columns_to_report = [col for col, status in column_status.items() if status]
 
     if columns_to_report:
-        print("Le seguenti colonne sono vuote o contengono solo zeri o NaN in tutti i CSV analizzati:")
+        print("The following columns are empty or contain only zeros or NaNs in all the analyzed CSVs:")
         for col in columns_to_report:
             print(col)
     else:
-        print("Non ci sono colonne vuote o contenenti solo zeri o NaN in tutti i CSV analizzati.")
+        print("There are no columns that are empty or contain only zeros or NaNs in all the analyzed CSVs.")
 
-# Usa la funzione
+
+# Use the function
 root_directory = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned"
 analyze_csv_files(root_directory)
