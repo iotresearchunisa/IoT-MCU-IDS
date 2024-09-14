@@ -34,7 +34,7 @@ def get_unique_protocol_types(input_csv):
 
 
 if __name__ == "__main__":
-    input_fie = "input.csv"  # Path to your input CSV file
+    input_fie = "input.csv"
 
     unique_protocols = get_unique_protocol_types(input_fie)
 
