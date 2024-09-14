@@ -97,20 +97,14 @@ def generate_csv(pcapng_file, output_file):
     """
     # Define the fields to extract with tshark
     fields = [
-        'ip.ttl', 'ip.hdr_len', '_ws.col.Protocol', 'tcp.flags.fin', 'tcp.flags.syn',
-        'tcp.flags.reset', 'tcp.flags.push', 'tcp.flags.ack', 'tcp.flags.ece',
-        'tcp.flags.cwr', 'frame.len', 'frame.time_delta', 'ip.flags.mf', 'tcp.len',
-        'mqtt.conack.flags', 'mqtt.conack.flags.reserved', 'mqtt.conack.flags.sp',
-        'mqtt.conack.val', 'mqtt.conflag.cleansess', 'mqtt.conflag.passwd',
-        'mqtt.conflag.qos', 'mqtt.conflag.reserved', 'mqtt.conflag.retain',
-        'mqtt.conflag.uname', 'mqtt.conflag.willflag', 'mqtt.conflags',
-        'mqtt.dupflag', 'mqtt.hdrflags', 'mqtt.kalive', 'mqtt.len',
-        'mqtt.msgtype', 'mqtt.proto_len', 'mqtt.protoname', 'mqtt.qos',
-        'mqtt.retain', 'mqtt.sub.qos', 'mqtt.suback.qos', 'mqtt.ver',
-        'mqtt.willmsg', 'mqtt.willmsg_len', 'mqtt.willtopic', 'mqtt.willtopic_len'
+        'ip.ttl', 'ip.hdr_len', '_ws.col.Protocol', 'tcp.flags.fin', 'tcp.flags.syn', 'tcp.flags.reset',
+        'tcp.flags.push', 'tcp.flags.ack', 'tcp.flags.ece', 'tcp.flags.cwr', 'frame.len', 'frame.time_delta',
+        'ip.flags.mf', 'tcp.len', 'mqtt.conack.flags', 'mqtt.conflag.cleansess', 'mqtt.conflag.qos',
+        'mqtt.conflag.reserved', 'mqtt.conflag.retain', 'mqtt.conflag.willflag', 'mqtt.conflags', 'mqtt.dupflag',
+        'mqtt.hdrflags', 'mqtt.kalive', 'mqtt.len', 'mqtt.msgtype', 'mqtt.proto_len', 'mqtt.protoname', 'mqtt.qos',
+        'mqtt.retain', 'mqtt.ver'
     ]
 
-    # Mapping of custom fields for CSV headers
     custom_headers = {
         'ip.ttl': 'Time_To_Leave',
         'ip.hdr_len': 'Header_Length',
@@ -123,19 +117,14 @@ def generate_csv(pcapng_file, output_file):
         'tcp.flags.ece': 'TCP_Flag_ECE',
         'tcp.flags.cwr': 'TCP_Flag_CWR',
         'frame.len': 'Packet_Length',
-        'frame.time_delta': 'IAT',
+        'frame.time_delta': 'IAT',  # Inter-arrival time
         'ip.flags.mf': 'Packet_Fragments',
         'tcp.len': 'TCP_Length',
         'mqtt.conack.flags': 'MQTT_ConAck_Flags',
-        'mqtt.conack.flags.reserved': 'MQTT_ConAck_Reserved',
-        'mqtt.conack.flags.sp': 'MQTT_ConAck_SP',
-        'mqtt.conack.val': 'MQTT_ConAck_Val',
         'mqtt.conflag.cleansess': 'MQTT_CleanSession',
-        'mqtt.conflag.passwd': 'MQTT_Password',
         'mqtt.conflag.qos': 'MQTT_QoS',
         'mqtt.conflag.reserved': 'MQTT_Reserved',
         'mqtt.conflag.retain': 'MQTT_Retain',
-        'mqtt.conflag.uname': 'MQTT_Username',
         'mqtt.conflag.willflag': 'MQTT_WillFlag',
         'mqtt.conflags': 'MQTT_ConFlags',
         'mqtt.dupflag': 'MQTT_DupFlag',
@@ -147,13 +136,7 @@ def generate_csv(pcapng_file, output_file):
         'mqtt.protoname': 'MQTT_Proto_Name',
         'mqtt.qos': 'MQTT_QoS',
         'mqtt.retain': 'MQTT_Retain',
-        'mqtt.sub.qos': 'MQTT_Sub_QoS',
-        'mqtt.suback.qos': 'MQTT_SubAck_QoS',
-        'mqtt.ver': 'MQTT_Version',
-        'mqtt.willmsg': 'MQTT_WillMsg',
-        'mqtt.willmsg_len': 'MQTT_WillMsg_Length',
-        'mqtt.willtopic': 'MQTT_WillTopic',
-        'mqtt.willtopic_len': 'MQTT_WillTopic_Length'
+        'mqtt.ver': 'MQTT_Version'
     }
 
     # Build the tshark command
