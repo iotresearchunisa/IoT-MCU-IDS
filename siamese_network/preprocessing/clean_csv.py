@@ -1,54 +1,75 @@
-import csv
-import numpy as np
+import pandas as pd
 import os
 import argparse
 import glob
 import sys
 
+
 def clean_csv(input_csv, output_csv):
     """
-    Function to remove the first row after the header and rows where 'Protocol_Type' is '802.11', 'LLC', 'IPv4', 'IPv6', etc.
-    Also converts "True" to 1, "False" to 0, and empty cells to NaN.
+    Function to remove rows where 'Protocol_Type' is in the list of unwanted protocols.
+    Also converts "True" to 1, "False" to 0, and empty cells to NaN. Additionally, removes rows where 'rate' is 0 and marks
+    MQTT Ping, Keep-Alive, and PUBLISH messages as benign, as well as TCP packets immediately following those messages.
 
     :param input_csv: Path to the input CSV file.
     :param output_csv: Path to the output cleaned CSV file.
     """
     try:
-        # Open the input CSV file for reading
-        with open(input_csv, mode='r', newline='', encoding='utf-8') as infile:
-            reader = csv.reader(infile, delimiter=';')
+        # Load the input CSV into a DataFrame
+        df = pd.read_csv(input_csv, delimiter=';', low_memory=False)
 
-            # Read the header and the rest of the file
-            header = next(reader)  # First row (header)
-            rows = list(reader)  # All rows
+        # Protocolli da rimuovere
+        protocols_to_remove = ['802.11', 'LLC', 'IPv4', 'IPv6', 'VRRP', 'RPL', 'RSVP-E2EI', 'X.25', 'IP',
+                               'DLR', 'ISO', 'MIPv6', 'CLNP', 'IGRP', 'RSVP', 'UDP-Lite', 'ICMPv6']
 
-        # Remove the first row after the header
-        if rows:
-            rows.pop(0)
+        # Elimina le righe dove 'Protocol_Type' è in protocols_to_remove
+        df = df[~df['Protocol_Type'].isin(protocols_to_remove)]
 
-        # Filter rows where 'Protocol_Type' is not in the list
-        protocol_index = header.index('Protocol_Type')
-        filtered_rows = [row for row in rows if row[protocol_index] not in [
-            '802.11', 'LLC', 'IPv4', 'IPv6', 'VRRP', 'RPL', 'RSVP-E2EI', 'X.25', 'IP',
-            'DLR', 'ISO', 'MIPv6', 'CLNP', 'IGRP', 'RSVP', 'UDP-Lite', 'ICMPv6']]
+        # Converti i valori booleani True in 1 e False in 0
+        df.replace({True: 1, False: 0, "True": 1, "False": 0}, inplace=True)
 
-        # Replace "True" with 1, "False" with 0, and empty cells with np.nan
-        for row in filtered_rows:
-            for i in range(len(row)):
-                if row[i] == "True":
-                    row[i] = 1  # Keep as integer
-                elif row[i] == "False":
-                    row[i] = 0  # Keep as integer
-                elif row[i] == "":
-                    row[i] = np.nan  # Use np.nan for missing values
+        # Assegna 0 alle celle vuote
+        df.fillna(0, inplace=True)
 
-        # Write the cleaned rows to the output CSV file
-        with open(output_csv, mode='w', newline='', encoding='utf-8') as outfile:
-            writer = csv.writer(outfile, delimiter=';')
-            # Write the header back to the file
-            writer.writerow(header)
-            # Write the filtered and updated rows
-            writer.writerows(filtered_rows)
+        # Elimina le righe dove la colonna 'rate' ha valore 0
+        if 'rate' in df.columns:
+            df = df[df['rate'] != 0]
+
+        # Reimposta gli indici dopo l'eliminazione delle righe
+        df.reset_index(drop=True, inplace=True)
+
+        # Identifica pacchetti MQTT Ping, Keep-Alive e PUBLISH e assegna il valore 'benign'
+        mqtt_flags = 'MQTT_HeaderFlags'  # Sostituisci con la colonna corretta nel dataset
+        if mqtt_flags in df.columns:
+            # Converte i valori della colonna in numeri interi se sono stringhe esadecimali
+            df[mqtt_flags] = df[mqtt_flags].apply(lambda x: int(x, 16) if isinstance(x, str) and '0x' in x else x)
+
+            # Assegna "benign" ai pacchetti con specifici flag MQTT
+            df['type_attack'] = df.apply(
+                lambda row: 'benign' if row[mqtt_flags] in [0xC0, 0xD0, 0x30] else row['type_attack'],
+                axis=1
+            )
+
+        # Trova i pacchetti TCP successivi a pacchetti MQTT (Ping, Keep-Alive, PUBLISH)
+        mqtt_indices = df.index[df["Protocol_Type"] == "MQTT"].tolist()
+        for idx in mqtt_indices:
+            # Prendi i prossimi due pacchetti dopo il pacchetto MQTT
+            next_two_rows = df.iloc[idx + 1:idx + 3]
+
+            # Verifica se esiste un primo pacchetto
+            if len(next_two_rows) > 0:
+                # Se il primo pacchetto è TCP, classificalo come benign
+                if next_two_rows.iloc[0]['Protocol_Type'] == 'TCP':
+                    df.loc[next_two_rows.index[0], 'type_attack'] = 'benign'
+
+            # Verifica se esiste un secondo pacchetto
+            if len(next_two_rows) > 1:
+                # Se il secondo pacchetto è TCP, classificalo come benign
+                if next_two_rows.iloc[1]['Protocol_Type'] == 'TCP':
+                    df.loc[next_two_rows.index[1], 'type_attack'] = 'benign'
+
+        # Salva il DataFrame pulito nel file CSV di output
+        df.to_csv(output_csv, sep=';', index=False)
 
         print(f"Cleaned CSV saved to {output_csv}")
 
