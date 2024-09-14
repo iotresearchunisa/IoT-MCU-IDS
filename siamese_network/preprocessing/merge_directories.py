@@ -8,7 +8,6 @@ This script consolidates multiple CSV files from a specified root directory (inc
 3. **Merges CSV Files:** Reads each CSV file in chunks to handle large files efficiently and appends the data to a single output CSV file.
 4. **Handles Headers Appropriately:** Writes the header only once to the output file and appends subsequent data without headers.
 
-This tool is essential for data analysts and researchers who need to aggregate large datasets spread across multiple CSV files into a unified dataset for further analysis.
 """
 
 import os

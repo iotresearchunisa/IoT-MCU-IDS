@@ -9,12 +9,6 @@ The main functionalities of the program include:
 4. **Merging CSV Files**: Combines all generated CSV files into a single final CSV file.
 5. **Cleanup**: Removes temporary directories created during execution.
 
-This tool is useful for analyzing large PCAPNG files by breaking them down into more manageable parts and converting them into an easily analyzable CSV format.
-
-Prerequisites:
-- `editcap` and `tshark` tools installed and accessible in the system PATH.
-- Adequate permissions to read input files and write to output directories.
-
 """
 
 import subprocess

@@ -8,7 +8,6 @@ This script merges multiple CSV files into a single CSV file. It performs the fo
 3. **Handles Large Data:** Efficiently processes CSV files using pandas.
 4. **Custom Output Filename:** Optionally allows users to specify a custom name for the merged output CSV file.
 
-This tool is useful for data analysts and researchers who need to combine several datasets into one.
 """
 
 import os

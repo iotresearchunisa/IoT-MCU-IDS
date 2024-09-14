@@ -9,7 +9,6 @@ This script converts PCAPNG files into CSV format by extracting specific network
 4. **Handles Multiple Inputs:** Supports processing single or multiple PCAPNG files, either individually or from a directory, with optional custom output filenames.
 5. **Command-Line Interface:** Utilizes `argparse` for handling command-line arguments, allowing users to specify input files/directories and output destinations.
 
-This tool is essential for network analysts and cybersecurity professionals who need to process and analyze network traffic data efficiently.
 """
 
 import subprocess
