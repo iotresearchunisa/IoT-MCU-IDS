@@ -1,3 +1,25 @@
+"""
+This Python script processes and transforms CSV files by converting specified columns to `float64` data type,
+including handling hexadecimal values in certain columns. The script operates recursively over all CSV files
+in the input directory and saves the transformed files in the output directory.
+
+### Main functionalities:
+1. **Conversion of specific columns to `float64`**: Columns such as 'Time_To_Leave', 'Header_Length', and
+   others are converted to `float64` if they are not already in that format.
+
+2. **Conversion of hexadecimal values**: Columns like 'MQTT_ConFlags' and 'MQTT_ConAck_Flags', which contain
+   hexadecimal values (e.g., '0x00'), are converted to `float64`.
+
+3. **Removal of a specified column**: The script removes the column 'MQTT_Proto_Name' if it exists in the dataset.
+
+4. **Recursive processing**: The script processes all CSV files in the input directory and its subdirectories,
+   preserving the directory structure in the output directory.
+
+### Usage:
+- **Input**: Specify the path of the input directory containing the CSV files.
+- **Output**: Specify the path of the output directory where the transformed CSV files will be saved.
+"""
+
 import os
 import pandas as pd
 
@@ -11,10 +33,10 @@ def hex_to_float(cell):
         return pd.NA
 
 def process_csv(input_file_path, output_file_path):
-    # Carica il file CSV
+    # Load the CSV file
     df = pd.read_csv(input_file_path, delimiter=';', low_memory=False)
 
-    # Liste delle colonne da convertire in float64
+    # List of columns to convert to float64
     columns_to_convert = [
         'Time_To_Leave', 'Header_Length', 'Packet_Fragments', 'rate',
         'TCP_Flag_FIN', 'TCP_Flag_SYN', 'TCP_Flag_RST', 'TCP_Flag_PSH', 'TCP_Flag_ACK',
@@ -25,34 +47,33 @@ def process_csv(input_file_path, output_file_path):
         'MQTT_Conflag_Retain', 'MQTT_Version'
     ]
 
-    # Conversione delle colonne esadecimali a float64
+    # List of hexadecimal columns to convert to float64
     hex_columns = ['MQTT_ConFlags', 'MQTT_ConAck_Flags']
 
-    # Elimina la colonna 'MQTT_Proto_Name' se esiste
+    # Remove the column 'MQTT_Proto_Name' if it exists
     if 'MQTT_Proto_Name' in df.columns:
         df.drop(columns=['MQTT_Proto_Name'], inplace=True)
 
-    # Converte le colonne esadecimali in float64
+    # Convert the hexadecimal columns to float64
     for col in hex_columns:
         if col in df.columns:
             df[col] = df[col].apply(hex_to_float)
 
-    # Converte le colonne specificate in float64, se esistono
+    # Convert the specified columns to float64, if they exist
     for col in columns_to_convert:
         if col in df.columns and df[col].dtype != 'float64':
             df[col] = pd.to_numeric(df[col], errors='coerce').astype('float64')
 
-    # Crea la directory di output se non esiste
+    # Create the output directory if it doesn't exist
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
 
-    # Salva il CSV trasformato
+    # Save the transformed CSV file
     df.to_csv(output_file_path, index=False, sep=';')
 
     print(f"Processed: {input_file_path}")
 
-
 def process_all_csvs(input_root, output_root):
-    # Walk through all directories and files in the input_root
+    # Traverse all directories and files in the input_root
     for root, dirs, files in os.walk(input_root):
         for file in files:
             if file.endswith('.csv'):
@@ -65,11 +86,10 @@ def process_all_csvs(input_root, output_root):
                 # Process the CSV file and save the output
                 process_csv(input_file_path, output_file_path)
 
-
 if __name__ == "__main__":
-    # Specifica la root della directory di input e output
+    # Specify the root directory for input and output
     input_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_3"
     output_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_4"
 
-    # Esegui il processo su tutti i file CSV
+    # Execute the process on all CSV files
     process_all_csvs(input_root, output_root)
