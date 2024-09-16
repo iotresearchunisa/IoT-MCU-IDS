@@ -83,5 +83,5 @@ def analyze_csv_files(root_directory):
 
 
 # Use the function
-root_directory = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned"
+root_directory = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_2"
 analyze_csv_files(root_directory)
