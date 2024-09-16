@@ -1,49 +1,95 @@
 """
-This Python script processes and cleans CSV files by applying specific transformations to handle cells with multiple
-comma-separated values, as well as counting the number of such rows. Its main functionalities include:
+This Python script processes and cleans large CSV files by applying transformations in chunks (blocks of data)
+to optimize memory usage. The script handles comma-separated values and boolean values such as 'False'.
+The main functionalities include:
 
-1. **Extracting Second Value**: If a cell contains multiple values separated by a comma (`,`), the script extracts and retains
-   the second value. Empty cells are ignored.
+1. **Processing CSV Files in Chunks**: The script reads and processes large CSV files in chunks of 100,000 rows
+   at a time to reduce memory usage and handle large datasets efficiently.
 
-2. **Counting Rows with Multiple Values**: The script identifies and counts rows that contain at least one cell with multiple
-   comma-separated values.
+2. **Extracting the Second Value**: For cells that contain multiple values separated by a comma (`,`),
+   the script extracts and retains the second value. If the second value is 'False' or False, it is replaced with '0'.
+   Empty cells or cells with a single value remain unchanged.
 
-3. **Saving Transformed Data**: After processing, the cleaned data is saved to a specified output CSV file.
+3. **Handling 'False' Values**: If a cell contains the value 'False' (either as a string or boolean),
+   the script replaces it with '0'. This applies to cells with a single value or multiple values separated by commas.
+
+4. **Counting Rows with Multiple Values**: The script identifies and counts rows that contain at least one cell
+   with multiple comma-separated values, providing a summary of the rows processed.
+
+5. **Incremental Saving of Transformed Data**: After transformation, the cleaned data is saved incrementally to
+   an output CSV file, maintaining the original directory structure. The files are written progressively as each chunk
+   is processed, optimizing performance.
+
+### Usage:
+
+- **Input**: Specify the directory path containing the CSV files to be processed. The script automatically scans
+   all subdirectories to process each CSV file found.
+- **Output**: The transformed CSV files are saved in the output directory, preserving the original folder structure.
+- **Chunk Size**: To avoid memory issues, the script processes the CSV files in blocks of 100,000 rows at a time.
+
 """
 
 import pandas as pd
-import argparse
-import sys
+import os
 
 
 def extract_second_value(cell):
     if pd.isna(cell) or cell == '':
         return cell  # Ignore empty values
     if ',' in cell:
-        return cell.split(',')[1]
+        value = cell.split(',')[1]
+
+        if value == "False" or value == False:
+            return 0
+
+        return value
+    if cell == "False" or cell == False:
+        return 0
     return cell
 
+def process_csv_in_chunks(input_file_path, output_file_path, chunk_size=100000):
+    # Contatore per le righe con valori multipli
+    total_rows_with_multiple_values = 0
 
-def process_csv(input_file_path, output_file_path):
-    df = pd.read_csv(input_file_path, delimiter=';', low_memory=False)
+    # Lettura del file CSV a blocchi (chunksize)
+    chunk_iterator = pd.read_csv(input_file_path, delimiter=';', low_memory=False, chunksize=chunk_size)
 
-    # Count rows that contain at least one cell with two values separated by a comma
-    rows_with_multiple_values = (df.astype(str).apply(lambda row: row.str.contains(',')).any(axis=1)).sum()
+    # Crea il file di output svuotato
+    with open(output_file_path, 'w', newline='') as output_file:
+        for i, chunk in enumerate(chunk_iterator):
+            # Conta le righe con valori multipli
+            rows_with_multiple_values = (chunk.astype(str).apply(lambda row: row.str.contains(',')).any(axis=1)).sum()
+            total_rows_with_multiple_values += rows_with_multiple_values
 
-    # Apply the function to extract the second value, ignoring empty values
-    df_transformed = df.astype(str).apply(lambda col: col.apply(extract_second_value))
+            # Applica la funzione per estrarre il secondo valore e gestire i valori "False"
+            chunk_transformed = chunk.astype(str).apply(lambda col: col.apply(extract_second_value))
 
-    # Save the transformed DataFrame to the output file
-    df_transformed.to_csv(output_file_path, index=False, sep=';')
+            # Scrivi il chunk trasformato nel file di output
+            # Solo il primo chunk deve includere l'header, i successivi no (mode 'a' per aggiungere)
+            chunk_transformed.to_csv(output_file, index=False, sep=';', mode='a', header=i == 0)
 
     print(f"The transformed CSV has been saved as {output_file_path}")
-    print(f"Number of rows with more than one comma-separated value: {rows_with_multiple_values}")
+    print(f"Total number of rows with more than one comma-separated value: {total_rows_with_multiple_values}")
 
-    return rows_with_multiple_values
+def process_all_csvs(input_root, output_root, chunk_size=100000):
+    # Walk through all directories and files in the input_root
+    for root, dirs, files in os.walk(input_root):
+        for file in files:
+            if file.endswith('.csv'):
+                input_file_path = str(os.path.join(root, file))
 
+                # Create the corresponding output file path
+                relative_path = os.path.relpath(input_file_path, input_root)
+                output_file_path = os.path.join(output_root, relative_path)
+
+                # Create the output directory if it doesn't exist
+                os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+
+                # Process the CSV file in chunks and save the output
+                process_csv_in_chunks(input_file_path, output_file_path, chunk_size)
 
 if __name__ == "__main__":
-    input_file = "..."
-    output_file = "..."
+    input_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned/attacks/dos/UDP_Fragmentation/"
+    output_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_2/attacks/dos/UDP_Fragmentation/"
 
-    process_csv(input_file, output_file)
+    process_all_csvs(input_root, output_root, chunk_size=100000)
