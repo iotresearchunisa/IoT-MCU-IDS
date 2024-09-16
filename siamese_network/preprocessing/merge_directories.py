@@ -66,7 +66,7 @@ def main():
     Main function to execute the CSV consolidation process.
     """
     # Define the root directory containing CSV files
-    root_dir = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_colls_filtered/'
+    root_dir = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_4'
 
     # Define the output CSV file path
     output_file = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/dataset.csv'

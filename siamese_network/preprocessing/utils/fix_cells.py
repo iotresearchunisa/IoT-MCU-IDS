@@ -48,24 +48,18 @@ def extract_second_value(cell):
     return cell
 
 def process_csv_in_chunks(input_file_path, output_file_path, chunk_size=100000):
-    # Contatore per le righe con valori multipli
     total_rows_with_multiple_values = 0
 
-    # Lettura del file CSV a blocchi (chunksize)
     chunk_iterator = pd.read_csv(input_file_path, delimiter=';', low_memory=False, chunksize=chunk_size)
 
     # Crea il file di output svuotato
     with open(output_file_path, 'w', newline='') as output_file:
         for i, chunk in enumerate(chunk_iterator):
-            # Conta le righe con valori multipli
             rows_with_multiple_values = (chunk.astype(str).apply(lambda row: row.str.contains(',')).any(axis=1)).sum()
             total_rows_with_multiple_values += rows_with_multiple_values
 
-            # Applica la funzione per estrarre il secondo valore e gestire i valori "False"
             chunk_transformed = chunk.astype(str).apply(lambda col: col.apply(extract_second_value))
 
-            # Scrivi il chunk trasformato nel file di output
-            # Solo il primo chunk deve includere l'header, i successivi no (mode 'a' per aggiungere)
             chunk_transformed.to_csv(output_file, index=False, sep=';', mode='a', header=i == 0)
 
     print(f"The transformed CSV has been saved as {output_file_path}")

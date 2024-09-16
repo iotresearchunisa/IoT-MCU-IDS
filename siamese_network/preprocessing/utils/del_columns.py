@@ -15,8 +15,8 @@ import os
 import pandas as pd
 
 
-root_path = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_2'  # Directory containing the original CSV files
-output_root_path = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_3'  # Directory to save the modified CSV files
+root_path = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_2'
+output_root_path = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_3'
 
 # List of columns to be removed from each CSV file
 colonne_da_cancellare = [
