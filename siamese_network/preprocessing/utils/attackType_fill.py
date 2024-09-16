@@ -20,7 +20,7 @@ def fill_or_replace_column(input_csv, output_csv, mode, column_name, string_to_i
     :param input_csv: Path to the input CSV file.
     :param output_csv: Path to the output CSV file.
     :param mode: Operation mode - 'fill', 'replace', 'interval', or 'classify_zeros'.
-    :param column_name: The name of the column to modify.
+    :param column_name: The name of the column.
     :param string_to_insert: The string to insert in the column or to replace 0 values.
     :param start_row: Starting row for 'interval' mode (ignored for other modes).
     :param end_row: Ending row for 'interval' mode (ignored for other modes).
