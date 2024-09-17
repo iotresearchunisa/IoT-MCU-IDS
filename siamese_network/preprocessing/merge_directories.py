@@ -48,6 +48,9 @@ def consolidate_csv_files(csv_files, output_file, chunksize=100000):
         print(f"Processing file: {file}")
         try:
             for chunk in pd.read_csv(file, delimiter=';', chunksize=chunksize, low_memory=False):
+                # Reset the index of each chunk before appending it
+                chunk = chunk.reset_index(drop=True)
+
                 # Write the chunk to the output file
                 if not header_saved:
                     chunk.to_csv(output_file, mode='w', index=False, sep=';', header=True)
