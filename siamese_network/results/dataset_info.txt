@@ -1,0 +1,16 @@
+2024-09-17 11:01:37,777 - Inizio del conteggio dei campioni benign e attack.
+2024-09-17 11:03:17,947 - Totale campioni benign: 93541
+2024-09-17 11:03:17,947 - Totale campioni attack: 51833771
+2024-09-17 11:03:17,947 - Totale campioni: 51927312
+2024-09-17 11:03:17,947 - Percentuale benign: 0.18%
+2024-09-17 11:03:17,948 - Percentuale attack: 99.82%
+
+2024-09-17 11:47:51,936 - Inizio del conteggio dei campioni benign e attack.
+2024-09-17 11:49:33,676 - Totale campioni benign: 93541
+2024-09-17 11:49:33,677 - Totale campioni attack: 51833771
+2024-09-17 11:49:33,677 - Totale campioni: 51927312
+2024-09-17 11:49:33,677 - Percentuale benign: 0.18%
+2024-09-17 11:49:33,677 - Percentuale attack: 99.82%
+2024-09-17 11:49:33,677 - Numero minimo tra benign e attack per bilanciare: 93541
+2024-09-17 11:51:15,928 - Dataset bilanciato creato con 93541 campioni benign e 93541 campioni attack.
+2024-09-17 11:51:15,928 - Dataset bilanciato salvato in: ../../dataset_bilanciato.csv
