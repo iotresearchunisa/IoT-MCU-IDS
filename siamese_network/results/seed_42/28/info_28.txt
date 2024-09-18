@@ -1,0 +1,61 @@
+Training Set Size: 97282
+Validation Set Size: 52383
+Test Set Size: 37417
+
+Duplicati TRAIN:
+Sampled Pairs: 10000
+Unique Pairs: 10000
+Duplicate Pairs: 0
+
+Duplicati VAL:
+Sampled Pairs: 10000
+Unique Pairs: 10000
+Duplicate Pairs: 0
+
+Epoch [1/100], Train Loss: 0.3295, Train Accuracy: 0.5451, Val Loss: 0.1536, Val Accuracy: 0.5126
+Epoch [2/100], Train Loss: 0.0858, Train Accuracy: 0.6729, Val Loss: 0.0793, Val Accuracy: 0.8188
+Epoch [3/100], Train Loss: 0.0525, Train Accuracy: 0.7432, Val Loss: 0.0387, Val Accuracy: 0.6505
+Epoch [4/100], Train Loss: 0.0235, Train Accuracy: 0.8290, Val Loss: 0.1678, Val Accuracy: 0.5445
+Epoch [5/100], Train Loss: 0.0237, Train Accuracy: 0.8126, Val Loss: 0.0385, Val Accuracy: 0.8442
+Epoch [6/100], Train Loss: 0.0199, Train Accuracy: 0.8180, Val Loss: 0.0192, Val Accuracy: 0.8301
+Epoch [7/100], Train Loss: 0.0188, Train Accuracy: 0.8202, Val Loss: 0.0208, Val Accuracy: 0.8683
+Epoch [8/100], Train Loss: 0.0189, Train Accuracy: 0.8136, Val Loss: 0.0202, Val Accuracy: 0.9528
+Epoch [9/100], Train Loss: 0.0178, Train Accuracy: 0.8073, Val Loss: 0.0183, Val Accuracy: 0.7538
+Epoch [10/100], Train Loss: 0.0175, Train Accuracy: 0.8007, Val Loss: 0.0184, Val Accuracy: 0.7542
+Epoch [11/100], Train Loss: 0.0167, Train Accuracy: 0.8013, Val Loss: 0.0233, Val Accuracy: 0.6907
+Epoch [12/100], Train Loss: 0.0178, Train Accuracy: 0.7894, Val Loss: 0.0183, Val Accuracy: 0.5528
+Epoch [13/100], Train Loss: 0.0170, Train Accuracy: 0.7862, Val Loss: 0.0177, Val Accuracy: 0.7941
+Epoch [14/100], Train Loss: 0.0164, Train Accuracy: 0.7915, Val Loss: 0.0231, Val Accuracy: 0.8695
+Epoch [15/100], Train Loss: 0.0161, Train Accuracy: 0.7835, Val Loss: 0.0191, Val Accuracy: 0.8265
+Epoch [16/100], Train Loss: 0.0175, Train Accuracy: 0.7905, Val Loss: 0.0177, Val Accuracy: 0.6100
+Epoch [17/100], Train Loss: 0.0165, Train Accuracy: 0.7797, Val Loss: 0.0179, Val Accuracy: 0.8736
+Epoch [18/100], Train Loss: 0.0167, Train Accuracy: 0.7789, Val Loss: 0.0176, Val Accuracy: 0.7517
+Epoch [19/100], Train Loss: 0.0166, Train Accuracy: 0.7803, Val Loss: 0.0180, Val Accuracy: 0.7829
+Epoch [20/100], Train Loss: 0.0168, Train Accuracy: 0.7662, Val Loss: 0.0168, Val Accuracy: 0.8650
+Epoch [21/100], Train Loss: 0.0158, Train Accuracy: 0.7567, Val Loss: 0.0177, Val Accuracy: 0.8355
+Epoch [22/100], Train Loss: 0.0156, Train Accuracy: 0.7649, Val Loss: 0.0197, Val Accuracy: 0.8324
+Epoch [23/100], Train Loss: 0.0160, Train Accuracy: 0.7649, Val Loss: 0.0184, Val Accuracy: 0.9105
+Epoch [24/100], Train Loss: 0.0156, Train Accuracy: 0.7695, Val Loss: 0.0195, Val Accuracy: 0.7649
+Epoch [25/100], Train Loss: 0.0155, Train Accuracy: 0.7605, Val Loss: 0.0268, Val Accuracy: 0.7352
+Epoch [26/100], Train Loss: 0.0157, Train Accuracy: 0.7598, Val Loss: 0.0197, Val Accuracy: 0.8723
+Epoch [27/100], Train Loss: 0.0157, Train Accuracy: 0.7472, Val Loss: 0.0232, Val Accuracy: 0.8417
+Epoch [28/100], Train Loss: 0.0153, Train Accuracy: 0.7626, Val Loss: 0.0185, Val Accuracy: 0.6375
+Epoch [29/100], Train Loss: 0.0160, Train Accuracy: 0.7572, Val Loss: 0.0207, Val Accuracy: 0.6607
+Epoch [30/100], Train Loss: 0.0152, Train Accuracy: 0.7717, Val Loss: 0.0183, Val Accuracy: 0.7098
+Early stopping!
+Training completed.
+
+Optimal Threshold: 0.5676200985908508
+
+Duplicati TEST:
+Sampled Pairs: 10000
+Unique Pairs: 9999
+Duplicate Pairs: 1
+
+Test Accuracy: 0.9795
+Test Precision: 0.9802
+Test Recall: 0.9788
+Test F1 Score: 0.9795
+Confusion Matrix:
+[[18339   369]
+ [  397 18311]]

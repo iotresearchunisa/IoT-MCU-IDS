@@ -1,0 +1,45 @@
+Using device: cuda
+Training Set Size: 119732
+Validation Set Size: 29933
+Test Set Size: 37417
+
+Duplicati TRAIN:
+Sampled Pairs: 10000
+Unique Pairs: 10000
+Duplicate Pairs: 0
+
+Duplicati VAL:
+Sampled Pairs: 10000
+Unique Pairs: 10000
+Duplicate Pairs: 0
+
+Epoch [1/100], Train Loss: 0.2987, Train Accuracy: 0.5575, Val Loss: 0.1052, Val Accuracy: 0.6948
+Epoch [2/100], Train Loss: 0.0645, Train Accuracy: 0.6816, Val Loss: 0.0282, Val Accuracy: 0.7759
+Epoch [3/100], Train Loss: 0.3521, Train Accuracy: 0.7773, Val Loss: 0.0249, Val Accuracy: 0.5817
+Epoch [4/100], Train Loss: 0.0649, Train Accuracy: 0.7670, Val Loss: 0.0182, Val Accuracy: 0.8643
+Epoch [5/100], Train Loss: 0.0181, Train Accuracy: 0.7851, Val Loss: 0.0185, Val Accuracy: 0.8144
+Epoch [6/100], Train Loss: 0.5047, Train Accuracy: 0.7752, Val Loss: 0.0194, Val Accuracy: 0.8343
+Epoch [7/100], Train Loss: 0.0350, Train Accuracy: 0.7816, Val Loss: 0.0187, Val Accuracy: 0.8683
+Epoch [8/100], Train Loss: 0.0179, Train Accuracy: 0.7905, Val Loss: 0.0166, Val Accuracy: 0.6491
+Epoch [9/100], Train Loss: 0.0173, Train Accuracy: 0.7840, Val Loss: 0.0179, Val Accuracy: 0.6784
+Epoch [10/100], Train Loss: 0.0168, Train Accuracy: 0.7729, Val Loss: 0.0179, Val Accuracy: 0.8989
+Epoch [11/100], Train Loss: 0.0172, Train Accuracy: 0.7914, Val Loss: 0.0179, Val Accuracy: 0.5840
+Epoch [12/100], Train Loss: 0.0177, Train Accuracy: 0.7841, Val Loss: 0.0171, Val Accuracy: 0.8443
+Epoch [13/100], Train Loss: 0.0161, Train Accuracy: 0.7857, Val Loss: 0.0167, Val Accuracy: 0.5049
+Early stopping!
+Training completed.
+
+Optimal Threshold: 0.5011594891548157
+
+Duplicati TEST:
+Sampled Pairs: 10000
+Unique Pairs: 10000
+Duplicate Pairs: 0
+
+Test Accuracy: 0.9805
+Test Precision: 0.9818
+Test Recall: 0.9792
+Test F1 Score: 0.9805
+Confusion Matrix:
+[[18369   339]
+ [  390 18318]]
