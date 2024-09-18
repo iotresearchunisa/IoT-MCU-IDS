@@ -578,5 +578,5 @@ def train_siamese_network(csv_file):
     test_model(siamese_net, test_dataloader, optimal_threshold)
 
 if __name__ == "__main__":
-    csv_file = '../dataset/dataset_bilanciato.csv'
+    csv_file = 'dataset_bilanciato.csv'
     train_siamese_network(csv_file)
