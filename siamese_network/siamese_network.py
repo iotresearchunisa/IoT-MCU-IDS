@@ -13,8 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import random
 
-matplotlib.use('Agg')  # Use a non-interactive backend for plotting
-
+matplotlib.use('Agg')
 
 # Set random seeds for reproducibility
 def set_seed(seed=32):
@@ -24,8 +23,8 @@ def set_seed(seed=32):
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
 
-
 set_seed()
+
 
 # ==========================================================
 #  Check for GPU or CPU
@@ -122,8 +121,6 @@ class NetworkFlowDataset(Dataset):
 
         if attempts == max_attempts:
             print(f"Max attempts reached for index {idx}. Proceeding with duplicate pair.")
-            # Even if the pair is duplicate, proceed by not adding it again
-            # Optionally, you can choose to skip or handle it differently
 
         # At this point, sorted_indices and label are guaranteed to be assigned
         x1 = self.data[sorted_indices[0]].astype('float32')
@@ -229,7 +226,7 @@ class SiameseNetworkTestDataset(Dataset):
         sampled_indices = np.random.choice(len(self), size=min(sample_size, len(self)), replace=False)
         for idx in sampled_indices:
             x1, x2, label = self[idx]
-            # Converti i tensori in tuple per il hashing
+            # Converti i tensori in tuple per l'hashing
             x1_tuple = tuple(x1.numpy())
             x2_tuple = tuple(x2.numpy())
             # Tratta (x1, x2) come (x2, x1)
@@ -331,7 +328,7 @@ def analyze_distances(siamese_net, dataloader):
     with torch.no_grad():
         for x1, x2, label in dataloader:
             x1, x2 = x1.to(device), x2.to(device)
-            label = label.to(device).view(-1)  # Ensure label is 1D
+            label = label.to(device).view(-1)
             output1 = siamese_net(x1)
             output2 = siamese_net(x2)
             euclidean_distance = nn.functional.pairwise_distance(output1, output2)
