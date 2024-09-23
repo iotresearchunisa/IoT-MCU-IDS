@@ -4,27 +4,29 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import OneHotEncoder, RobustScaler
 from sklearn.model_selection import train_test_split
-from sklearn.compose import ColumnTransformer
 from sklearn.metrics import (accuracy_score, precision_score, recall_score,
                              f1_score, roc_curve, auc, confusion_matrix, ConfusionMatrixDisplay)
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import RobustScaler, MinMaxScaler, OneHotEncoder, FunctionTransformer, Normalizer
 import matplotlib.pyplot as plt
 import matplotlib
 import random
 
 matplotlib.use('Agg')
 
+
 # Set random seeds for reproducibility
-def set_seed(seed=32):
+def set_seed(seed=42):
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
 
-set_seed()
 
+set_seed()
 
 # ==========================================================
 #  Check for GPU or CPU
@@ -44,11 +46,9 @@ class SiameseNetwork(nn.Module):
             nn.Linear(input_size, 256),
             nn.BatchNorm1d(256),
             nn.LeakyReLU(),
-            nn.Dropout(0.3),
             nn.Linear(256, 512),
             nn.BatchNorm1d(512),
             nn.LeakyReLU(),
-            nn.Dropout(0.3),
             nn.Linear(512, 256),
             nn.BatchNorm1d(256),
             nn.LeakyReLU(),
@@ -122,7 +122,6 @@ class NetworkFlowDataset(Dataset):
         if attempts == max_attempts:
             print(f"Max attempts reached for index {idx}. Proceeding with duplicate pair.")
 
-        # At this point, sorted_indices and label are guaranteed to be assigned
         x1 = self.data[sorted_indices[0]].astype('float32')
         x2 = self.data[sorted_indices[1]].astype('float32')
 
@@ -130,8 +129,8 @@ class NetworkFlowDataset(Dataset):
 
     def check_duplicate_pairs(self, sample_size=10000):
         """
-        Campiona un sottoinsieme di coppie per verificare i duplicati.
-        :param sample_size: Numero di coppie da campionare.
+        Samples a subset of pairs to check for duplicates.
+        :param sample_size: Number of pairs to sample.
         """
         pair_set = set()
         duplicates = 0
@@ -168,7 +167,7 @@ class SiameseNetworkTestDataset(Dataset):
         self.labels_set = list(np.unique(labels))
 
         if len(self.labels_set) != 2:
-            raise ValueError("Questo metodo supporta solo la classificazione binaria.")
+            raise ValueError("This method supports only binary classification.")
 
         self.num_samples = min(len(self.label_to_indices[0]), len(self.label_to_indices[1]))
         self.num_pairs = self.num_samples * 2
@@ -209,7 +208,7 @@ class SiameseNetworkTestDataset(Dataset):
             attempts += 1
 
         if attempts == self.max_attempts:
-            print(f"Max attempts reached for index {idx}. Procedendo con una coppia duplicata.")
+            print(f"Max attempts reached for index {idx}. Proceeding with duplicate pair.")
 
         x1 = self.data[sorted_indices[0]].astype('float32')
         x2 = self.data[sorted_indices[1]].astype('float32')
@@ -218,18 +217,18 @@ class SiameseNetworkTestDataset(Dataset):
 
     def check_duplicate_pairs(self, sample_size=10000):
         """
-        Campiona un sottoinsieme di coppie per verificare i duplicati.
-        :param sample_size: Numero di coppie da campionare.
+        Samples a subset of pairs to check for duplicates.
+        :param sample_size: Number of pairs to sample.
         """
         pair_set = set()
         duplicates = 0
         sampled_indices = np.random.choice(len(self), size=min(sample_size, len(self)), replace=False)
         for idx in sampled_indices:
             x1, x2, label = self[idx]
-            # Converti i tensori in tuple per l'hashing
+            # Convert tensors to tuples for hashing
             x1_tuple = tuple(x1.numpy())
             x2_tuple = tuple(x2.numpy())
-            # Tratta (x1, x2) come (x2, x1)
+            # Treat (x1, x2) the same as (x2, x1)
             if x1_tuple < x2_tuple:
                 pair = (x1_tuple, x2_tuple)
             else:
@@ -247,40 +246,73 @@ class SiameseNetworkTestDataset(Dataset):
 #  Preprocessing function
 # ==========================================================
 def preprocess_dataset(df, train=True, preprocessor=None):
-    # Separate features and target
+    # 1. Separazione delle feature e del target
     X = df.drop(columns=['type_attack'])
-    y = df['type_attack']
+    y = df['type_attack'].apply(lambda x: 0 if x.lower() == 'benign' else 1).values
 
-    # Identify categorical and numerical columns
-    categorical_cols = ['Protocol_Type']
-    numerical_cols = X.columns.difference(categorical_cols)
+    # 2. Identificazione delle colonne per il preprocessing
+    continuous_cols = ['rate', 'IAT', 'Time_To_Leave', 'Header_Length', 'Packet_Length', 'TCP_Length',
+                       'MQTT_Length', 'MQTT_Proto_Length', 'MQTT_KeepAlive']
 
-    # Fill missing values in numerical columns
-    X[numerical_cols] = X[numerical_cols].fillna(X[numerical_cols].mean())
+    count_cols = ['TCP_Flag_FIN', 'TCP_Flag_SYN', 'TCP_Flag_RST', 'TCP_Flag_PSH', 'TCP_Flag_ACK', 'TCP_Flag_ECE',
+                  'TCP_Flag_CWR', 'Packet_Fragments', 'MQTT_HeaderFlags', 'MQTT_Reserved', 'MQTT_ConFlags',
+                  'MQTT_CleanSession', 'MQTT_Retain', 'MQTT_WillFlag', 'MQTT_DupFlag', 'MQTT_Conflag_Retain']
 
-    # Fill missing values in categorical columns
-    X[categorical_cols] = X[categorical_cols].fillna(X[categorical_cols].mode().iloc[0])
+    categorical_cols = ['Protocol_Type', 'MQTT_MessageType', 'MQTT_Conflag_QoS', 'MQTT_Version', 'MQTT_ConAck_Flags',
+                        'MQTT_QoS']
 
-    # Convert 'type_attack' to binary labels (0 for benign, 1 for attack)
-    y = y.apply(lambda x: 0 if x == 'benign' else 1).values
+    # Rimuovere eventuali colonne costanti dalle liste di colonne specifiche
+    continuous_cols = [col for col in continuous_cols if col in df]
+    count_cols = [col for col in count_cols if col in df]
+    categorical_cols = [col for col in categorical_cols if col in df]
+
+
+    # 3. Definizione della pipeline di preprocessing
+    preprocessing_steps = []
+
+    # Pipeline per feature numeriche continue con trasformazione logaritmica e RobustScaler
+    if continuous_cols:
+        continuous_pipeline = Pipeline([
+            ('log_transform', FunctionTransformer(np.log1p, validate=False)),
+            ('scaler', RobustScaler())
+        ])
+        preprocessing_steps.append(('continuous', continuous_pipeline, continuous_cols))
+
+    # Pipeline per feature di conteggio con MinMaxScaler
+    if count_cols:
+        count_pipeline = MinMaxScaler()
+        preprocessing_steps.append(('count', count_pipeline, count_cols))
+
+    # Pipeline per feature categoriali con OneHotEncoder
+    if categorical_cols:
+        categorical_pipeline = OneHotEncoder(handle_unknown='ignore', sparse_output=False)
+        preprocessing_steps.append(('categorical', categorical_pipeline, categorical_cols))
+
+    # Creazione del ColumnTransformer con le trasformazioni specifiche
+    column_transformer = ColumnTransformer(
+        transformers=preprocessing_steps,
+        remainder='drop'  # Drop any columns not specified
+    )
+
+    # Pipeline completa con ColumnTransformer e Normalizer
+    preprocessor_pipeline = Pipeline([
+        ('preprocessing', column_transformer),
+        ('normalizer', Normalizer(norm='l2'))  # Aggiunta della normalizzazione
+    ])
 
     if train:
-        # Define the ColumnTransformer with OneHotEncoder and RobustScaler
-        preprocessor = ColumnTransformer(
-            transformers=[
-                ('num', RobustScaler(), numerical_cols),
-                ('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), categorical_cols)
-            ])
-        # Fit and transform the training data
-        X = preprocessor.fit_transform(X)
+        # Fit e transform sui dati di training
+        X_processed = preprocessor_pipeline.fit_transform(X)
     else:
-        # Transform the data using the same preprocessor
-        X = preprocessor.transform(X)
+        if preprocessor is None:
+            raise ValueError("Preprocessor non fornito per i dati di test.")
+        # Solo transform sui dati di test
+        X_processed = preprocessor.transform(X)
 
-    # Convert the processed data to a numpy array of type float32
-    X = X.astype('float32')
+    # Conversione a float32
+    X_processed = X_processed.astype('float32')
 
-    return X, y, preprocessor
+    return X_processed, y, preprocessor_pipeline
 
 
 # ==========================================================
@@ -288,6 +320,14 @@ def preprocess_dataset(df, train=True, preprocessor=None):
 # ==========================================================
 def load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.2):
     df = pd.read_csv(csv_file, sep=";")
+
+    # Identificazione delle colonne costanti
+    constant_cols = [col for col in df.columns if df[col].nunique() == 1]
+    if constant_cols:
+        print(f"Rimozione delle colonne costanti: {constant_cols}\n")
+        df = df.drop(columns=constant_cols)
+    else:
+        print("Nessuna colonna costante trovata.\n")
 
     # Split into train+val/test before preprocessing
     train_val_df, test_df = train_test_split(df, test_size=test_size, stratify=df['type_attack'], random_state=42)
@@ -392,31 +432,31 @@ def test_model(siamese_net, test_dataloader, threshold):
             output1 = siamese_net(x1)
             output2 = siamese_net(x2)
 
-            # Calcolo della distanza euclidea
+            # Calculate Euclidean distance
             euclidean_distance = nn.functional.pairwise_distance(output1, output2)
             predictions = (euclidean_distance > threshold).float()
 
-            # Aggiunge etichette e predizioni al volo
+            # Append labels and predictions
             all_labels.extend(label.cpu().numpy())
             all_predictions.extend(predictions.cpu().numpy())
 
-    # Converti le liste in numpy arrays
+    # Convert lists to numpy arrays
     all_labels = np.array(all_labels)
     all_predictions = np.array(all_predictions)
 
-    # Calcolo delle metriche finali
+    # Calculate final metrics
     accuracy = accuracy_score(all_labels, all_predictions)
     precision = precision_score(all_labels, all_predictions, zero_division=0)
     recall = recall_score(all_labels, all_predictions, zero_division=0)
     f1 = f1_score(all_labels, all_predictions, zero_division=0)
 
-    # Stampa i risultati
+    # Print results
     print(f"Test Accuracy: {accuracy:.4f}")
     print(f"Test Precision: {precision:.4f}")
     print(f"Test Recall: {recall:.4f}")
     print(f"Test F1 Score: {f1:.4f}")
 
-    # Calcolo e visualizzazione della matrice di confusione
+    # Compute and display confusion matrix
     cmatrix = confusion_matrix(all_labels, all_predictions)
     print("Confusion Matrix:")
     print(cmatrix)
@@ -435,32 +475,34 @@ def test_model(siamese_net, test_dataloader, threshold):
 # ==========================================================
 def train_siamese_network(csv_file):
     # Load and preprocess the dataset
-    X_train, y_train, X_val, y_val, X_test, y_test = load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.5)
+    X_train, y_train, X_val, y_val, X_test, y_test = load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.2)
 
     # Create DataLoaders for training and validation
     train_dataset = NetworkFlowDataset(X_train, y_train)
     val_dataset = NetworkFlowDataset(X_val, y_val)
-    train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-    val_dataloader = DataLoader(val_dataset, batch_size=64, shuffle=False)
+    train_dataloader = DataLoader(train_dataset, batch_size=256, shuffle=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=256, shuffle=False)
 
-    # Verifica delle coppie duplicate nel Training e Validation Set
-    print("\nDuplicati TRAIN:")
-    train_dataset.check_duplicate_pairs(sample_size=10000)
+    # Check for duplicate pairs in Training and Validation Sets
+    print("\nDuplicates in TRAIN:")
+    train_dataset.check_duplicate_pairs(sample_size=200000)
 
-    print("\nDuplicati VAL:")
-    val_dataset.check_duplicate_pairs(sample_size=10000)
+    print("\nDuplicates in VAL:")
+    val_dataset.check_duplicate_pairs(sample_size=200000)
 
     # Create the Siamese Network model
     input_size = X_train.shape[1]
     siamese_net = SiameseNetwork(input_size).to(device)
 
     # Define optimizer and scheduler
-    optimizer = optim.Adam(siamese_net.parameters(), lr=0.0005, weight_decay=1e-5)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.5)
+    optimizer = optim.AdamW(siamese_net.parameters(), lr=0.00001, weight_decay=1e-5)
+
+    # Changed scheduler to ReduceLROnPlateau
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
 
     # Training loop
     num_epochs = 100
-    patience = 5 # Per Early Stopping
+    patience = 5  # For Early Stopping
     best_val_loss = np.inf
     epochs_no_improve = 0
 
@@ -469,9 +511,8 @@ def train_siamese_network(csv_file):
     train_accuracies = []
     val_accuracies = []
 
-    siamese_net.train()
-
     for epoch in range(num_epochs):
+        siamese_net.train()
         running_loss = 0.0
         correct = 0
         total = 0
@@ -485,6 +526,10 @@ def train_siamese_network(csv_file):
             output2 = siamese_net(x2)
             loss = contrastive_loss(output1, output2, label)
             loss.backward()
+
+            # Implement gradient clipping
+            torch.nn.utils.clip_grad_norm_(siamese_net.parameters(), max_norm=1.0)
+
             optimizer.step()
 
             running_loss += loss.item()
@@ -525,22 +570,23 @@ def train_siamese_network(csv_file):
         val_losses.append(val_running_loss / len(val_dataloader))
         val_accuracies.append(val_accuracy)
 
-        scheduler.step()
+        # Step the scheduler with validation loss
+        current_val_loss = val_running_loss / len(val_dataloader)
+        scheduler.step(current_val_loss)
 
         print(f"Epoch [{epoch + 1}/{num_epochs}], "
               f"Train Loss: {running_loss / len(train_dataloader):.4f}, "
               f"Train Accuracy: {train_accuracy:.4f}, "
-              f"Val Loss: {val_running_loss / len(val_dataloader):.4f}, "
+              f"Val Loss: {current_val_loss:.4f}, "
               f"Val Accuracy: {val_accuracy:.4f}")
 
         # Early Stopping
-        current_val_loss = val_running_loss / len(val_dataloader)
         if current_val_loss < best_val_loss:
             best_val_loss = current_val_loss
             epochs_no_improve = 0
 
-            # Salva il modello migliore
-            torch.save(siamese_net.state_dict(), 'best_siamese_model.pth')
+            # Save the best model
+            # torch.save(siamese_net.state_dict(), 'best_siamese_model.pth')
         else:
             epochs_no_improve += 1
             if epochs_no_improve >= patience:
@@ -561,22 +607,23 @@ def train_siamese_network(csv_file):
     plt.savefig('accuracy_plot.png')
     plt.close()
 
-    # Carica il modello migliore
-    siamese_net.load_state_dict(torch.load('best_siamese_model.pth'))
+    # Load the best model
+    # siamese_net.load_state_dict(torch.load('best_siamese_model.pth'))
 
     # Analyze distances and find optimal threshold using validation data
     optimal_threshold = analyze_distances(siamese_net, val_dataloader)
 
     # Prepare test data
     test_dataset = SiameseNetworkTestDataset(X_test, y_test)
-    test_dataloader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+    test_dataloader = DataLoader(test_dataset, batch_size=256, shuffle=False)
 
-    print("\nDuplicati TEST:")
-    test_dataset.check_duplicate_pairs(sample_size=10000)
+    print("\nDuplicates in TEST:")
+    test_dataset.check_duplicate_pairs(sample_size=200000)
 
     # Test the model
     test_model(siamese_net, test_dataloader, optimal_threshold)
 
+
 if __name__ == "__main__":
-    csv_file = 'dataset_bilanciato.csv'
+    csv_file = '../dataset_bilanciato.csv'
     train_siamese_network(csv_file)
