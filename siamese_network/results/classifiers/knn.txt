@@ -1,0 +1,20 @@
+Rimozione delle colonne costanti: ['MQTT_ConAck_Flags', 'MQTT_QoS']
+
+Dimensione Set di Training: 149665
+Dimensione Set di Test: 37417
+
+Risultati sul Training con KNN:
+Accuracy del Training: 0.9919
+Precisione del Training: 0.9875
+Recall del Training: 0.9964
+F1 Score del Training: 0.9920
+
+Risultati sul Test con KNN:
+Accuracy del Test: 0.9901
+Precisione del Test: 0.9849
+Recall del Test: 0.9955
+F1 Score del Test: 0.9902
+
+Matrice di Confusione sul Test:
+[[18422   286]
+ [   84 18625]]

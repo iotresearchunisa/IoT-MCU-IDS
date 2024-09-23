@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 
-log_file_path = '../results/dataset_info.txt'
+log_file_path = '../dataset_info.txt'
 logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s - %(message)s')
 
 
