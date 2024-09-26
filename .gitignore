@@ -1,5 +1,6 @@
 App/server_raspi/iot-raspi.json
 App/client/iot_app.json
 siamese_network/__pycache__
+siamese_network/classifiers/utils/__pycache__
 siamese_network/.idea
 dataset
