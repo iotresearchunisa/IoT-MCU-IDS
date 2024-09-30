@@ -1,5 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 from utils.preprocessing import load_and_preprocess_data
 
 
@@ -8,7 +8,7 @@ from utils.preprocessing import load_and_preprocess_data
 # ==========================================================
 def train_random_forest(csv_file):
     # Carica e preprocessa il dataset
-    X_train, y_train, X_test, y_test = load_and_preprocess_data(csv_file, test_size=0.2)
+    X_train, y_train, X_test, y_test, label_encoder = load_and_preprocess_data(csv_file, test_size=0.2)
 
     # Inizializza il classificatore Random Forest
     rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -21,9 +21,9 @@ def train_random_forest(csv_file):
 
     # Calcola le metriche di valutazione sul training
     train_accuracy = accuracy_score(y_train, y_train_pred)
-    train_precision = precision_score(y_train, y_train_pred, pos_label=1, zero_division=0)
-    train_recall = recall_score(y_train, y_train_pred, pos_label=1, zero_division=0)
-    train_f1 = f1_score(y_train, y_train_pred, pos_label=1, zero_division=0)
+    train_precision = precision_score(y_train, y_train_pred, average='macro', zero_division=0)
+    train_recall = recall_score(y_train, y_train_pred, average='macro', zero_division=0)
+    train_f1 = f1_score(y_train, y_train_pred, average='macro', zero_division=0)
 
     # Stampa i risultati sul training
     print("\nRisultati sul Training:")
@@ -37,9 +37,9 @@ def train_random_forest(csv_file):
 
     # Calcola le metriche di valutazione sul test
     test_accuracy = accuracy_score(y_test, y_pred)
-    test_precision = precision_score(y_test, y_pred, pos_label=1, zero_division=0)
-    test_recall = recall_score(y_test, y_pred, pos_label=1, zero_division=0)
-    test_f1 = f1_score(y_test, y_pred, pos_label=1, zero_division=0)
+    test_precision = precision_score(y_test, y_pred, average='macro', zero_division=0)
+    test_recall = recall_score(y_test, y_pred, average='macro', zero_division=0)
+    test_f1 = f1_score(y_test, y_pred, average='macro', zero_division=0)
 
     # Stampa i risultati sul test
     print("\nRisultati sul Test:")
@@ -49,11 +49,15 @@ def train_random_forest(csv_file):
     print(f"F1 Score del Test: {test_f1:.4f}")
 
     # Calcola e visualizza la matrice di confusione sul test
-    cmatrix = confusion_matrix(y_test, y_pred, labels=[0, 1])
+    cmatrix = confusion_matrix(y_test, y_pred)
     print("\nMatrice di Confusione sul Test:")
     print(cmatrix)
 
+    # Visualizza il report di classificazione
+    class_names = label_encoder.classes_
+    print("\nReport di Classificazione:")
+    print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
 
 if __name__ == "__main__":
-    csv_file = '../dataset_bilanciato.csv'
+    csv_file = '../../dataset_attacchi_bilanciato.csv'
     train_random_forest(csv_file)
