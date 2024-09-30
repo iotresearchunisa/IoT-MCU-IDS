@@ -1,6 +1,8 @@
 from tensorflow.keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
+from tensorflow.python.ops.array_ops import shape
+
 from generate_pairs import *
 from preprocessing import load_and_preprocess_data
 from siamese_net import SiameseNet
@@ -12,16 +14,15 @@ from siamese_net import SiameseNet
 def train_siamese_network(csv_file):
     # Load and preprocess the dataset
     X_train, y_train, X_val, y_val, X_test, y_test, label_encoder = load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.2)
-    print("Data are preprocessed!")
+    print("Data are preprocessed!\n")
 
     num_classes = len(label_encoder.classes_)
-    print(num_classes)
 
     # Generation of pairs
-    train_pairs, train_labels = generate_balanced_siamese_pairs(X_train, y_train, num_pairs=5, num_classes=num_classes)
-    val_pairs, val_labels = generate_balanced_siamese_pairs(X_val, y_val, num_pairs=5, num_classes=num_classes)
-    test_pairs, test_labels = generate_balanced_siamese_pairs(X_test, y_test, num_pairs=5, num_classes=num_classes)
-    print("Pairs are generated!")
+    train_pairs, train_labels = generate_balanced_siamese_pairs(X_train, y_train, num_pairs=200000)
+    val_pairs, val_labels = generate_balanced_siamese_pairs(X_val, y_val, num_pairs=200000)
+    test_pairs, test_labels = generate_balanced_siamese_pairs(X_test, y_test, num_pairs=50000)
+    print("Pairs are generated!\n")
 
     # Create Siamese model
     siamese_model = (SiameseNet(input_shape=(X_train.shape[1], 1))).get()
@@ -33,7 +34,7 @@ def train_siamese_network(csv_file):
     history = siamese_model.fit([train_pairs[:, 0], train_pairs[:, 1]],
                                 train_labels,
                                 validation_data=([val_pairs[:, 0], val_pairs[:, 1]], val_labels),
-                                batch_size=64,
+                                batch_size=128,
                                 epochs=1000,
                                 callbacks=[early_stopping])
 

@@ -5,7 +5,7 @@ import numpy as np
 # ==========================================================
 #  Generate balanced Siamese pairs for multiclass
 # ==========================================================
-def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
+def generate_balanced_siamese_pairs(data, labels, num_pairs):
     # Initialize pairs and labels
     pairs = []
     pair_labels = []
@@ -13,8 +13,15 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
     # Set to keep track of generated pairs
     generated_pairs = set()
 
+    # Counters for duplicates
+    duplicate_attempts = 0
+
+    # Get unique classes from labels
+    unique_classes = np.unique(labels)
+    print(f"Classes: {unique_classes}")
+
     # Create a dictionary to hold indices for each class
-    class_indices = {i: np.where(labels == i)[0] for i in range(num_classes)}
+    class_indices = {label: np.where(labels == label)[0] for label in unique_classes}
 
     # Calculate number of positive and negative pairs
     num_positive_pairs = num_pairs // 2
@@ -32,7 +39,7 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
     attempts = 0  # Reset attempts for positive pairs
     while positive_pairs_generated < num_positive_pairs and attempts < max_attempts:
         # Select a random class
-        class_label = random.choice(range(num_classes))
+        class_label = random.choice(unique_classes)
         # Check if there are at least 2 samples in this class
         if len(class_indices[class_label]) < 2:
             attempts += 1
@@ -41,6 +48,7 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
         pair_key = make_pair_key(idx1, idx2)
         if pair_key in generated_pairs:
             attempts += 1
+            duplicate_attempts += 1
             continue
         # Add the pair and label
         pairs.append([data[idx1], data[idx2]])
@@ -57,7 +65,10 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
     attempts = 0  # Reset attempts for negative pairs
     while negative_pairs_generated < num_negative_pairs and attempts < max_attempts:
         # Select two different classes
-        class_label1, class_label2 = random.sample(range(num_classes), 2)
+        if len(unique_classes) < 2:
+            print("Not enough classes to generate negative pairs.")
+            break
+        class_label1, class_label2 = random.sample(list(unique_classes), 2)
         if len(class_indices[class_label1]) == 0 or len(class_indices[class_label2]) == 0:
             attempts += 1
             continue
@@ -66,6 +77,7 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
         pair_key = make_pair_key(idx1, idx2)
         if pair_key in generated_pairs:
             attempts += 1
+            duplicate_attempts += 1
             continue
         # Add the pair and label
         pairs.append([data[idx1], data[idx2]])
@@ -79,6 +91,15 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs, num_classes):
 
     if positive_pairs_generated < num_positive_pairs or negative_pairs_generated < num_negative_pairs:
         print("Could not generate all unique pairs requested.")
+        print(f"Positive pairs generated: {positive_pairs_generated}/{num_positive_pairs}")
+        print(f"Negative pairs generated: {negative_pairs_generated}/{num_negative_pairs}")
 
-    return np.array(pairs), np.array(pair_labels)
+    total_pairs_generated = positive_pairs_generated + negative_pairs_generated
+    print(f"Total pairs generated: {total_pairs_generated}")
+    print(f"Total duplicate attempts: {duplicate_attempts}")
+    print(f"Duplicates over total attempts: {duplicate_attempts}/{total_pairs_generated + duplicate_attempts}\n")
 
+    # Convert pairs to a numpy array with the correct shape
+    pairs_array = np.array(pairs)
+
+    return pairs_array, np.array(pair_labels)
