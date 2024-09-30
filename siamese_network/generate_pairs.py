@@ -2,6 +2,9 @@ import random
 import numpy as np
 
 
+# ==========================================================
+#  Generate balanced Siamese pairs
+# ==========================================================
 def generate_balanced_siamese_pairs(data, labels, num_pairs):
     # Assicurarsi che num_pairs sia divisibile per 2
     assert num_pairs % 2 == 0, "Il numero di coppie deve essere divisibile per 2 per bilanciare le coppie positive e negative"

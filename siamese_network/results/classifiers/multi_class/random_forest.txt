@@ -1,0 +1,32 @@
+Training Set Size: 110841
+Test Set Size: 27711
+
+Risultati sul Training:
+Accuracy del Training: 0.9987
+Precisione del Training: 0.9987
+Recall del Training: 0.9987
+F1 Score del Training: 0.9987
+
+Risultati sul Test:
+Accuracy del Test: 0.9921
+Precisione del Test: 0.9921
+Recall del Test: 0.9921
+F1 Score del Test: 0.9921
+
+Matrice di Confusione sul Test:
+[[6814   26   24   64]
+ [  29 6892    1    5]
+ [  23    1 6901    3]
+ [  40    0    3 6885]]
+
+Report di Classificazione:
+              precision    recall  f1-score   support
+
+      benign       0.99      0.98      0.99      6928
+ brute_force       1.00      0.99      1.00      6927
+         dos       1.00      1.00      1.00      6928
+       recon       0.99      0.99      0.99      6928
+
+    accuracy                           0.99     27711
+   macro avg       0.99      0.99      0.99     27711
+weighted avg       0.99      0.99      0.99     27711

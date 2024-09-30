@@ -34,7 +34,7 @@ def preprocess_data(df):
 
 
 if __name__ == "__main__":
-    csv_file = 'dataset_bilanciato.csv'
+    csv_file = 'dataset_attacchi_bilanciato.csv'
     df = pd.read_csv(csv_file, sep=";")
 
     data = preprocess_data(df)
@@ -49,4 +49,4 @@ if __name__ == "__main__":
 
     attack_type = pd.DataFrame(y, columns=['type_attack'])
 
-    siamese_network("info.txt", data, input_shape, features_len, attack_type)
+    siamese_network("codice_vecchio.txt", data, input_shape, features_len, attack_type)

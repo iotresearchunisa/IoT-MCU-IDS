@@ -1,0 +1,35 @@
+Usando il codice del mio vecchio progetto ho ottenuto questi risultati:
+
+
+==================================================================================================
+Epoca: 200, Current best: 50.8, previous best: 50.8
+Epoca: 400, Current best: 54.8, previous best: 54.8
+Epoca: 1200, Current best: 56.5, previous best: 56.5
+Epoca: 1400, Current best: 59.4, previous best: 59.4
+Epoca: 1800, Current best: 59.6, previous best: 59.6
+Epoca: 2200, Current best: 64.1, previous best: 64.1
+Epoca: 2400, Current best: 66.2, previous best: 66.2
+Epoca: 2600, Current best: 68.9, previous best: 68.9
+Epoca: 3000, Current best: 69.4, previous best: 69.4
+Epoca: 3400, Current best: 71.0, previous best: 71.0
+Epoca: 6000, Current best: 73.1, previous best: 73.1
+Epoca: 6200, Current best: 74.9, previous best: 74.9
+Epoca: 6400, Current best: 77.1, previous best: 77.1
+Epoca: 7000, Current best: 77.5, previous best: 77.5
+Epoca: 7400, Current best: 77.8, previous best: 77.8
+Epoca: 8000, Current best: 81.6, previous best: 81.6
+Epoca: 9600, Current best: 83.4, previous best: 83.4
+Epoca: 10200, Current best: 84.0, previous best: 84.0
+Epoca: 10600, Current best: 85.7, previous best: 85.7
+Epoca: 11400, Current best: 86.4, previous best: 86.4
+Epoca: 12000, Current best: 88.2, previous best: 88.2
+Epoca: 12800, Current best: 88.2, previous best: 88.2
+Epoca: 13000, Current best: 88.9, previous best: 88.9
+Epoca: 13800, Current best: 90.2, previous best: 90.2
+Epoca: 15400, Current best: 90.8, previous best: 90.8
+Epoca: 23400, Current best: 90.8, previous best: 90.8
+Epoca: 24200, Current best: 91.6, previous best: 91.6
+Epoca: 27800, Current best: 91.7, previous best: 91.7
+Epoca: 28000, Current best: 92.9, previous best: 92.9
+Epoca: 30800, Current best: 93.4, previous best: 93.4
+==================================================================================================

@@ -1,0 +1,18 @@
+Training Set Size: 149665
+Test Set Size: 37417
+
+Risultati sul Training:
+Accuracy del Training: 0.9970
+Precisione del Training: 0.9944
+Recall del Training: 0.9996
+F1 Score del Training: 0.9970
+
+Risultati sul Test:
+Accuracy del Test: 0.9889
+Precisione del Test: 0.9860
+Recall del Test: 0.9919
+F1 Score del Test: 0.9889
+
+Matrice di Confusione sul Test:
+[[18444   264]
+ [  152 18557]]

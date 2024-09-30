@@ -1,0 +1,58 @@
+Usando il codice del mio vecchio progetto ho ottenuto questi risultati:
+
+
+==================================================================================================
+Epoca: 200, Current best: 26.1, previous best: 26.1
+Epoca: 400, Current best: 26.6, previous best: 26.6
+Epoca: 800, Current best: 26.7, previous best: 26.7
+Epoca: 1000, Current best: 32.9, previous best: 32.9
+Epoca: 2000, Current best: 34.3, previous best: 34.3
+Epoca: 2600, Current best: 36.3, previous best: 36.3
+Epoca: 4200, Current best: 42.9, previous best: 42.9
+Epoca: 5800, Current best: 48.4, previous best: 48.4
+Epoca: 6200, Current best: 49.8, previous best: 49.8
+Epoca: 6800, Current best: 49.9, previous best: 49.9
+Epoca: 7000, Current best: 52.4, previous best: 52.4
+Epoca: 7200, Current best: 52.9, previous best: 52.9
+Epoca: 8200, Current best: 54.0, previous best: 54.0
+Epoca: 9000, Current best: 54.1, previous best: 54.1
+Epoca: 9600, Current best: 54.6, previous best: 54.6
+Epoca: 11800, Current best: 58.7, previous best: 58.7
+Epoca: 12000, Current best: 61.7, previous best: 61.7
+Epoca: 12200, Current best: 62.6, previous best: 62.6
+Epoca: 12400, Current best: 64.1, previous best: 64.1
+Epoca: 12800, Current best: 65.8, previous best: 65.8
+Epoca: 14200, Current best: 66.3, previous best: 66.3
+Epoca: 14600, Current best: 69.1, previous best: 69.1
+Epoca: 15200, Current best: 70.4, previous best: 70.4
+Epoca: 15800, Current best: 70.6, previous best: 70.6
+Epoca: 16400, Current best: 71.7, previous best: 71.7
+Epoca: 16600, Current best: 72.0, previous best: 72.0
+Epoca: 17600, Current best: 73.3, previous best: 73.3
+Epoca: 18000, Current best: 73.4, previous best: 73.4
+Epoca: 18600, Current best: 75.5, previous best: 75.5
+Epoca: 19400, Current best: 75.6, previous best: 75.6
+Epoca: 19600, Current best: 75.7, previous best: 75.7
+Epoca: 19800, Current best: 77.1, previous best: 77.1
+Epoca: 20000, Current best: 77.4, previous best: 77.4
+Epoca: 20400, Current best: 80.1, previous best: 80.1
+Epoca: 21200, Current best: 80.1, previous best: 80.1
+Epoca: 21600, Current best: 80.2, previous best: 80.2
+Epoca: 22200, Current best: 80.7, previous best: 80.7
+Epoca: 22400, Current best: 80.7, previous best: 80.7
+Epoca: 23000, Current best: 83.2, previous best: 83.2
+Epoca: 26200, Current best: 83.2, previous best: 83.2
+Epoca: 28600, Current best: 84.7, previous best: 84.7
+Epoca: 35200, Current best: 85.3, previous best: 85.3
+Epoca: 40000, Current best: 85.4, previous best: 85.4
+Epoca: 41600, Current best: 85.9, previous best: 85.9
+Epoca: 43000, Current best: 86.1, previous best: 86.1
+Epoca: 44800, Current best: 86.5, previous best: 86.5
+Epoca: 47600, Current best: 86.5, previous best: 86.5
+Epoca: 51000, Current best: 88.4, previous best: 88.4
+Epoca: 55000, Current best: 88.5, previous best: 88.5
+Epoca: 55200, Current best: 88.6, previous best: 88.6
+Epoca: 58200, Current best: 89.3, previous best: 89.3
+Epoca: 66800, Current best: 90.0, previous best: 90.0
+Epoca: 70800, Current best: 90.4, previous best: 90.4
+==================================================================================================
