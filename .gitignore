@@ -1,8 +1,8 @@
 App/server_raspi/iot-raspi.json
 App/client/iot_app.json
 siamese_network/__pycache__
-siamese_network/siamese_multiclasse/__pycache__
-siamese_network/classifiers/binary_class/utils/__pycache__
-siamese_network/classifiers/multi_class/utils/__pycache__
+siamese_network/classifiers/__pycache__/
+siamese_network/siamese_net/paper_code/__pycache__
+siamese_network/siamese_net/bioinf_code/__pycache__
 siamese_network/.idea
 dataset
