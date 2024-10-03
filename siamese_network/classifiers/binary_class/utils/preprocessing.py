@@ -12,7 +12,7 @@ def load_and_preprocess_data(csv_file, test_size=0.2):
     df = pd.read_csv(csv_file, sep=";")
 
     # Split into train+val/test before preprocessing_pcapng
-    train_df, test_df = train_test_split(df, test_size=test_size, stratify=df['type_attack'], random_state=42)
+    train_df, test_df = train_test_split(df, test_size=test_size, stratify=df['type_attack'], shuffle=True)
 
     # Preprocess the datasets
     X_train, y_train, preprocessor = preprocess_dataset(train_df, train=True)
