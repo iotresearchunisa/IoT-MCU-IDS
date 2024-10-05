@@ -1,0 +1,13 @@
+2024-10-04 15:20:08,395 - Inizio del conteggio dei campioni per classe.
+
+2024-10-04 15:22:54,540 - Totale campioni per classe:
+2024-10-04 15:22:54,540 - Classe 'dos': 30654284 campioni (59.04%)
+2024-10-04 15:22:54,540 - Classe 'brute_force': 34601 campioni (0.07%)
+2024-10-04 15:22:54,540 - Classe 'benign': 93517 campioni (0.18%)
+2024-10-04 15:22:54,540 - Classe 'recon': 21058068 campioni (40.56%)
+2024-10-04 15:22:54,540 - Classe 'mqtt_attack': 76747 campioni (0.15%)
+2024-10-04 15:22:54,540 - Totale campioni: 51917217
+
+2024-10-04 15:22:54,545 - Numero minimo di campioni tra le classi per il bilanciamento: 34601
+2024-10-04 15:24:38,946 - Dataset bilanciato creato con 34601 campioni per classe.
+2024-10-04 15:24:38,946 - Dataset bilanciato salvato in: ../dataset/dataset_attacchi_con_MQTT_bilanciato.csv

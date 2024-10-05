@@ -1,0 +1,12 @@
+2024-10-04 15:12:06,266 - Inizio del conteggio dei campioni per classe.
+
+2024-10-04 15:14:53,801 - Totale campioni per classe:
+2024-10-04 15:14:53,801 - Classe 'dos': 30654284 campioni (59.13%)
+2024-10-04 15:14:53,801 - Classe 'brute_force': 34601 campioni (0.07%)
+2024-10-04 15:14:53,801 - Classe 'benign': 91607 campioni (0.18%)
+2024-10-04 15:14:53,801 - Classe 'recon': 21058068 campioni (40.62%)
+2024-10-04 15:14:53,801 - Totale campioni: 51838560
+
+2024-10-04 15:14:53,801 - Numero minimo di campioni tra le classi per il bilanciamento: 34601
+2024-10-04 15:16:31,502 - Dataset bilanciato creato con 34601 campioni per classe.
+2024-10-04 15:16:31,502 - Dataset bilanciato salvato in: ../dataset/dataset_attacchi_bilanciato.csv
