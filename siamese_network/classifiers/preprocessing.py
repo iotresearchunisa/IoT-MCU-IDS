@@ -26,13 +26,23 @@ def load_and_preprocess_data(csv_file, test_size=0.2):
 #  Preprocessing function
 # ==========================================================
 def preprocess_dataset(df, train=True, scaler=None, label_encoder=None):
-    # 1. Separazione delle caratteristiche e del target
+    # 1. Rimozione delle righe con 'Protocol_Type' non nella mappa
+    protocol_map = {'TCP': 1, 'UDP': 2, 'ICMP': 3, 'ARP': 4, 'MQTT': 5,
+                    'SNA': 6, 'SSH': 7, 'SSHv2': 8, 'HPEXT': 9,
+                    'DNS': 10, 'WiMax': 11, 'NTP': 12}
+
+    valid_protocols = protocol_map.keys()
+    valid_rows = df['Protocol_Type'].isin(valid_protocols)
+
+    num_removed = (~valid_rows).sum()
+    if num_removed > 0:
+        print(f"Rimosse {num_removed} righe con valori non validi in 'Protocol_Type'.")
+
+    df = df[valid_rows].reset_index(drop=True)
+
+    # 2. Separazione delle caratteristiche e del target
     X = df.drop(columns=['type_attack'])
     y = df['type_attack']
-
-    # 2. Mappatura della colonna 'Protocol_Type'
-    protocol_map = {'TCP': 1, 'UDP': 2, 'ICMP': 3, 'ARP': 4, 'MQTT': 5, 'SNA': 6, 'SSH': 7, 'SSHv2': 8, 'HPEXT': 9,
-                    'DNS': 10, 'WiMax': 11, 'NTP': 12}
 
     X['Protocol_Type'] = X['Protocol_Type'].map(protocol_map)
 
