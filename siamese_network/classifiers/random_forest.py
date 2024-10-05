@@ -7,7 +7,7 @@ from preprocessing import load_and_preprocess_data
 #  Funzione principale per addestrare e valutare il Random Forest
 # ==========================================================
 def train_random_forest(csv_file):
-    # Carica e preprocessa il dataset
+    # Carica e preprocessa il datasets
     X_train, y_train, X_test, y_test, label_encoder = load_and_preprocess_data(csv_file, test_size=0.2)
 
     # Inizializza il classificatore Random Forest
@@ -59,5 +59,5 @@ def train_random_forest(csv_file):
     print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
 
 if __name__ == "__main__":
-    csv_file = '../dataset/mio/dataset_attacchi_bilanciato.csv'
+    csv_file = '../datasets/mio/dataset_attacchi_bilanciato.csv'
     train_random_forest(csv_file)

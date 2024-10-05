@@ -23,7 +23,7 @@ else:
 #  Main training function
 # ==========================================================
 def train_siamese_network(csv_file, path_results):
-    # Load and preprocess the dataset
+    # Load and preprocess the datasets
     X_train, y_train, X_val, y_val, X_test, y_test = load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.2)
     print("Data are preprocessed!\n")
 
@@ -80,6 +80,6 @@ def train_siamese_network(csv_file, path_results):
     print("Model saved!")
 
 if __name__ == "__main__":
-    csv_file = '../../dataset/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
+    csv_file = '../../datasets/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
     path = "../results/paper_code/con_mqtt/"
     train_siamese_network(csv_file, path)

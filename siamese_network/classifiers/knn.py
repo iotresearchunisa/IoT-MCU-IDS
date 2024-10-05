@@ -59,5 +59,5 @@ def train_knn(csv_file):
     print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
 
 if __name__ == "__main__":
-    csv_file = '../dataset/mio/dataset_attacchi_bilanciato.csv'
+    csv_file = '../datasets/mio/dataset_attacchi_bilanciato.csv'
     train_knn(csv_file)
