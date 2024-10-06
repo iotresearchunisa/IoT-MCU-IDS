@@ -80,5 +80,3 @@ class SiameseNet:
                                                                  'accuracy': self.accuracy,
                                                                  'euclidean_distance': self.euclidean_distance,
                                                                  'eucl_dist_output_shape': self.eucl_dist_output_shape})
-
-        return self.siamese_net

@@ -1,0 +1,9346 @@
+Model: "siamese-network"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to
+==================================================================================================
+ input_1 (InputLayer)        [(None, 31, 1)]              0         []
+
+ input_2 (InputLayer)        [(None, 31, 1)]              0         []
+
+ sequential (Sequential)     (None, 32)                   453728    ['input_1[0][0]',
+                                                                     'input_2[0][0]']
+
+ lambda (Lambda)             (None, 32)                   0         ['sequential[0][0]',
+                                                                     'sequential[1][0]']
+
+ dense (Dense)               (None, 512)                  16896     ['lambda[0][0]']
+
+ dropout (Dropout)           (None, 512)                  0         ['dense[0][0]']
+
+ dense_1 (Dense)             (None, 1)                    513       ['dropout[0][0]']
+
+==================================================================================================
+Total params: 471137 (1.80 MB)
+Trainable params: 471137 (1.80 MB)
+Non-trainable params: 0 (0.00 Byte)
+__________________________________________________________________________________________________
+
+Numero di classi train: 5
+Numero di classi test: 5
+
+Numero di features totali: 31
+Numero di pacchetti totali: 173005
+
+Starting training process!
+100
+200
+
+ -------------
+
+Train Loss: 0.7087448239326477
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 18.9% 5 way one-shot learning accuracy
+
+Current best: 18.9, previous best: -1
+200
+Model saved!
+300
+400
+
+ -------------
+
+Train Loss: 0.713077962398529
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.3% 5 way one-shot learning accuracy
+
+Current best: 20.3, previous best: 18.9
+400
+Model saved!
+500
+600
+
+ -------------
+
+Train Loss: 0.7038049697875977
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 18.9% 5 way one-shot learning accuracy
+
+700
+800
+
+ -------------
+
+Train Loss: 0.7005748748779297
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 23.1% 5 way one-shot learning accuracy
+
+Current best: 23.1, previous best: 20.3
+800
+Model saved!
+900
+1000
+
+ -------------
+
+Train Loss: 0.7179234027862549
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.4% 5 way one-shot learning accuracy
+
+1100
+1200
+
+ -------------
+
+Train Loss: 0.7388758659362793
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 22.2% 5 way one-shot learning accuracy
+
+1300
+1400
+
+ -------------
+
+Train Loss: 0.7170532941818237
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 23.0% 5 way one-shot learning accuracy
+
+1500
+1600
+
+ -------------
+
+Train Loss: 0.7062299251556396
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 26.1% 5 way one-shot learning accuracy
+
+Current best: 26.1, previous best: 23.1
+1600
+Model saved!
+1700
+1800
+
+ -------------
+
+Train Loss: 0.7113482356071472
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 21.6% 5 way one-shot learning accuracy
+
+1900
+2000
+
+ -------------
+
+Train Loss: 0.7103934288024902
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 13.6% 5 way one-shot learning accuracy
+
+2100
+2200
+
+ -------------
+
+Train Loss: 0.7000506520271301
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 22.2% 5 way one-shot learning accuracy
+
+2300
+2400
+
+ -------------
+
+Train Loss: 0.7155907154083252
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.7% 5 way one-shot learning accuracy
+
+2500
+2600
+
+ -------------
+
+Train Loss: 0.695937991142273
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.7% 5 way one-shot learning accuracy
+
+2700
+2800
+
+ -------------
+
+Train Loss: 0.7343280911445618
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 19.8% 5 way one-shot learning accuracy
+
+2900
+3000
+
+ -------------
+
+Train Loss: 0.6937752962112427
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 24.2% 5 way one-shot learning accuracy
+
+3100
+3200
+
+ -------------
+
+Train Loss: 0.6963702440261841
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 26.5% 5 way one-shot learning accuracy
+
+Current best: 26.5, previous best: 26.1
+3200
+Model saved!
+3300
+3400
+
+ -------------
+
+Train Loss: 0.7043242454528809
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 19.7% 5 way one-shot learning accuracy
+
+3500
+3600
+
+ -------------
+
+Train Loss: 0.7118982076644897
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 19.2% 5 way one-shot learning accuracy
+
+3700
+3800
+
+ -------------
+
+Train Loss: 0.7244845628738403
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.4% 5 way one-shot learning accuracy
+
+3900
+4000
+
+ -------------
+
+Train Loss: 0.7215225100517273
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 21.1% 5 way one-shot learning accuracy
+
+4100
+4200
+
+ -------------
+
+Train Loss: 0.6984903216362
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.8% 5 way one-shot learning accuracy
+
+4300
+4400
+
+ -------------
+
+Train Loss: 0.7346680164337158
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.4% 5 way one-shot learning accuracy
+
+4500
+4600
+
+ -------------
+
+Train Loss: 0.7012335062026978
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 13.5% 5 way one-shot learning accuracy
+
+4700
+4800
+
+ -------------
+
+Train Loss: 0.720180332660675
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 21.3% 5 way one-shot learning accuracy
+
+4900
+5000
+
+ -------------
+
+Train Loss: 0.7114874720573425
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 29.9% 5 way one-shot learning accuracy
+
+Current best: 29.9, previous best: 26.5
+5000
+Model saved!
+5100
+5200
+
+ -------------
+
+Train Loss: 0.7027623057365417
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 18.6% 5 way one-shot learning accuracy
+
+5300
+5400
+
+ -------------
+
+Train Loss: 0.7113431096076965
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 14.5% 5 way one-shot learning accuracy
+
+5500
+5600
+
+ -------------
+
+Train Loss: 0.7204890847206116
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 14.2% 5 way one-shot learning accuracy
+
+5700
+5800
+
+ -------------
+
+Train Loss: 0.7250456809997559
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 22.5% 5 way one-shot learning accuracy
+
+5900
+6000
+
+ -------------
+
+Train Loss: 0.7120357751846313
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 18.9% 5 way one-shot learning accuracy
+
+6100
+6200
+
+ -------------
+
+Train Loss: 0.7082241773605347
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 23.5% 5 way one-shot learning accuracy
+
+6300
+6400
+
+ -------------
+
+Train Loss: 0.7077901363372803
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 24.4% 5 way one-shot learning accuracy
+
+6500
+6600
+
+ -------------
+
+Train Loss: 0.7218933701515198
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 24.5% 5 way one-shot learning accuracy
+
+6700
+6800
+
+ -------------
+
+Train Loss: 0.694957435131073
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 21.8% 5 way one-shot learning accuracy
+
+6900
+7000
+
+ -------------
+
+Train Loss: 0.7016991376876831
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.1% 5 way one-shot learning accuracy
+
+7100
+7200
+
+ -------------
+
+Train Loss: 0.7339179515838623
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 20.3% 5 way one-shot learning accuracy
+
+7300
+7400
+
+ -------------
+
+Train Loss: 0.7419710159301758
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 24.8% 5 way one-shot learning accuracy
+
+7500
+7600
+
+ -------------
+
+Train Loss: 0.7093609571456909
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 48.5% 5 way one-shot learning accuracy
+
+Current best: 48.5, previous best: 29.9
+7600
+Model saved!
+7700
+7800
+
+ -------------
+
+Train Loss: 0.7205296754837036
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 39.5% 5 way one-shot learning accuracy
+
+7900
+8000
+
+ -------------
+
+Train Loss: 0.7074598073959351
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 26.1% 5 way one-shot learning accuracy
+
+8100
+8200
+
+ -------------
+
+Train Loss: 0.7336331605911255
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 26.7% 5 way one-shot learning accuracy
+
+8300
+8400
+
+ -------------
+
+Train Loss: 0.7163606882095337
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 33.5% 5 way one-shot learning accuracy
+
+8500
+8600
+
+ -------------
+
+Train Loss: 0.6994369626045227
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 40.5% 5 way one-shot learning accuracy
+
+8700
+8800
+
+ -------------
+
+Train Loss: 0.7142521142959595
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 25.4% 5 way one-shot learning accuracy
+
+8900
+9000
+
+ -------------
+
+Train Loss: 0.7054682970046997
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 39.7% 5 way one-shot learning accuracy
+
+9100
+9200
+
+ -------------
+
+Train Loss: 0.7245842814445496
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 22.7% 5 way one-shot learning accuracy
+
+9300
+9400
+
+ -------------
+
+Train Loss: 0.7008565664291382
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 35.3% 5 way one-shot learning accuracy
+
+9500
+9600
+
+ -------------
+
+Train Loss: 0.7064428329467773
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 39.6% 5 way one-shot learning accuracy
+
+9700
+9800
+
+ -------------
+
+Train Loss: 0.7124291658401489
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 29.0% 5 way one-shot learning accuracy
+
+9900
+10000
+
+ -------------
+
+Train Loss: 0.7199752330780029
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 46.7% 5 way one-shot learning accuracy
+
+10100
+10200
+
+ -------------
+
+Train Loss: 0.7161473035812378
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 42.7% 5 way one-shot learning accuracy
+
+10300
+10400
+
+ -------------
+
+Train Loss: 0.7069635987281799
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 35.8% 5 way one-shot learning accuracy
+
+10500
+10600
+
+ -------------
+
+Train Loss: 0.7193665504455566
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 36.0% 5 way one-shot learning accuracy
+
+10700
+10800
+
+ -------------
+
+Train Loss: 0.6975093483924866
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 31.2% 5 way one-shot learning accuracy
+
+10900
+11000
+
+ -------------
+
+Train Loss: 0.733487606048584
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 48.1% 5 way one-shot learning accuracy
+
+11100
+11200
+
+ -------------
+
+Train Loss: 0.7007732391357422
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 47.1% 5 way one-shot learning accuracy
+
+11300
+11400
+
+ -------------
+
+Train Loss: 0.7014778852462769
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 44.2% 5 way one-shot learning accuracy
+
+11500
+11600
+
+ -------------
+
+Train Loss: 0.7147135734558105
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 38.4% 5 way one-shot learning accuracy
+
+11700
+11800
+
+ -------------
+
+Train Loss: 0.6975198984146118
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 40.6% 5 way one-shot learning accuracy
+
+11900
+12000
+
+ -------------
+
+Train Loss: 0.7081608176231384
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.2% 5 way one-shot learning accuracy
+
+Current best: 52.2, previous best: 48.5
+12000
+Model saved!
+12100
+12200
+
+ -------------
+
+Train Loss: 0.6891781091690063
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 46.7% 5 way one-shot learning accuracy
+
+12300
+12400
+
+ -------------
+
+Train Loss: 0.6965503096580505
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 48.9% 5 way one-shot learning accuracy
+
+12500
+12600
+
+ -------------
+
+Train Loss: 0.7031682133674622
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 49.0% 5 way one-shot learning accuracy
+
+12700
+12800
+
+ -------------
+
+Train Loss: 0.7178705930709839
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 55.7% 5 way one-shot learning accuracy
+
+Current best: 55.7, previous best: 52.2
+12800
+Model saved!
+12900
+13000
+
+ -------------
+
+Train Loss: 0.7044832110404968
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.5% 5 way one-shot learning accuracy
+
+13100
+13200
+
+ -------------
+
+Train Loss: 0.7235351204872131
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.2% 5 way one-shot learning accuracy
+
+13300
+13400
+
+ -------------
+
+Train Loss: 0.692816972732544
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 49.3% 5 way one-shot learning accuracy
+
+13500
+13600
+
+ -------------
+
+Train Loss: 0.6968842148780823
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 51.5% 5 way one-shot learning accuracy
+
+13700
+13800
+
+ -------------
+
+Train Loss: 0.6920260190963745
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.6% 5 way one-shot learning accuracy
+
+13900
+14000
+
+ -------------
+
+Train Loss: 0.6965043544769287
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.5% 5 way one-shot learning accuracy
+
+14100
+14200
+
+ -------------
+
+Train Loss: 0.6998074054718018
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 50.9% 5 way one-shot learning accuracy
+
+14300
+14400
+
+ -------------
+
+Train Loss: 0.7163898348808289
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 50.9% 5 way one-shot learning accuracy
+
+14500
+14600
+
+ -------------
+
+Train Loss: 0.699752688407898
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.5% 5 way one-shot learning accuracy
+
+14700
+14800
+
+ -------------
+
+Train Loss: 0.7232884764671326
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.5% 5 way one-shot learning accuracy
+
+14900
+15000
+
+ -------------
+
+Train Loss: 0.7082814574241638
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.0% 5 way one-shot learning accuracy
+
+15100
+15200
+
+ -------------
+
+Train Loss: 0.7023221850395203
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.4% 5 way one-shot learning accuracy
+
+15300
+15400
+
+ -------------
+
+Train Loss: 0.7391047477722168
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 56.4% 5 way one-shot learning accuracy
+
+Current best: 56.4, previous best: 55.7
+15400
+Model saved!
+15500
+15600
+
+ -------------
+
+Train Loss: 0.6895718574523926
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 50.2% 5 way one-shot learning accuracy
+
+15700
+15800
+
+ -------------
+
+Train Loss: 0.6944228410720825
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.2% 5 way one-shot learning accuracy
+
+15900
+16000
+
+ -------------
+
+Train Loss: 0.7173401117324829
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.9% 5 way one-shot learning accuracy
+
+16100
+16200
+
+ -------------
+
+Train Loss: 0.7043333053588867
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.1% 5 way one-shot learning accuracy
+
+16300
+16400
+
+ -------------
+
+Train Loss: 0.7224935293197632
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.1% 5 way one-shot learning accuracy
+
+16500
+16600
+
+ -------------
+
+Train Loss: 0.7081841230392456
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.9% 5 way one-shot learning accuracy
+
+16700
+16800
+
+ -------------
+
+Train Loss: 0.7126290202140808
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.1% 5 way one-shot learning accuracy
+
+16900
+17000
+
+ -------------
+
+Train Loss: 0.7223717570304871
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 48.7% 5 way one-shot learning accuracy
+
+17100
+17200
+
+ -------------
+
+Train Loss: 0.7010253071784973
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 47.5% 5 way one-shot learning accuracy
+
+17300
+17400
+
+ -------------
+
+Train Loss: 0.7005894184112549
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 48.9% 5 way one-shot learning accuracy
+
+17500
+17600
+
+ -------------
+
+Train Loss: 0.6580215096473694
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 48.1% 5 way one-shot learning accuracy
+
+17700
+17800
+
+ -------------
+
+Train Loss: 0.654610276222229
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 49.0% 5 way one-shot learning accuracy
+
+17900
+18000
+
+ -------------
+
+Train Loss: 0.6357306241989136
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.3% 5 way one-shot learning accuracy
+
+18100
+18200
+
+ -------------
+
+Train Loss: 0.6055403351783752
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 50.1% 5 way one-shot learning accuracy
+
+18300
+18400
+
+ -------------
+
+Train Loss: 0.6266209483146667
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 50.4% 5 way one-shot learning accuracy
+
+18500
+18600
+
+ -------------
+
+Train Loss: 0.5590120553970337
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.1% 5 way one-shot learning accuracy
+
+18700
+18800
+
+ -------------
+
+Train Loss: 0.5927881598472595
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.6% 5 way one-shot learning accuracy
+
+18900
+19000
+
+ -------------
+
+Train Loss: 0.6195118427276611
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 51.6% 5 way one-shot learning accuracy
+
+19100
+19200
+
+ -------------
+
+Train Loss: 0.5634146332740784
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 55.3% 5 way one-shot learning accuracy
+
+19300
+19400
+
+ -------------
+
+Train Loss: 0.5898685455322266
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.2% 5 way one-shot learning accuracy
+
+19500
+19600
+
+ -------------
+
+Train Loss: 0.6065994501113892
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.5% 5 way one-shot learning accuracy
+
+19700
+19800
+
+ -------------
+
+Train Loss: 0.631753146648407
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.4% 5 way one-shot learning accuracy
+
+19900
+20000
+
+ -------------
+
+Train Loss: 0.6005023121833801
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.6% 5 way one-shot learning accuracy
+
+20100
+20200
+
+ -------------
+
+Train Loss: 0.6285468935966492
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 52.3% 5 way one-shot learning accuracy
+
+20300
+20400
+
+ -------------
+
+Train Loss: 0.5800872445106506
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 57.1% 5 way one-shot learning accuracy
+
+Current best: 57.1, previous best: 56.4
+20400
+Model saved!
+20500
+20600
+
+ -------------
+
+Train Loss: 0.5692812204360962
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.1% 5 way one-shot learning accuracy
+
+20700
+20800
+
+ -------------
+
+Train Loss: 0.6217601299285889
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.4% 5 way one-shot learning accuracy
+
+20900
+21000
+
+ -------------
+
+Train Loss: 0.5471234321594238
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 55.3% 5 way one-shot learning accuracy
+
+21100
+21200
+
+ -------------
+
+Train Loss: 0.5962810516357422
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.5% 5 way one-shot learning accuracy
+
+21300
+21400
+
+ -------------
+
+Train Loss: 0.5644818544387817
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.8% 5 way one-shot learning accuracy
+
+21500
+21600
+
+ -------------
+
+Train Loss: 0.5615584254264832
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 55.8% 5 way one-shot learning accuracy
+
+21700
+21800
+
+ -------------
+
+Train Loss: 0.5504745244979858
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 57.2% 5 way one-shot learning accuracy
+
+Current best: 57.2, previous best: 57.1
+21800
+Model saved!
+21900
+22000
+
+ -------------
+
+Train Loss: 0.5488885641098022
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 56.1% 5 way one-shot learning accuracy
+
+22100
+22200
+
+ -------------
+
+Train Loss: 0.5793848037719727
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.9% 5 way one-shot learning accuracy
+
+22300
+22400
+
+ -------------
+
+Train Loss: 0.6286785006523132
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 53.2% 5 way one-shot learning accuracy
+
+22500
+22600
+
+ -------------
+
+Train Loss: 0.5334678292274475
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 54.9% 5 way one-shot learning accuracy
+
+22700
+22800
+
+ -------------
+
+Train Loss: 0.5109429955482483
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 56.9% 5 way one-shot learning accuracy
+
+22900
+23000
+
+ -------------
+
+Train Loss: 0.5712127089500427
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.6% 5 way one-shot learning accuracy
+
+Current best: 58.6, previous best: 57.2
+23000
+Model saved!
+23100
+23200
+
+ -------------
+
+Train Loss: 0.5497379302978516
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.7% 5 way one-shot learning accuracy
+
+Current best: 58.7, previous best: 58.6
+23200
+Model saved!
+23300
+23400
+
+ -------------
+
+Train Loss: 0.5582106113433838
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 56.9% 5 way one-shot learning accuracy
+
+23500
+23600
+
+ -------------
+
+Train Loss: 0.546373188495636
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.3% 5 way one-shot learning accuracy
+
+23700
+23800
+
+ -------------
+
+Train Loss: 0.5766489505767822
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 56.0% 5 way one-shot learning accuracy
+
+23900
+24000
+
+ -------------
+
+Train Loss: 0.5534487962722778
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.7% 5 way one-shot learning accuracy
+
+Current best: 58.7, previous best: 58.7
+24000
+Model saved!
+24100
+24200
+
+ -------------
+
+Train Loss: 0.6013810634613037
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 57.0% 5 way one-shot learning accuracy
+
+24300
+24400
+
+ -------------
+
+Train Loss: 0.5885076522827148
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.9% 5 way one-shot learning accuracy
+
+Current best: 58.9, previous best: 58.7
+24400
+Model saved!
+24500
+24600
+
+ -------------
+
+Train Loss: 0.5430055260658264
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 59.6% 5 way one-shot learning accuracy
+
+Current best: 59.6, previous best: 58.9
+24600
+Model saved!
+24700
+24800
+
+ -------------
+
+Train Loss: 0.5484219789505005
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 57.8% 5 way one-shot learning accuracy
+
+24900
+25000
+
+ -------------
+
+Train Loss: 0.5886228084564209
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 56.6% 5 way one-shot learning accuracy
+
+25100
+25200
+
+ -------------
+
+Train Loss: 0.5322112441062927
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 57.9% 5 way one-shot learning accuracy
+
+25300
+25400
+
+ -------------
+
+Train Loss: 0.5849238634109497
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.3% 5 way one-shot learning accuracy
+
+25500
+25600
+
+ -------------
+
+Train Loss: 0.5541182160377502
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 58.7% 5 way one-shot learning accuracy
+
+25700
+25800
+
+ -------------
+
+Train Loss: 0.5395047068595886
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 57.9% 5 way one-shot learning accuracy
+
+25900
+26000
+
+ -------------
+
+Train Loss: 0.5736401081085205
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 59.6% 5 way one-shot learning accuracy
+
+Current best: 59.6, previous best: 59.6
+26000
+Model saved!
+26100
+26200
+
+ -------------
+
+Train Loss: 0.5277157425880432
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 60.7% 5 way one-shot learning accuracy
+
+Current best: 60.7, previous best: 59.6
+26200
+Model saved!
+26300
+26400
+
+ -------------
+
+Train Loss: 0.5268833041191101
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 61.3% 5 way one-shot learning accuracy
+
+Current best: 61.3, previous best: 60.7
+26400
+Model saved!
+26500
+26600
+
+ -------------
+
+Train Loss: 0.5351148247718811
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 60.2% 5 way one-shot learning accuracy
+
+26700
+26800
+
+ -------------
+
+Train Loss: 0.48952117562294006
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 59.4% 5 way one-shot learning accuracy
+
+26900
+27000
+
+ -------------
+
+Train Loss: 0.48904940485954285
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 61.4% 5 way one-shot learning accuracy
+
+Current best: 61.4, previous best: 61.3
+27000
+Model saved!
+27100
+27200
+
+ -------------
+
+Train Loss: 0.5041038393974304
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 61.0% 5 way one-shot learning accuracy
+
+27300
+27400
+
+ -------------
+
+Train Loss: 0.4987795352935791
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 60.1% 5 way one-shot learning accuracy
+
+27500
+27600
+
+ -------------
+
+Train Loss: 0.5101994276046753
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 61.5% 5 way one-shot learning accuracy
+
+Current best: 61.5, previous best: 61.4
+27600
+Model saved!
+27700
+27800
+
+ -------------
+
+Train Loss: 0.5331242680549622
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.1% 5 way one-shot learning accuracy
+
+Current best: 62.1, previous best: 61.5
+27800
+Model saved!
+27900
+28000
+
+ -------------
+
+Train Loss: 0.49007004499435425
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.9% 5 way one-shot learning accuracy
+
+Current best: 62.9, previous best: 62.1
+28000
+Model saved!
+28100
+28200
+
+ -------------
+
+Train Loss: 0.5188876986503601
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 59.4% 5 way one-shot learning accuracy
+
+28300
+28400
+
+ -------------
+
+Train Loss: 0.49908071756362915
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.6% 5 way one-shot learning accuracy
+
+28500
+28600
+
+ -------------
+
+Train Loss: 0.5178494453430176
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 61.3% 5 way one-shot learning accuracy
+
+28700
+28800
+
+ -------------
+
+Train Loss: 0.5123900175094604
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 63.9% 5 way one-shot learning accuracy
+
+Current best: 63.9, previous best: 62.9
+28800
+Model saved!
+28900
+29000
+
+ -------------
+
+Train Loss: 0.4432967007160187
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 61.8% 5 way one-shot learning accuracy
+
+29100
+29200
+
+ -------------
+
+Train Loss: 0.4169021546840668
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.2% 5 way one-shot learning accuracy
+
+29300
+29400
+
+ -------------
+
+Train Loss: 0.48904210329055786
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 67.0% 5 way one-shot learning accuracy
+
+Current best: 67.0, previous best: 63.9
+29400
+Model saved!
+29500
+29600
+
+ -------------
+
+Train Loss: 0.5338767170906067
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 63.9% 5 way one-shot learning accuracy
+
+29700
+29800
+
+ -------------
+
+Train Loss: 0.5559806823730469
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 63.6% 5 way one-shot learning accuracy
+
+29900
+30000
+
+ -------------
+
+Train Loss: 0.48391520977020264
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 63.6% 5 way one-shot learning accuracy
+
+30100
+30200
+
+ -------------
+
+Train Loss: 0.4860514998435974
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 65.0% 5 way one-shot learning accuracy
+
+30300
+30400
+
+ -------------
+
+Train Loss: 0.49009254574775696
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.9% 5 way one-shot learning accuracy
+
+30500
+30600
+
+ -------------
+
+Train Loss: 0.4704132080078125
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.7% 5 way one-shot learning accuracy
+
+30700
+30800
+
+ -------------
+
+Train Loss: 0.5318729877471924
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 64.0% 5 way one-shot learning accuracy
+
+30900
+31000
+
+ -------------
+
+Train Loss: 0.4717273414134979
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.3% 5 way one-shot learning accuracy
+
+31100
+31200
+
+ -------------
+
+Train Loss: 0.5207984447479248
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 64.0% 5 way one-shot learning accuracy
+
+31300
+31400
+
+ -------------
+
+Train Loss: 0.520904004573822
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 62.6% 5 way one-shot learning accuracy
+
+31500
+31600
+
+ -------------
+
+Train Loss: 0.425580769777298
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 66.9% 5 way one-shot learning accuracy
+
+31700
+31800
+
+ -------------
+
+Train Loss: 0.4605547785758972
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 64.7% 5 way one-shot learning accuracy
+
+31900
+32000
+
+ -------------
+
+Train Loss: 0.4515227973461151
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 64.0% 5 way one-shot learning accuracy
+
+32100
+32200
+
+ -------------
+
+Train Loss: 0.45800742506980896
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 66.7% 5 way one-shot learning accuracy
+
+32300
+32400
+
+ -------------
+
+Train Loss: 0.4883965253829956
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 66.4% 5 way one-shot learning accuracy
+
+32500
+32600
+
+ -------------
+
+Train Loss: 0.44342103600502014
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 66.7% 5 way one-shot learning accuracy
+
+32700
+32800
+
+ -------------
+
+Train Loss: 0.3860190510749817
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 64.8% 5 way one-shot learning accuracy
+
+32900
+33000
+
+ -------------
+
+Train Loss: 0.5078510642051697
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 68.7% 5 way one-shot learning accuracy
+
+Current best: 68.7, previous best: 67.0
+33000
+Model saved!
+33100
+33200
+
+ -------------
+
+Train Loss: 0.433597594499588
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 65.7% 5 way one-shot learning accuracy
+
+33300
+33400
+
+ -------------
+
+Train Loss: 0.466434121131897
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 66.9% 5 way one-shot learning accuracy
+
+33500
+33600
+
+ -------------
+
+Train Loss: 0.4945523142814636
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 67.7% 5 way one-shot learning accuracy
+
+33700
+33800
+
+ -------------
+
+Train Loss: 0.41458719968795776
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 68.4% 5 way one-shot learning accuracy
+
+33900
+34000
+
+ -------------
+
+Train Loss: 0.45889729261398315
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 68.8% 5 way one-shot learning accuracy
+
+Current best: 68.8, previous best: 68.7
+34000
+Model saved!
+34100
+34200
+
+ -------------
+
+Train Loss: 0.38797727227211
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 68.6% 5 way one-shot learning accuracy
+
+34300
+34400
+
+ -------------
+
+Train Loss: 0.4268118739128113
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 70.1% 5 way one-shot learning accuracy
+
+Current best: 70.1, previous best: 68.8
+34400
+Model saved!
+34500
+34600
+
+ -------------
+
+Train Loss: 0.4533076882362366
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 70.7% 5 way one-shot learning accuracy
+
+Current best: 70.7, previous best: 70.1
+34600
+Model saved!
+34700
+34800
+
+ -------------
+
+Train Loss: 0.3835065960884094
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 69.7% 5 way one-shot learning accuracy
+
+34900
+35000
+
+ -------------
+
+Train Loss: 0.4860794246196747
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 67.8% 5 way one-shot learning accuracy
+
+35100
+35200
+
+ -------------
+
+Train Loss: 0.4750582277774811
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 68.7% 5 way one-shot learning accuracy
+
+35300
+35400
+
+ -------------
+
+Train Loss: 0.4227665960788727
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 71.1% 5 way one-shot learning accuracy
+
+Current best: 71.1, previous best: 70.7
+35400
+Model saved!
+35500
+35600
+
+ -------------
+
+Train Loss: 0.45869097113609314
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 70.5% 5 way one-shot learning accuracy
+
+35700
+35800
+
+ -------------
+
+Train Loss: 0.4176393747329712
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 71.8% 5 way one-shot learning accuracy
+
+Current best: 71.8, previous best: 71.1
+35800
+Model saved!
+35900
+36000
+
+ -------------
+
+Train Loss: 0.44273829460144043
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.0% 5 way one-shot learning accuracy
+
+Current best: 72.0, previous best: 71.8
+36000
+Model saved!
+36100
+36200
+
+ -------------
+
+Train Loss: 0.3930055499076843
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.0% 5 way one-shot learning accuracy
+
+Current best: 73.0, previous best: 72.0
+36200
+Model saved!
+36300
+36400
+
+ -------------
+
+Train Loss: 0.4619128406047821
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.2% 5 way one-shot learning accuracy
+
+36500
+36600
+
+ -------------
+
+Train Loss: 0.41472575068473816
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.4% 5 way one-shot learning accuracy
+
+Current best: 73.4, previous best: 73.0
+36600
+Model saved!
+36700
+36800
+
+ -------------
+
+Train Loss: 0.40108317136764526
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.2% 5 way one-shot learning accuracy
+
+36900
+37000
+
+ -------------
+
+Train Loss: 0.42323189973831177
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.6% 5 way one-shot learning accuracy
+
+37100
+37200
+
+ -------------
+
+Train Loss: 0.4734240770339966
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.6% 5 way one-shot learning accuracy
+
+37300
+37400
+
+ -------------
+
+Train Loss: 0.34415125846862793
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 71.1% 5 way one-shot learning accuracy
+
+37500
+37600
+
+ -------------
+
+Train Loss: 0.447857528924942
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.4% 5 way one-shot learning accuracy
+
+Current best: 74.4, previous best: 73.4
+37600
+Model saved!
+37700
+37800
+
+ -------------
+
+Train Loss: 0.4020843505859375
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 70.5% 5 way one-shot learning accuracy
+
+37900
+38000
+
+ -------------
+
+Train Loss: 0.36986076831817627
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.0% 5 way one-shot learning accuracy
+
+38100
+38200
+
+ -------------
+
+Train Loss: 0.40485116839408875
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.2% 5 way one-shot learning accuracy
+
+38300
+38400
+
+ -------------
+
+Train Loss: 0.3185279071331024
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.8% 5 way one-shot learning accuracy
+
+38500
+38600
+
+ -------------
+
+Train Loss: 0.39561623334884644
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.5% 5 way one-shot learning accuracy
+
+38700
+38800
+
+ -------------
+
+Train Loss: 0.3323662579059601
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.5% 5 way one-shot learning accuracy
+
+Current best: 75.5, previous best: 74.4
+38800
+Model saved!
+38900
+39000
+
+ -------------
+
+Train Loss: 0.39621812105178833
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.7% 5 way one-shot learning accuracy
+
+39100
+39200
+
+ -------------
+
+Train Loss: 0.33778461813926697
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.3% 5 way one-shot learning accuracy
+
+39300
+39400
+
+ -------------
+
+Train Loss: 0.36060911417007446
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 71.9% 5 way one-shot learning accuracy
+
+39500
+39600
+
+ -------------
+
+Train Loss: 0.40716081857681274
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.0% 5 way one-shot learning accuracy
+
+39700
+39800
+
+ -------------
+
+Train Loss: 0.34929171204566956
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.8% 5 way one-shot learning accuracy
+
+39900
+40000
+
+ -------------
+
+Train Loss: 0.38946178555488586
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.0% 5 way one-shot learning accuracy
+
+40100
+40200
+
+ -------------
+
+Train Loss: 0.350614458322525
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.4% 5 way one-shot learning accuracy
+
+40300
+40400
+
+ -------------
+
+Train Loss: 0.34929347038269043
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.5% 5 way one-shot learning accuracy
+
+40500
+40600
+
+ -------------
+
+Train Loss: 0.40743765234947205
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.0% 5 way one-shot learning accuracy
+
+Current best: 76.0, previous best: 75.5
+40600
+Model saved!
+40700
+40800
+
+ -------------
+
+Train Loss: 0.3804597556591034
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.5% 5 way one-shot learning accuracy
+
+Current best: 77.5, previous best: 76.0
+40800
+Model saved!
+40900
+41000
+
+ -------------
+
+Train Loss: 0.4074466824531555
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 72.6% 5 way one-shot learning accuracy
+
+41100
+41200
+
+ -------------
+
+Train Loss: 0.42631977796554565
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.3% 5 way one-shot learning accuracy
+
+41300
+41400
+
+ -------------
+
+Train Loss: 0.3888075649738312
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.1% 5 way one-shot learning accuracy
+
+41500
+41600
+
+ -------------
+
+Train Loss: 0.3727729618549347
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.0% 5 way one-shot learning accuracy
+
+41700
+41800
+
+ -------------
+
+Train Loss: 0.39407777786254883
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.3% 5 way one-shot learning accuracy
+
+41900
+42000
+
+ -------------
+
+Train Loss: 0.3360031545162201
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.7% 5 way one-shot learning accuracy
+
+42100
+42200
+
+ -------------
+
+Train Loss: 0.3657762110233307
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.4% 5 way one-shot learning accuracy
+
+42300
+42400
+
+ -------------
+
+Train Loss: 0.3411354422569275
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.0% 5 way one-shot learning accuracy
+
+42500
+42600
+
+ -------------
+
+Train Loss: 0.38756293058395386
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.4% 5 way one-shot learning accuracy
+
+42700
+42800
+
+ -------------
+
+Train Loss: 0.3131157457828522
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.1% 5 way one-shot learning accuracy
+
+42900
+43000
+
+ -------------
+
+Train Loss: 0.3495868146419525
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.7% 5 way one-shot learning accuracy
+
+43100
+43200
+
+ -------------
+
+Train Loss: 0.4152124226093292
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.3% 5 way one-shot learning accuracy
+
+43300
+43400
+
+ -------------
+
+Train Loss: 0.3685258626937866
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.4% 5 way one-shot learning accuracy
+
+43500
+43600
+
+ -------------
+
+Train Loss: 0.3367631733417511
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.1% 5 way one-shot learning accuracy
+
+43700
+43800
+
+ -------------
+
+Train Loss: 0.3900788724422455
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.1% 5 way one-shot learning accuracy
+
+43900
+44000
+
+ -------------
+
+Train Loss: 0.31068435311317444
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.6% 5 way one-shot learning accuracy
+
+44100
+44200
+
+ -------------
+
+Train Loss: 0.332952082157135
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.6% 5 way one-shot learning accuracy
+
+44300
+44400
+
+ -------------
+
+Train Loss: 0.34712374210357666
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.4% 5 way one-shot learning accuracy
+
+44500
+44600
+
+ -------------
+
+Train Loss: 0.3442620635032654
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.3% 5 way one-shot learning accuracy
+
+44700
+44800
+
+ -------------
+
+Train Loss: 0.3346611261367798
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.3% 5 way one-shot learning accuracy
+
+44900
+45000
+
+ -------------
+
+Train Loss: 0.38936489820480347
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.1% 5 way one-shot learning accuracy
+
+45100
+45200
+
+ -------------
+
+Train Loss: 0.3477032780647278
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.6% 5 way one-shot learning accuracy
+
+45300
+45400
+
+ -------------
+
+Train Loss: 0.3409530520439148
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.6% 5 way one-shot learning accuracy
+
+45500
+45600
+
+ -------------
+
+Train Loss: 0.36547115445137024
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.3% 5 way one-shot learning accuracy
+
+45700
+45800
+
+ -------------
+
+Train Loss: 0.2954648733139038
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.8% 5 way one-shot learning accuracy
+
+45900
+46000
+
+ -------------
+
+Train Loss: 0.32578781247138977
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.2% 5 way one-shot learning accuracy
+
+46100
+46200
+
+ -------------
+
+Train Loss: 0.39095717668533325
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.6% 5 way one-shot learning accuracy
+
+46300
+46400
+
+ -------------
+
+Train Loss: 0.3283645212650299
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.4% 5 way one-shot learning accuracy
+
+46500
+46600
+
+ -------------
+
+Train Loss: 0.33622896671295166
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.6% 5 way one-shot learning accuracy
+
+46700
+46800
+
+ -------------
+
+Train Loss: 0.31002625823020935
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.0% 5 way one-shot learning accuracy
+
+46900
+47000
+
+ -------------
+
+Train Loss: 0.37720996141433716
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.8% 5 way one-shot learning accuracy
+
+47100
+47200
+
+ -------------
+
+Train Loss: 0.2872847020626068
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.6% 5 way one-shot learning accuracy
+
+47300
+47400
+
+ -------------
+
+Train Loss: 0.35737505555152893
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.9% 5 way one-shot learning accuracy
+
+47500
+47600
+
+ -------------
+
+Train Loss: 0.3316613435745239
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.5% 5 way one-shot learning accuracy
+
+Current best: 77.5, previous best: 77.5
+47600
+Model saved!
+47700
+47800
+
+ -------------
+
+Train Loss: 0.36154988408088684
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.5% 5 way one-shot learning accuracy
+
+47900
+48000
+
+ -------------
+
+Train Loss: 0.3675970137119293
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.7% 5 way one-shot learning accuracy
+
+48100
+48200
+
+ -------------
+
+Train Loss: 0.39192479848861694
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.5% 5 way one-shot learning accuracy
+
+48300
+48400
+
+ -------------
+
+Train Loss: 0.36437296867370605
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.6% 5 way one-shot learning accuracy
+
+48500
+48600
+
+ -------------
+
+Train Loss: 0.3986600339412689
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.7% 5 way one-shot learning accuracy
+
+48700
+48800
+
+ -------------
+
+Train Loss: 0.3304671049118042
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.1% 5 way one-shot learning accuracy
+
+48900
+49000
+
+ -------------
+
+Train Loss: 0.36896851658821106
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.0% 5 way one-shot learning accuracy
+
+49100
+49200
+
+ -------------
+
+Train Loss: 0.3376893401145935
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.8% 5 way one-shot learning accuracy
+
+49300
+49400
+
+ -------------
+
+Train Loss: 0.3353017270565033
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.7% 5 way one-shot learning accuracy
+
+49500
+49600
+
+ -------------
+
+Train Loss: 0.4063287079334259
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.6% 5 way one-shot learning accuracy
+
+Current best: 78.6, previous best: 77.5
+49600
+Model saved!
+49700
+49800
+
+ -------------
+
+Train Loss: 0.2902562618255615
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.8% 5 way one-shot learning accuracy
+
+49900
+50000
+
+ -------------
+
+Train Loss: 0.3144482672214508
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.8% 5 way one-shot learning accuracy
+
+50100
+50200
+
+ -------------
+
+Train Loss: 0.4042336642742157
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.9% 5 way one-shot learning accuracy
+
+50300
+50400
+
+ -------------
+
+Train Loss: 0.3918033242225647
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.3% 5 way one-shot learning accuracy
+
+50500
+50600
+
+ -------------
+
+Train Loss: 0.3055691421031952
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.6% 5 way one-shot learning accuracy
+
+50700
+50800
+
+ -------------
+
+Train Loss: 0.35762250423431396
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.2% 5 way one-shot learning accuracy
+
+50900
+51000
+
+ -------------
+
+Train Loss: 0.2754400074481964
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.0% 5 way one-shot learning accuracy
+
+51100
+51200
+
+ -------------
+
+Train Loss: 0.3528347909450531
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.1% 5 way one-shot learning accuracy
+
+51300
+51400
+
+ -------------
+
+Train Loss: 0.36884868144989014
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.2% 5 way one-shot learning accuracy
+
+51500
+51600
+
+ -------------
+
+Train Loss: 0.31065821647644043
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.6% 5 way one-shot learning accuracy
+
+51700
+51800
+
+ -------------
+
+Train Loss: 0.35293155908584595
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.0% 5 way one-shot learning accuracy
+
+51900
+52000
+
+ -------------
+
+Train Loss: 0.3817744255065918
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.8% 5 way one-shot learning accuracy
+
+52100
+52200
+
+ -------------
+
+Train Loss: 0.32986733317375183
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.7% 5 way one-shot learning accuracy
+
+52300
+52400
+
+ -------------
+
+Train Loss: 0.32854384183883667
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.0% 5 way one-shot learning accuracy
+
+52500
+52600
+
+ -------------
+
+Train Loss: 0.37432965636253357
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.6% 5 way one-shot learning accuracy
+
+52700
+52800
+
+ -------------
+
+Train Loss: 0.32437318563461304
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.4% 5 way one-shot learning accuracy
+
+52900
+53000
+
+ -------------
+
+Train Loss: 0.3537999093532562
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.4% 5 way one-shot learning accuracy
+
+53100
+53200
+
+ -------------
+
+Train Loss: 0.28742095828056335
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.2% 5 way one-shot learning accuracy
+
+53300
+53400
+
+ -------------
+
+Train Loss: 0.2774844467639923
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 73.9% 5 way one-shot learning accuracy
+
+53500
+53600
+
+ -------------
+
+Train Loss: 0.3145950436592102
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.9% 5 way one-shot learning accuracy
+
+53700
+53800
+
+ -------------
+
+Train Loss: 0.2933957576751709
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.0% 5 way one-shot learning accuracy
+
+53900
+54000
+
+ -------------
+
+Train Loss: 0.3244527578353882
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.8% 5 way one-shot learning accuracy
+
+54100
+54200
+
+ -------------
+
+Train Loss: 0.31515002250671387
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.0% 5 way one-shot learning accuracy
+
+54300
+54400
+
+ -------------
+
+Train Loss: 0.2853788733482361
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.5% 5 way one-shot learning accuracy
+
+54500
+54600
+
+ -------------
+
+Train Loss: 0.329628586769104
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.9% 5 way one-shot learning accuracy
+
+54700
+54800
+
+ -------------
+
+Train Loss: 0.31825459003448486
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.8% 5 way one-shot learning accuracy
+
+54900
+55000
+
+ -------------
+
+Train Loss: 0.35915279388427734
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.6% 5 way one-shot learning accuracy
+
+Current best: 79.6, previous best: 78.6
+55000
+Model saved!
+55100
+55200
+
+ -------------
+
+Train Loss: 0.376308798789978
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.0% 5 way one-shot learning accuracy
+
+55300
+55400
+
+ -------------
+
+Train Loss: 0.3354586362838745
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.8% 5 way one-shot learning accuracy
+
+55500
+55600
+
+ -------------
+
+Train Loss: 0.3630461096763611
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.8% 5 way one-shot learning accuracy
+
+Current best: 79.8, previous best: 79.6
+55600
+Model saved!
+55700
+55800
+
+ -------------
+
+Train Loss: 0.3266485333442688
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.0% 5 way one-shot learning accuracy
+
+55900
+56000
+
+ -------------
+
+Train Loss: 0.30136191844940186
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.5% 5 way one-shot learning accuracy
+
+56100
+56200
+
+ -------------
+
+Train Loss: 0.29633665084838867
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.2% 5 way one-shot learning accuracy
+
+56300
+56400
+
+ -------------
+
+Train Loss: 0.3248191773891449
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 74.8% 5 way one-shot learning accuracy
+
+56500
+56600
+
+ -------------
+
+Train Loss: 0.31131047010421753
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.8% 5 way one-shot learning accuracy
+
+56700
+56800
+
+ -------------
+
+Train Loss: 0.3386433720588684
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.7% 5 way one-shot learning accuracy
+
+56900
+57000
+
+ -------------
+
+Train Loss: 0.3333530128002167
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.3% 5 way one-shot learning accuracy
+
+57100
+57200
+
+ -------------
+
+Train Loss: 0.3123972713947296
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.0% 5 way one-shot learning accuracy
+
+57300
+57400
+
+ -------------
+
+Train Loss: 0.3294844627380371
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.7% 5 way one-shot learning accuracy
+
+57500
+57600
+
+ -------------
+
+Train Loss: 0.40233510732650757
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.4% 5 way one-shot learning accuracy
+
+57700
+57800
+
+ -------------
+
+Train Loss: 0.2648789584636688
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.1% 5 way one-shot learning accuracy
+
+57900
+58000
+
+ -------------
+
+Train Loss: 0.2865980267524719
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.9% 5 way one-shot learning accuracy
+
+58100
+58200
+
+ -------------
+
+Train Loss: 0.3249812722206116
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.1% 5 way one-shot learning accuracy
+
+58300
+58400
+
+ -------------
+
+Train Loss: 0.3520314693450928
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.3% 5 way one-shot learning accuracy
+
+58500
+58600
+
+ -------------
+
+Train Loss: 0.29757338762283325
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.9% 5 way one-shot learning accuracy
+
+58700
+58800
+
+ -------------
+
+Train Loss: 0.36609697341918945
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.7% 5 way one-shot learning accuracy
+
+58900
+59000
+
+ -------------
+
+Train Loss: 0.2995811104774475
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.0% 5 way one-shot learning accuracy
+
+59100
+59200
+
+ -------------
+
+Train Loss: 0.3402118980884552
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.5% 5 way one-shot learning accuracy
+
+59300
+59400
+
+ -------------
+
+Train Loss: 0.35700803995132446
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.4% 5 way one-shot learning accuracy
+
+59500
+59600
+
+ -------------
+
+Train Loss: 0.2760671079158783
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.4% 5 way one-shot learning accuracy
+
+59700
+59800
+
+ -------------
+
+Train Loss: 0.2797796428203583
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.3% 5 way one-shot learning accuracy
+
+59900
+60000
+
+ -------------
+
+Train Loss: 0.3647831678390503
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.3% 5 way one-shot learning accuracy
+
+60100
+60200
+
+ -------------
+
+Train Loss: 0.4233570396900177
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.6% 5 way one-shot learning accuracy
+
+60300
+60400
+
+ -------------
+
+Train Loss: 0.34202146530151367
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.8% 5 way one-shot learning accuracy
+
+60500
+60600
+
+ -------------
+
+Train Loss: 0.29582688212394714
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.6% 5 way one-shot learning accuracy
+
+60700
+60800
+
+ -------------
+
+Train Loss: 0.307739794254303
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.5% 5 way one-shot learning accuracy
+
+60900
+61000
+
+ -------------
+
+Train Loss: 0.32548147439956665
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.8% 5 way one-shot learning accuracy
+
+61100
+61200
+
+ -------------
+
+Train Loss: 0.3256714344024658
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.6% 5 way one-shot learning accuracy
+
+61300
+61400
+
+ -------------
+
+Train Loss: 0.3240336775779724
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.1% 5 way one-shot learning accuracy
+
+Current best: 81.1, previous best: 79.8
+61400
+Model saved!
+61500
+61600
+
+ -------------
+
+Train Loss: 0.3284548223018646
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.3% 5 way one-shot learning accuracy
+
+61700
+61800
+
+ -------------
+
+Train Loss: 0.2725052237510681
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.9% 5 way one-shot learning accuracy
+
+61900
+62000
+
+ -------------
+
+Train Loss: 0.35710039734840393
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.6% 5 way one-shot learning accuracy
+
+62100
+62200
+
+ -------------
+
+Train Loss: 0.31297194957733154
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.5% 5 way one-shot learning accuracy
+
+62300
+62400
+
+ -------------
+
+Train Loss: 0.25848668813705444
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.2% 5 way one-shot learning accuracy
+
+Current best: 81.2, previous best: 81.1
+62400
+Model saved!
+62500
+62600
+
+ -------------
+
+Train Loss: 0.28646665811538696
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.0% 5 way one-shot learning accuracy
+
+62700
+62800
+
+ -------------
+
+Train Loss: 0.3151073157787323
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 75.7% 5 way one-shot learning accuracy
+
+62900
+63000
+
+ -------------
+
+Train Loss: 0.3472292423248291
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.5% 5 way one-shot learning accuracy
+
+63100
+63200
+
+ -------------
+
+Train Loss: 0.3046664595603943
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.7% 5 way one-shot learning accuracy
+
+63300
+63400
+
+ -------------
+
+Train Loss: 0.3336312472820282
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.9% 5 way one-shot learning accuracy
+
+63500
+63600
+
+ -------------
+
+Train Loss: 0.3231927454471588
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.4% 5 way one-shot learning accuracy
+
+63700
+63800
+
+ -------------
+
+Train Loss: 0.31545090675354004
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.6% 5 way one-shot learning accuracy
+
+63900
+64000
+
+ -------------
+
+Train Loss: 0.33815425634384155
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.7% 5 way one-shot learning accuracy
+
+64100
+64200
+
+ -------------
+
+Train Loss: 0.2647576630115509
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.0% 5 way one-shot learning accuracy
+
+64300
+64400
+
+ -------------
+
+Train Loss: 0.3077555298805237
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.1% 5 way one-shot learning accuracy
+
+64500
+64600
+
+ -------------
+
+Train Loss: 0.31949782371520996
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.7% 5 way one-shot learning accuracy
+
+64700
+64800
+
+ -------------
+
+Train Loss: 0.305545836687088
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.2% 5 way one-shot learning accuracy
+
+64900
+65000
+
+ -------------
+
+Train Loss: 0.34815019369125366
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.2% 5 way one-shot learning accuracy
+
+65100
+65200
+
+ -------------
+
+Train Loss: 0.28307217359542847
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.6% 5 way one-shot learning accuracy
+
+65300
+65400
+
+ -------------
+
+Train Loss: 0.2898699641227722
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.2% 5 way one-shot learning accuracy
+
+65500
+65600
+
+ -------------
+
+Train Loss: 0.2917003631591797
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.6% 5 way one-shot learning accuracy
+
+65700
+65800
+
+ -------------
+
+Train Loss: 0.3411644399166107
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.6% 5 way one-shot learning accuracy
+
+65900
+66000
+
+ -------------
+
+Train Loss: 0.372985303401947
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 76.9% 5 way one-shot learning accuracy
+
+66100
+66200
+
+ -------------
+
+Train Loss: 0.3535560965538025
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.5% 5 way one-shot learning accuracy
+
+66300
+66400
+
+ -------------
+
+Train Loss: 0.2648696005344391
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.7% 5 way one-shot learning accuracy
+
+66500
+66600
+
+ -------------
+
+Train Loss: 0.3132617771625519
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.7% 5 way one-shot learning accuracy
+
+66700
+66800
+
+ -------------
+
+Train Loss: 0.32098671793937683
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.6% 5 way one-shot learning accuracy
+
+Current best: 81.6, previous best: 81.2
+66800
+Model saved!
+66900
+67000
+
+ -------------
+
+Train Loss: 0.2939324676990509
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.8% 5 way one-shot learning accuracy
+
+67100
+67200
+
+ -------------
+
+Train Loss: 0.2653135061264038
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.5% 5 way one-shot learning accuracy
+
+67300
+67400
+
+ -------------
+
+Train Loss: 0.3455572724342346
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.7% 5 way one-shot learning accuracy
+
+67500
+67600
+
+ -------------
+
+Train Loss: 0.2616875469684601
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.9% 5 way one-shot learning accuracy
+
+67700
+67800
+
+ -------------
+
+Train Loss: 0.32401418685913086
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.1% 5 way one-shot learning accuracy
+
+Current best: 82.1, previous best: 81.6
+67800
+Model saved!
+67900
+68000
+
+ -------------
+
+Train Loss: 0.3016481399536133
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.3% 5 way one-shot learning accuracy
+
+68100
+68200
+
+ -------------
+
+Train Loss: 0.29656994342803955
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.2% 5 way one-shot learning accuracy
+
+68300
+68400
+
+ -------------
+
+Train Loss: 0.3310893476009369
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.6% 5 way one-shot learning accuracy
+
+68500
+68600
+
+ -------------
+
+Train Loss: 0.3209216296672821
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.9% 5 way one-shot learning accuracy
+
+68700
+68800
+
+ -------------
+
+Train Loss: 0.265848308801651
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.3% 5 way one-shot learning accuracy
+
+68900
+69000
+
+ -------------
+
+Train Loss: 0.2700885534286499
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.7% 5 way one-shot learning accuracy
+
+69100
+69200
+
+ -------------
+
+Train Loss: 0.2940632104873657
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.2% 5 way one-shot learning accuracy
+
+69300
+69400
+
+ -------------
+
+Train Loss: 0.32831263542175293
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.8% 5 way one-shot learning accuracy
+
+69500
+69600
+
+ -------------
+
+Train Loss: 0.34849005937576294
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.7% 5 way one-shot learning accuracy
+
+69700
+69800
+
+ -------------
+
+Train Loss: 0.3497641980648041
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.2% 5 way one-shot learning accuracy
+
+69900
+70000
+
+ -------------
+
+Train Loss: 0.27308768033981323
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.4% 5 way one-shot learning accuracy
+
+70100
+70200
+
+ -------------
+
+Train Loss: 0.33885279297828674
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.4% 5 way one-shot learning accuracy
+
+Current best: 82.4, previous best: 82.1
+70200
+Model saved!
+70300
+70400
+
+ -------------
+
+Train Loss: 0.32966217398643494
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.1% 5 way one-shot learning accuracy
+
+70500
+70600
+
+ -------------
+
+Train Loss: 0.22334161400794983
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.2% 5 way one-shot learning accuracy
+
+70700
+70800
+
+ -------------
+
+Train Loss: 0.2825552523136139
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.9% 5 way one-shot learning accuracy
+
+70900
+71000
+
+ -------------
+
+Train Loss: 0.24405652284622192
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.6% 5 way one-shot learning accuracy
+
+71100
+71200
+
+ -------------
+
+Train Loss: 0.29933640360832214
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.5% 5 way one-shot learning accuracy
+
+71300
+71400
+
+ -------------
+
+Train Loss: 0.2954558730125427
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.6% 5 way one-shot learning accuracy
+
+71500
+71600
+
+ -------------
+
+Train Loss: 0.26694363355636597
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.9% 5 way one-shot learning accuracy
+
+71700
+71800
+
+ -------------
+
+Train Loss: 0.28833097219467163
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.6% 5 way one-shot learning accuracy
+
+71900
+72000
+
+ -------------
+
+Train Loss: 0.3334372639656067
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.0% 5 way one-shot learning accuracy
+
+72100
+72200
+
+ -------------
+
+Train Loss: 0.2689327299594879
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.2% 5 way one-shot learning accuracy
+
+72300
+72400
+
+ -------------
+
+Train Loss: 0.30040106177330017
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.0% 5 way one-shot learning accuracy
+
+72500
+72600
+
+ -------------
+
+Train Loss: 0.2871200442314148
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.7% 5 way one-shot learning accuracy
+
+72700
+72800
+
+ -------------
+
+Train Loss: 0.24406279623508453
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.3% 5 way one-shot learning accuracy
+
+72900
+73000
+
+ -------------
+
+Train Loss: 0.28750258684158325
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.6% 5 way one-shot learning accuracy
+
+73100
+73200
+
+ -------------
+
+Train Loss: 0.26072314381599426
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.5% 5 way one-shot learning accuracy
+
+73300
+73400
+
+ -------------
+
+Train Loss: 0.25890859961509705
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.1% 5 way one-shot learning accuracy
+
+73500
+73600
+
+ -------------
+
+Train Loss: 0.2951991856098175
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.7% 5 way one-shot learning accuracy
+
+73700
+73800
+
+ -------------
+
+Train Loss: 0.23344196379184723
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.1% 5 way one-shot learning accuracy
+
+73900
+74000
+
+ -------------
+
+Train Loss: 0.28220024704933167
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 77.6% 5 way one-shot learning accuracy
+
+74100
+74200
+
+ -------------
+
+Train Loss: 0.2502468228340149
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.3% 5 way one-shot learning accuracy
+
+74300
+74400
+
+ -------------
+
+Train Loss: 0.25110533833503723
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.7% 5 way one-shot learning accuracy
+
+74500
+74600
+
+ -------------
+
+Train Loss: 0.33235159516334534
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.3% 5 way one-shot learning accuracy
+
+74700
+74800
+
+ -------------
+
+Train Loss: 0.28383296728134155
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.8% 5 way one-shot learning accuracy
+
+Current best: 82.8, previous best: 82.4
+74800
+Model saved!
+74900
+75000
+
+ -------------
+
+Train Loss: 0.288350909948349
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.3% 5 way one-shot learning accuracy
+
+75100
+75200
+
+ -------------
+
+Train Loss: 0.23631617426872253
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.4% 5 way one-shot learning accuracy
+
+75300
+75400
+
+ -------------
+
+Train Loss: 0.32098233699798584
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.4% 5 way one-shot learning accuracy
+
+75500
+75600
+
+ -------------
+
+Train Loss: 0.21420957148075104
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.2% 5 way one-shot learning accuracy
+
+75700
+75800
+
+ -------------
+
+Train Loss: 0.24871642887592316
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.9% 5 way one-shot learning accuracy
+
+75900
+76000
+
+ -------------
+
+Train Loss: 0.29450488090515137
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.0% 5 way one-shot learning accuracy
+
+76100
+76200
+
+ -------------
+
+Train Loss: 0.2983904480934143
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.2% 5 way one-shot learning accuracy
+
+76300
+76400
+
+ -------------
+
+Train Loss: 0.26411572098731995
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.3% 5 way one-shot learning accuracy
+
+76500
+76600
+
+ -------------
+
+Train Loss: 0.26125699281692505
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.9% 5 way one-shot learning accuracy
+
+76700
+76800
+
+ -------------
+
+Train Loss: 0.27706366777420044
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.9% 5 way one-shot learning accuracy
+
+76900
+77000
+
+ -------------
+
+Train Loss: 0.2425934076309204
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.3% 5 way one-shot learning accuracy
+
+77100
+77200
+
+ -------------
+
+Train Loss: 0.35529887676239014
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.4% 5 way one-shot learning accuracy
+
+77300
+77400
+
+ -------------
+
+Train Loss: 0.2893311083316803
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.7% 5 way one-shot learning accuracy
+
+77500
+77600
+
+ -------------
+
+Train Loss: 0.24530327320098877
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.9% 5 way one-shot learning accuracy
+
+77700
+77800
+
+ -------------
+
+Train Loss: 0.3114449679851532
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.5% 5 way one-shot learning accuracy
+
+77900
+78000
+
+ -------------
+
+Train Loss: 0.22976136207580566
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.8% 5 way one-shot learning accuracy
+
+78100
+78200
+
+ -------------
+
+Train Loss: 0.2729032635688782
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.0% 5 way one-shot learning accuracy
+
+Current best: 83.0, previous best: 82.8
+78200
+Model saved!
+78300
+78400
+
+ -------------
+
+Train Loss: 0.2808068096637726
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.1% 5 way one-shot learning accuracy
+
+78500
+78600
+
+ -------------
+
+Train Loss: 0.29641905426979065
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.3% 5 way one-shot learning accuracy
+
+78700
+78800
+
+ -------------
+
+Train Loss: 0.26209449768066406
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 79.2% 5 way one-shot learning accuracy
+
+78900
+79000
+
+ -------------
+
+Train Loss: 0.22984527051448822
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.7% 5 way one-shot learning accuracy
+
+79100
+79200
+
+ -------------
+
+Train Loss: 0.3019149601459503
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.4% 5 way one-shot learning accuracy
+
+79300
+79400
+
+ -------------
+
+Train Loss: 0.28525853157043457
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.0% 5 way one-shot learning accuracy
+
+Current best: 83.0, previous best: 83.0
+79400
+Model saved!
+79500
+79600
+
+ -------------
+
+Train Loss: 0.28221601247787476
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.0% 5 way one-shot learning accuracy
+
+Current best: 83.0, previous best: 83.0
+79600
+Model saved!
+79700
+79800
+
+ -------------
+
+Train Loss: 0.22731220722198486
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.1% 5 way one-shot learning accuracy
+
+79900
+80000
+
+ -------------
+
+Train Loss: 0.25827547907829285
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.4% 5 way one-shot learning accuracy
+
+80100
+80200
+
+ -------------
+
+Train Loss: 0.3015283942222595
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.0% 5 way one-shot learning accuracy
+
+80300
+80400
+
+ -------------
+
+Train Loss: 0.19197937846183777
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.0% 5 way one-shot learning accuracy
+
+80500
+80600
+
+ -------------
+
+Train Loss: 0.24281737208366394
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.2% 5 way one-shot learning accuracy
+
+Current best: 83.2, previous best: 83.0
+80600
+Model saved!
+80700
+80800
+
+ -------------
+
+Train Loss: 0.26819324493408203
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.4% 5 way one-shot learning accuracy
+
+80900
+81000
+
+ -------------
+
+Train Loss: 0.25758591294288635
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 78.8% 5 way one-shot learning accuracy
+
+81100
+81200
+
+ -------------
+
+Train Loss: 0.2386307716369629
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.2% 5 way one-shot learning accuracy
+
+Current best: 83.2, previous best: 83.2
+81200
+Model saved!
+81300
+81400
+
+ -------------
+
+Train Loss: 0.26563167572021484
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.8% 5 way one-shot learning accuracy
+
+81500
+81600
+
+ -------------
+
+Train Loss: 0.23407414555549622
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 80.6% 5 way one-shot learning accuracy
+
+81700
+81800
+
+ -------------
+
+Train Loss: 0.250406950712204
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.6% 5 way one-shot learning accuracy
+
+81900
+82000
+
+ -------------
+
+Train Loss: 0.24086494743824005
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.7% 5 way one-shot learning accuracy
+
+82100
+82200
+
+ -------------
+
+Train Loss: 0.291297972202301
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.5% 5 way one-shot learning accuracy
+
+82300
+82400
+
+ -------------
+
+Train Loss: 0.2138749212026596
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.0% 5 way one-shot learning accuracy
+
+82500
+82600
+
+ -------------
+
+Train Loss: 0.29260632395744324
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.6% 5 way one-shot learning accuracy
+
+82700
+82800
+
+ -------------
+
+Train Loss: 0.26272085309028625
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+Current best: 84.2, previous best: 83.2
+82800
+Model saved!
+82900
+83000
+
+ -------------
+
+Train Loss: 0.2399894893169403
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.0% 5 way one-shot learning accuracy
+
+83100
+83200
+
+ -------------
+
+Train Loss: 0.26436495780944824
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.2% 5 way one-shot learning accuracy
+
+83300
+83400
+
+ -------------
+
+Train Loss: 0.24830256402492523
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.1% 5 way one-shot learning accuracy
+
+83500
+83600
+
+ -------------
+
+Train Loss: 0.25290048122406006
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.9% 5 way one-shot learning accuracy
+
+83700
+83800
+
+ -------------
+
+Train Loss: 0.2517155110836029
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+83900
+84000
+
+ -------------
+
+Train Loss: 0.28487536311149597
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+84100
+84200
+
+ -------------
+
+Train Loss: 0.24119409918785095
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+84300
+84400
+
+ -------------
+
+Train Loss: 0.2866869568824768
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.6% 5 way one-shot learning accuracy
+
+84500
+84600
+
+ -------------
+
+Train Loss: 0.22549553215503693
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.4% 5 way one-shot learning accuracy
+
+84700
+84800
+
+ -------------
+
+Train Loss: 0.24337619543075562
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.0% 5 way one-shot learning accuracy
+
+84900
+85000
+
+ -------------
+
+Train Loss: 0.2483329176902771
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+Current best: 84.3, previous best: 84.2
+85000
+Model saved!
+85100
+85200
+
+ -------------
+
+Train Loss: 0.2315833419561386
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.4% 5 way one-shot learning accuracy
+
+85300
+85400
+
+ -------------
+
+Train Loss: 0.2244696468114853
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.9% 5 way one-shot learning accuracy
+
+85500
+85600
+
+ -------------
+
+Train Loss: 0.27083778381347656
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+85700
+85800
+
+ -------------
+
+Train Loss: 0.18592318892478943
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.2% 5 way one-shot learning accuracy
+
+85900
+86000
+
+ -------------
+
+Train Loss: 0.22391901910305023
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.5% 5 way one-shot learning accuracy
+
+86100
+86200
+
+ -------------
+
+Train Loss: 0.22222846746444702
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.4% 5 way one-shot learning accuracy
+
+86300
+86400
+
+ -------------
+
+Train Loss: 0.2435058057308197
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.4% 5 way one-shot learning accuracy
+
+86500
+86600
+
+ -------------
+
+Train Loss: 0.21907861530780792
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+Current best: 84.5, previous best: 84.3
+86600
+Model saved!
+86700
+86800
+
+ -------------
+
+Train Loss: 0.21319270133972168
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+86900
+87000
+
+ -------------
+
+Train Loss: 0.26830077171325684
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+87100
+87200
+
+ -------------
+
+Train Loss: 0.25627270340919495
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.4% 5 way one-shot learning accuracy
+
+87300
+87400
+
+ -------------
+
+Train Loss: 0.27083995938301086
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.9% 5 way one-shot learning accuracy
+
+87500
+87600
+
+ -------------
+
+Train Loss: 0.21481001377105713
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.8% 5 way one-shot learning accuracy
+
+87700
+87800
+
+ -------------
+
+Train Loss: 0.29634883999824524
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.4% 5 way one-shot learning accuracy
+
+87900
+88000
+
+ -------------
+
+Train Loss: 0.23261457681655884
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.8% 5 way one-shot learning accuracy
+
+88100
+88200
+
+ -------------
+
+Train Loss: 0.19229763746261597
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+Current best: 84.9, previous best: 84.5
+88200
+Model saved!
+88300
+88400
+
+ -------------
+
+Train Loss: 0.22915922105312347
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.8% 5 way one-shot learning accuracy
+
+88500
+88600
+
+ -------------
+
+Train Loss: 0.194939985871315
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+88700
+88800
+
+ -------------
+
+Train Loss: 0.18658149242401123
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+Current best: 85.2, previous best: 84.9
+88800
+Model saved!
+88900
+89000
+
+ -------------
+
+Train Loss: 0.24943429231643677
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.8% 5 way one-shot learning accuracy
+
+89100
+89200
+
+ -------------
+
+Train Loss: 0.2230803668498993
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.9% 5 way one-shot learning accuracy
+
+89300
+89400
+
+ -------------
+
+Train Loss: 0.23570358753204346
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+Current best: 86.0, previous best: 85.2
+89400
+Model saved!
+89500
+89600
+
+ -------------
+
+Train Loss: 0.26286712288856506
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.1% 5 way one-shot learning accuracy
+
+89700
+89800
+
+ -------------
+
+Train Loss: 0.21355679631233215
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.7% 5 way one-shot learning accuracy
+
+89900
+90000
+
+ -------------
+
+Train Loss: 0.20185847580432892
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.8% 5 way one-shot learning accuracy
+
+90100
+90200
+
+ -------------
+
+Train Loss: 0.22966741025447845
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+90300
+90400
+
+ -------------
+
+Train Loss: 0.18314580619335175
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.1% 5 way one-shot learning accuracy
+
+90500
+90600
+
+ -------------
+
+Train Loss: 0.22303292155265808
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.1% 5 way one-shot learning accuracy
+
+90700
+90800
+
+ -------------
+
+Train Loss: 0.2065030336380005
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+90900
+91000
+
+ -------------
+
+Train Loss: 0.1730872392654419
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+91100
+91200
+
+ -------------
+
+Train Loss: 0.25375795364379883
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.6% 5 way one-shot learning accuracy
+
+91300
+91400
+
+ -------------
+
+Train Loss: 0.20173053443431854
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.3% 5 way one-shot learning accuracy
+
+91500
+91600
+
+ -------------
+
+Train Loss: 0.22160525619983673
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.7% 5 way one-shot learning accuracy
+
+91700
+91800
+
+ -------------
+
+Train Loss: 0.25724315643310547
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.8% 5 way one-shot learning accuracy
+
+91900
+92000
+
+ -------------
+
+Train Loss: 0.21599140763282776
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.6% 5 way one-shot learning accuracy
+
+92100
+92200
+
+ -------------
+
+Train Loss: 0.23157252371311188
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.3% 5 way one-shot learning accuracy
+
+92300
+92400
+
+ -------------
+
+Train Loss: 0.2651638090610504
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+92500
+92600
+
+ -------------
+
+Train Loss: 0.23775145411491394
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.6% 5 way one-shot learning accuracy
+
+92700
+92800
+
+ -------------
+
+Train Loss: 0.22398781776428223
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.4% 5 way one-shot learning accuracy
+
+92900
+93000
+
+ -------------
+
+Train Loss: 0.21512944996356964
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+93100
+93200
+
+ -------------
+
+Train Loss: 0.2972623109817505
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.5% 5 way one-shot learning accuracy
+
+93300
+93400
+
+ -------------
+
+Train Loss: 0.21327760815620422
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.9% 5 way one-shot learning accuracy
+
+93500
+93600
+
+ -------------
+
+Train Loss: 0.2338103950023651
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+93700
+93800
+
+ -------------
+
+Train Loss: 0.25758254528045654
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.4% 5 way one-shot learning accuracy
+
+93900
+94000
+
+ -------------
+
+Train Loss: 0.22331778705120087
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+94100
+94200
+
+ -------------
+
+Train Loss: 0.23715201020240784
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+94300
+94400
+
+ -------------
+
+Train Loss: 0.2389094978570938
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+94500
+94600
+
+ -------------
+
+Train Loss: 0.2059919834136963
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+Current best: 86.5, previous best: 86.0
+94600
+Model saved!
+94700
+94800
+
+ -------------
+
+Train Loss: 0.18750321865081787
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 81.2% 5 way one-shot learning accuracy
+
+94900
+95000
+
+ -------------
+
+Train Loss: 0.22725120186805725
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.0% 5 way one-shot learning accuracy
+
+95100
+95200
+
+ -------------
+
+Train Loss: 0.2926599085330963
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+95300
+95400
+
+ -------------
+
+Train Loss: 0.3060150146484375
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+95500
+95600
+
+ -------------
+
+Train Loss: 0.1697089970111847
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+95700
+95800
+
+ -------------
+
+Train Loss: 0.23380190134048462
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.6% 5 way one-shot learning accuracy
+
+95900
+96000
+
+ -------------
+
+Train Loss: 0.2570529580116272
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.4% 5 way one-shot learning accuracy
+
+96100
+96200
+
+ -------------
+
+Train Loss: 0.3225640654563904
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+96300
+96400
+
+ -------------
+
+Train Loss: 0.20920434594154358
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.4% 5 way one-shot learning accuracy
+
+96500
+96600
+
+ -------------
+
+Train Loss: 0.2650761604309082
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+96700
+96800
+
+ -------------
+
+Train Loss: 0.23296606540679932
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+96900
+97000
+
+ -------------
+
+Train Loss: 0.2560780942440033
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+97100
+97200
+
+ -------------
+
+Train Loss: 0.2045052945613861
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+97300
+97400
+
+ -------------
+
+Train Loss: 0.21110258996486664
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+97500
+97600
+
+ -------------
+
+Train Loss: 0.219420924782753
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+97700
+97800
+
+ -------------
+
+Train Loss: 0.18395590782165527
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+97900
+98000
+
+ -------------
+
+Train Loss: 0.21733038127422333
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+98100
+98200
+
+ -------------
+
+Train Loss: 0.2118670642375946
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+98300
+98400
+
+ -------------
+
+Train Loss: 0.2597932815551758
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+98500
+98600
+
+ -------------
+
+Train Loss: 0.1830528825521469
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+98700
+98800
+
+ -------------
+
+Train Loss: 0.1783878058195114
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.5% 5 way one-shot learning accuracy
+
+98900
+99000
+
+ -------------
+
+Train Loss: 0.18585720658302307
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+99100
+99200
+
+ -------------
+
+Train Loss: 0.2507854998111725
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+99300
+99400
+
+ -------------
+
+Train Loss: 0.22806209325790405
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+99500
+99600
+
+ -------------
+
+Train Loss: 0.19783112406730652
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+99700
+99800
+
+ -------------
+
+Train Loss: 0.2574392557144165
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+99900
+100000
+
+ -------------
+
+Train Loss: 0.20257343351840973
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.1% 5 way one-shot learning accuracy
+
+100100
+100200
+
+ -------------
+
+Train Loss: 0.22451771795749664
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+100300
+100400
+
+ -------------
+
+Train Loss: 0.2642953395843506
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+100500
+100600
+
+ -------------
+
+Train Loss: 0.23357589542865753
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+100700
+100800
+
+ -------------
+
+Train Loss: 0.17158424854278564
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+100900
+101000
+
+ -------------
+
+Train Loss: 0.15008804202079773
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+101100
+101200
+
+ -------------
+
+Train Loss: 0.1872352808713913
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+101300
+101400
+
+ -------------
+
+Train Loss: 0.24208304286003113
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+101500
+101600
+
+ -------------
+
+Train Loss: 0.1549074947834015
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.6% 5 way one-shot learning accuracy
+
+101700
+101800
+
+ -------------
+
+Train Loss: 0.22787249088287354
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+101900
+102000
+
+ -------------
+
+Train Loss: 0.1691494882106781
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.6% 5 way one-shot learning accuracy
+
+102100
+102200
+
+ -------------
+
+Train Loss: 0.2056148797273636
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+102300
+102400
+
+ -------------
+
+Train Loss: 0.18776926398277283
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+102500
+102600
+
+ -------------
+
+Train Loss: 0.2112974226474762
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+102700
+102800
+
+ -------------
+
+Train Loss: 0.23927512764930725
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+102900
+103000
+
+ -------------
+
+Train Loss: 0.2331283539533615
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+103100
+103200
+
+ -------------
+
+Train Loss: 0.1956520676612854
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.1% 5 way one-shot learning accuracy
+
+103300
+103400
+
+ -------------
+
+Train Loss: 0.16804176568984985
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.6% 5 way one-shot learning accuracy
+
+103500
+103600
+
+ -------------
+
+Train Loss: 0.19584771990776062
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.9% 5 way one-shot learning accuracy
+
+103700
+103800
+
+ -------------
+
+Train Loss: 0.23798280954360962
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.8% 5 way one-shot learning accuracy
+
+103900
+104000
+
+ -------------
+
+Train Loss: 0.17832893133163452
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.5% 5 way one-shot learning accuracy
+
+104100
+104200
+
+ -------------
+
+Train Loss: 0.20875351130962372
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+104300
+104400
+
+ -------------
+
+Train Loss: 0.24237656593322754
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.6% 5 way one-shot learning accuracy
+
+104500
+104600
+
+ -------------
+
+Train Loss: 0.23058348894119263
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+104700
+104800
+
+ -------------
+
+Train Loss: 0.1619103103876114
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.6% 5 way one-shot learning accuracy
+
+104900
+105000
+
+ -------------
+
+Train Loss: 0.2039029449224472
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+105100
+105200
+
+ -------------
+
+Train Loss: 0.2537134885787964
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+Current best: 86.6, previous best: 86.5
+105200
+Model saved!
+105300
+105400
+
+ -------------
+
+Train Loss: 0.21009689569473267
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+105500
+105600
+
+ -------------
+
+Train Loss: 0.1879415065050125
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+105700
+105800
+
+ -------------
+
+Train Loss: 0.20920191705226898
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.5% 5 way one-shot learning accuracy
+
+105900
+106000
+
+ -------------
+
+Train Loss: 0.22019565105438232
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+106100
+106200
+
+ -------------
+
+Train Loss: 0.1872173547744751
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+106300
+106400
+
+ -------------
+
+Train Loss: 0.2266334742307663
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+106500
+106600
+
+ -------------
+
+Train Loss: 0.20416446030139923
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+Current best: 86.9, previous best: 86.6
+106600
+Model saved!
+106700
+106800
+
+ -------------
+
+Train Loss: 0.2222878485918045
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+106900
+107000
+
+ -------------
+
+Train Loss: 0.1799602061510086
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+107100
+107200
+
+ -------------
+
+Train Loss: 0.2028646022081375
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.8% 5 way one-shot learning accuracy
+
+107300
+107400
+
+ -------------
+
+Train Loss: 0.23386678099632263
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+107500
+107600
+
+ -------------
+
+Train Loss: 0.16544586420059204
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+107700
+107800
+
+ -------------
+
+Train Loss: 0.24420495331287384
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+107900
+108000
+
+ -------------
+
+Train Loss: 0.2490062415599823
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+108100
+108200
+
+ -------------
+
+Train Loss: 0.19957666099071503
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+108300
+108400
+
+ -------------
+
+Train Loss: 0.21221821010112762
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+Current best: 87.7, previous best: 86.9
+108400
+Model saved!
+108500
+108600
+
+ -------------
+
+Train Loss: 0.19900256395339966
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+108700
+108800
+
+ -------------
+
+Train Loss: 0.22390803694725037
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+108900
+109000
+
+ -------------
+
+Train Loss: 0.163065567612648
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+109100
+109200
+
+ -------------
+
+Train Loss: 0.17086747288703918
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+109300
+109400
+
+ -------------
+
+Train Loss: 0.2070702314376831
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+109500
+109600
+
+ -------------
+
+Train Loss: 0.27784019708633423
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+109700
+109800
+
+ -------------
+
+Train Loss: 0.24836011230945587
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+109900
+110000
+
+ -------------
+
+Train Loss: 0.13620133697986603
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+110100
+110200
+
+ -------------
+
+Train Loss: 0.1572365164756775
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+110300
+110400
+
+ -------------
+
+Train Loss: 0.20047177374362946
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+110500
+110600
+
+ -------------
+
+Train Loss: 0.2045997977256775
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+110700
+110800
+
+ -------------
+
+Train Loss: 0.24325290322303772
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+110900
+111000
+
+ -------------
+
+Train Loss: 0.2842072546482086
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+Current best: 87.7, previous best: 87.7
+111000
+Model saved!
+111100
+111200
+
+ -------------
+
+Train Loss: 0.17911690473556519
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+111300
+111400
+
+ -------------
+
+Train Loss: 0.19761407375335693
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+111500
+111600
+
+ -------------
+
+Train Loss: 0.17643868923187256
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+111700
+111800
+
+ -------------
+
+Train Loss: 0.20478668808937073
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+111900
+112000
+
+ -------------
+
+Train Loss: 0.26155269145965576
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+112100
+112200
+
+ -------------
+
+Train Loss: 0.22557435929775238
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+112300
+112400
+
+ -------------
+
+Train Loss: 0.2633780241012573
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+112500
+112600
+
+ -------------
+
+Train Loss: 0.2477910816669464
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+112700
+112800
+
+ -------------
+
+Train Loss: 0.3017578721046448
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+112900
+113000
+
+ -------------
+
+Train Loss: 0.17853131890296936
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+113100
+113200
+
+ -------------
+
+Train Loss: 0.21662604808807373
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+113300
+113400
+
+ -------------
+
+Train Loss: 0.23409095406532288
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+113500
+113600
+
+ -------------
+
+Train Loss: 0.20826897025108337
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+113700
+113800
+
+ -------------
+
+Train Loss: 0.2094048410654068
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.6% 5 way one-shot learning accuracy
+
+113900
+114000
+
+ -------------
+
+Train Loss: 0.20181351900100708
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.4% 5 way one-shot learning accuracy
+
+114100
+114200
+
+ -------------
+
+Train Loss: 0.22108590602874756
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+114300
+114400
+
+ -------------
+
+Train Loss: 0.17514872550964355
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+114500
+114600
+
+ -------------
+
+Train Loss: 0.18197961151599884
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+114700
+114800
+
+ -------------
+
+Train Loss: 0.1663428097963333
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+114900
+115000
+
+ -------------
+
+Train Loss: 0.16137447953224182
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+115100
+115200
+
+ -------------
+
+Train Loss: 0.22369615733623505
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.8% 5 way one-shot learning accuracy
+
+115300
+115400
+
+ -------------
+
+Train Loss: 0.19289247691631317
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.4% 5 way one-shot learning accuracy
+
+115500
+115600
+
+ -------------
+
+Train Loss: 0.1705666482448578
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+Current best: 87.7, previous best: 87.7
+115600
+Model saved!
+115700
+115800
+
+ -------------
+
+Train Loss: 0.23475980758666992
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+115900
+116000
+
+ -------------
+
+Train Loss: 0.2428615689277649
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+116100
+116200
+
+ -------------
+
+Train Loss: 0.19485695660114288
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.1% 5 way one-shot learning accuracy
+
+116300
+116400
+
+ -------------
+
+Train Loss: 0.23742173612117767
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+116500
+116600
+
+ -------------
+
+Train Loss: 0.20027799904346466
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+116700
+116800
+
+ -------------
+
+Train Loss: 0.2007765769958496
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+116900
+117000
+
+ -------------
+
+Train Loss: 0.16719341278076172
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+117100
+117200
+
+ -------------
+
+Train Loss: 0.21671321988105774
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+117300
+117400
+
+ -------------
+
+Train Loss: 0.17654509842395782
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+117500
+117600
+
+ -------------
+
+Train Loss: 0.19731108844280243
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+117700
+117800
+
+ -------------
+
+Train Loss: 0.20590171217918396
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+117900
+118000
+
+ -------------
+
+Train Loss: 0.17075210809707642
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.1% 5 way one-shot learning accuracy
+
+118100
+118200
+
+ -------------
+
+Train Loss: 0.17135661840438843
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+118300
+118400
+
+ -------------
+
+Train Loss: 0.16352002322673798
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+118500
+118600
+
+ -------------
+
+Train Loss: 0.25334668159484863
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+118700
+118800
+
+ -------------
+
+Train Loss: 0.21142858266830444
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+118900
+119000
+
+ -------------
+
+Train Loss: 0.14389154314994812
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+119100
+119200
+
+ -------------
+
+Train Loss: 0.21037667989730835
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.8% 5 way one-shot learning accuracy
+
+119300
+119400
+
+ -------------
+
+Train Loss: 0.20344732701778412
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+119500
+119600
+
+ -------------
+
+Train Loss: 0.150003582239151
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+119700
+119800
+
+ -------------
+
+Train Loss: 0.15424959361553192
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+119900
+120000
+
+ -------------
+
+Train Loss: 0.17499206960201263
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.5% 5 way one-shot learning accuracy
+
+120100
+120200
+
+ -------------
+
+Train Loss: 0.1973777413368225
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+120300
+120400
+
+ -------------
+
+Train Loss: 0.17059141397476196
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 82.7% 5 way one-shot learning accuracy
+
+120500
+120600
+
+ -------------
+
+Train Loss: 0.21585673093795776
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+120700
+120800
+
+ -------------
+
+Train Loss: 0.219416543841362
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+120900
+121000
+
+ -------------
+
+Train Loss: 0.1900661140680313
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+121100
+121200
+
+ -------------
+
+Train Loss: 0.1827489137649536
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+121300
+121400
+
+ -------------
+
+Train Loss: 0.18813759088516235
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.2% 5 way one-shot learning accuracy
+
+121500
+121600
+
+ -------------
+
+Train Loss: 0.21540015935897827
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+121700
+121800
+
+ -------------
+
+Train Loss: 0.20880401134490967
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+121900
+122000
+
+ -------------
+
+Train Loss: 0.19197247922420502
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+122100
+122200
+
+ -------------
+
+Train Loss: 0.21180935204029083
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.8% 5 way one-shot learning accuracy
+
+122300
+122400
+
+ -------------
+
+Train Loss: 0.2606392502784729
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+122500
+122600
+
+ -------------
+
+Train Loss: 0.1923384666442871
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+122700
+122800
+
+ -------------
+
+Train Loss: 0.20929674804210663
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+122900
+123000
+
+ -------------
+
+Train Loss: 0.18342776596546173
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+123100
+123200
+
+ -------------
+
+Train Loss: 0.17888493835926056
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+123300
+123400
+
+ -------------
+
+Train Loss: 0.185047447681427
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+123500
+123600
+
+ -------------
+
+Train Loss: 0.22496503591537476
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+123700
+123800
+
+ -------------
+
+Train Loss: 0.2050975114107132
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+123900
+124000
+
+ -------------
+
+Train Loss: 0.18105915188789368
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+124100
+124200
+
+ -------------
+
+Train Loss: 0.2148756980895996
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+124300
+124400
+
+ -------------
+
+Train Loss: 0.17142856121063232
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+124500
+124600
+
+ -------------
+
+Train Loss: 0.2598787248134613
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+124700
+124800
+
+ -------------
+
+Train Loss: 0.19911395013332367
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+124900
+125000
+
+ -------------
+
+Train Loss: 0.23135137557983398
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+125100
+125200
+
+ -------------
+
+Train Loss: 0.18211451172828674
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+125300
+125400
+
+ -------------
+
+Train Loss: 0.20648625493049622
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+125500
+125600
+
+ -------------
+
+Train Loss: 0.22463108599185944
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+125700
+125800
+
+ -------------
+
+Train Loss: 0.2700202465057373
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+125900
+126000
+
+ -------------
+
+Train Loss: 0.21018484234809875
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+126100
+126200
+
+ -------------
+
+Train Loss: 0.22244927287101746
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+126300
+126400
+
+ -------------
+
+Train Loss: 0.15262660384178162
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+Current best: 87.7, previous best: 87.7
+126400
+Model saved!
+126500
+126600
+
+ -------------
+
+Train Loss: 0.1687842309474945
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+126700
+126800
+
+ -------------
+
+Train Loss: 0.15604844689369202
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+126900
+127000
+
+ -------------
+
+Train Loss: 0.20271211862564087
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+127100
+127200
+
+ -------------
+
+Train Loss: 0.16126015782356262
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+127300
+127400
+
+ -------------
+
+Train Loss: 0.19005027413368225
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+127500
+127600
+
+ -------------
+
+Train Loss: 0.18791517615318298
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+127700
+127800
+
+ -------------
+
+Train Loss: 0.2826814651489258
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+127900
+128000
+
+ -------------
+
+Train Loss: 0.22521337866783142
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+128100
+128200
+
+ -------------
+
+Train Loss: 0.188957080245018
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.2% 5 way one-shot learning accuracy
+
+128300
+128400
+
+ -------------
+
+Train Loss: 0.10814782977104187
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+128500
+128600
+
+ -------------
+
+Train Loss: 0.16542088985443115
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.8% 5 way one-shot learning accuracy
+
+128700
+128800
+
+ -------------
+
+Train Loss: 0.26944243907928467
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+128900
+129000
+
+ -------------
+
+Train Loss: 0.17867660522460938
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+129100
+129200
+
+ -------------
+
+Train Loss: 0.1875515729188919
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.1% 5 way one-shot learning accuracy
+
+129300
+129400
+
+ -------------
+
+Train Loss: 0.14862149953842163
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+129500
+129600
+
+ -------------
+
+Train Loss: 0.1870398223400116
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+129700
+129800
+
+ -------------
+
+Train Loss: 0.24503456056118011
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+129900
+130000
+
+ -------------
+
+Train Loss: 0.2447137087583542
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+130100
+130200
+
+ -------------
+
+Train Loss: 0.19160673022270203
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+130300
+130400
+
+ -------------
+
+Train Loss: 0.20520640909671783
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.8% 5 way one-shot learning accuracy
+
+130500
+130600
+
+ -------------
+
+Train Loss: 0.18393629789352417
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+130700
+130800
+
+ -------------
+
+Train Loss: 0.20634938776493073
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.1% 5 way one-shot learning accuracy
+
+130900
+131000
+
+ -------------
+
+Train Loss: 0.1950579583644867
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+131100
+131200
+
+ -------------
+
+Train Loss: 0.18331962823867798
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+131300
+131400
+
+ -------------
+
+Train Loss: 0.17928026616573334
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.9% 5 way one-shot learning accuracy
+
+131500
+131600
+
+ -------------
+
+Train Loss: 0.15659017860889435
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+131700
+131800
+
+ -------------
+
+Train Loss: 0.15569950640201569
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+131900
+132000
+
+ -------------
+
+Train Loss: 0.15912485122680664
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+132100
+132200
+
+ -------------
+
+Train Loss: 0.17794735729694366
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+132300
+132400
+
+ -------------
+
+Train Loss: 0.17084920406341553
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+132500
+132600
+
+ -------------
+
+Train Loss: 0.23821784555912018
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.4% 5 way one-shot learning accuracy
+
+132700
+132800
+
+ -------------
+
+Train Loss: 0.1711704432964325
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+132900
+133000
+
+ -------------
+
+Train Loss: 0.16860638558864594
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+133100
+133200
+
+ -------------
+
+Train Loss: 0.20856799185276031
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+133300
+133400
+
+ -------------
+
+Train Loss: 0.2569674551486969
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+133500
+133600
+
+ -------------
+
+Train Loss: 0.16456924378871918
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+133700
+133800
+
+ -------------
+
+Train Loss: 0.14985264837741852
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+133900
+134000
+
+ -------------
+
+Train Loss: 0.1546274572610855
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+134100
+134200
+
+ -------------
+
+Train Loss: 0.19374173879623413
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.8% 5 way one-shot learning accuracy
+
+Current best: 87.8, previous best: 87.7
+134200
+Model saved!
+134300
+134400
+
+ -------------
+
+Train Loss: 0.16221359372138977
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+134500
+134600
+
+ -------------
+
+Train Loss: 0.17617422342300415
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+134700
+134800
+
+ -------------
+
+Train Loss: 0.24623465538024902
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.4% 5 way one-shot learning accuracy
+
+134900
+135000
+
+ -------------
+
+Train Loss: 0.23391620814800262
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+135100
+135200
+
+ -------------
+
+Train Loss: 0.23453368246555328
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+135300
+135400
+
+ -------------
+
+Train Loss: 0.2245311588048935
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+135500
+135600
+
+ -------------
+
+Train Loss: 0.1945241242647171
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+135700
+135800
+
+ -------------
+
+Train Loss: 0.1899026334285736
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+135900
+136000
+
+ -------------
+
+Train Loss: 0.1709127277135849
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+136100
+136200
+
+ -------------
+
+Train Loss: 0.20313376188278198
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+136300
+136400
+
+ -------------
+
+Train Loss: 0.17411907017230988
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+136500
+136600
+
+ -------------
+
+Train Loss: 0.2022276520729065
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+136700
+136800
+
+ -------------
+
+Train Loss: 0.14283399283885956
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+136900
+137000
+
+ -------------
+
+Train Loss: 0.26668962836265564
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+137100
+137200
+
+ -------------
+
+Train Loss: 0.13365139067173004
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+137300
+137400
+
+ -------------
+
+Train Loss: 0.22205470502376556
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+137500
+137600
+
+ -------------
+
+Train Loss: 0.15413333475589752
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+137700
+137800
+
+ -------------
+
+Train Loss: 0.18180209398269653
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+137900
+138000
+
+ -------------
+
+Train Loss: 0.14478641748428345
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+138100
+138200
+
+ -------------
+
+Train Loss: 0.19657418131828308
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+138300
+138400
+
+ -------------
+
+Train Loss: 0.22754113376140594
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.4% 5 way one-shot learning accuracy
+
+138500
+138600
+
+ -------------
+
+Train Loss: 0.24847660958766937
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+138700
+138800
+
+ -------------
+
+Train Loss: 0.19767720997333527
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.6% 5 way one-shot learning accuracy
+
+138900
+139000
+
+ -------------
+
+Train Loss: 0.14998123049736023
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+139100
+139200
+
+ -------------
+
+Train Loss: 0.16199885308742523
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+139300
+139400
+
+ -------------
+
+Train Loss: 0.22101932764053345
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+139500
+139600
+
+ -------------
+
+Train Loss: 0.14627747237682343
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.8% 5 way one-shot learning accuracy
+
+Current best: 87.8, previous best: 87.8
+139600
+Model saved!
+139700
+139800
+
+ -------------
+
+Train Loss: 0.18924586474895477
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+139900
+140000
+
+ -------------
+
+Train Loss: 0.21049770712852478
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.5% 5 way one-shot learning accuracy
+
+140100
+140200
+
+ -------------
+
+Train Loss: 0.21965846419334412
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+140300
+140400
+
+ -------------
+
+Train Loss: 0.17825324833393097
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+140500
+140600
+
+ -------------
+
+Train Loss: 0.17965295910835266
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+140700
+140800
+
+ -------------
+
+Train Loss: 0.16698609292507172
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+140900
+141000
+
+ -------------
+
+Train Loss: 0.2017115354537964
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.6% 5 way one-shot learning accuracy
+
+141100
+141200
+
+ -------------
+
+Train Loss: 0.1719547063112259
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.2% 5 way one-shot learning accuracy
+
+141300
+141400
+
+ -------------
+
+Train Loss: 0.19996485114097595
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+141500
+141600
+
+ -------------
+
+Train Loss: 0.16755911707878113
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+141700
+141800
+
+ -------------
+
+Train Loss: 0.21177789568901062
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+141900
+142000
+
+ -------------
+
+Train Loss: 0.24297881126403809
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+142100
+142200
+
+ -------------
+
+Train Loss: 0.19344556331634521
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+142300
+142400
+
+ -------------
+
+Train Loss: 0.19942918419837952
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+142500
+142600
+
+ -------------
+
+Train Loss: 0.1707083284854889
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+142700
+142800
+
+ -------------
+
+Train Loss: 0.2135755866765976
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+142900
+143000
+
+ -------------
+
+Train Loss: 0.1938149482011795
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+143100
+143200
+
+ -------------
+
+Train Loss: 0.1498594582080841
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+143300
+143400
+
+ -------------
+
+Train Loss: 0.14589208364486694
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+143500
+143600
+
+ -------------
+
+Train Loss: 0.20903079211711884
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+143700
+143800
+
+ -------------
+
+Train Loss: 0.19862565398216248
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+143900
+144000
+
+ -------------
+
+Train Loss: 0.2440757155418396
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+144100
+144200
+
+ -------------
+
+Train Loss: 0.15388108789920807
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+144300
+144400
+
+ -------------
+
+Train Loss: 0.2195867896080017
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+144500
+144600
+
+ -------------
+
+Train Loss: 0.23986852169036865
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+144700
+144800
+
+ -------------
+
+Train Loss: 0.1495332419872284
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+144900
+145000
+
+ -------------
+
+Train Loss: 0.1685558259487152
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+145100
+145200
+
+ -------------
+
+Train Loss: 0.144587904214859
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+145300
+145400
+
+ -------------
+
+Train Loss: 0.2359648048877716
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.9% 5 way one-shot learning accuracy
+
+145500
+145600
+
+ -------------
+
+Train Loss: 0.1985393762588501
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+145700
+145800
+
+ -------------
+
+Train Loss: 0.197250097990036
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+145900
+146000
+
+ -------------
+
+Train Loss: 0.1971445381641388
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.8% 5 way one-shot learning accuracy
+
+146100
+146200
+
+ -------------
+
+Train Loss: 0.2226768434047699
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+146300
+146400
+
+ -------------
+
+Train Loss: 0.16563647985458374
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+146500
+146600
+
+ -------------
+
+Train Loss: 0.19516348838806152
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+146700
+146800
+
+ -------------
+
+Train Loss: 0.1739855855703354
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+146900
+147000
+
+ -------------
+
+Train Loss: 0.17776109278202057
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+147100
+147200
+
+ -------------
+
+Train Loss: 0.2587914764881134
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+147300
+147400
+
+ -------------
+
+Train Loss: 0.19772958755493164
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.8% 5 way one-shot learning accuracy
+
+147500
+147600
+
+ -------------
+
+Train Loss: 0.1795690804719925
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.1% 5 way one-shot learning accuracy
+
+147700
+147800
+
+ -------------
+
+Train Loss: 0.16062164306640625
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+147900
+148000
+
+ -------------
+
+Train Loss: 0.28079286217689514
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.3% 5 way one-shot learning accuracy
+
+148100
+148200
+
+ -------------
+
+Train Loss: 0.16415199637413025
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+148300
+148400
+
+ -------------
+
+Train Loss: 0.15384766459465027
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+148500
+148600
+
+ -------------
+
+Train Loss: 0.1649709939956665
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+148700
+148800
+
+ -------------
+
+Train Loss: 0.18511544167995453
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+148900
+149000
+
+ -------------
+
+Train Loss: 0.15625354647636414
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.5% 5 way one-shot learning accuracy
+
+149100
+149200
+
+ -------------
+
+Train Loss: 0.13987872004508972
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.2% 5 way one-shot learning accuracy
+
+149300
+149400
+
+ -------------
+
+Train Loss: 0.2270057648420334
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.4% 5 way one-shot learning accuracy
+
+149500
+149600
+
+ -------------
+
+Train Loss: 0.14874157309532166
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.3% 5 way one-shot learning accuracy
+
+149700
+149800
+
+ -------------
+
+Train Loss: 0.1551145613193512
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.7% 5 way one-shot learning accuracy
+
+149900
+150000
+
+ -------------
+
+Train Loss: 0.22338809072971344
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.4% 5 way one-shot learning accuracy
+
+150100
+150200
+
+ -------------
+
+Train Loss: 0.13476841151714325
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+150300
+150400
+
+ -------------
+
+Train Loss: 0.1647290289402008
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+150500
+150600
+
+ -------------
+
+Train Loss: 0.17612522840499878
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+150700
+150800
+
+ -------------
+
+Train Loss: 0.19194558262825012
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+150900
+151000
+
+ -------------
+
+Train Loss: 0.20999929308891296
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+151100
+151200
+
+ -------------
+
+Train Loss: 0.22934775054454803
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.3% 5 way one-shot learning accuracy
+
+Current best: 88.3, previous best: 87.8
+151200
+Model saved!
+151300
+151400
+
+ -------------
+
+Train Loss: 0.14335817098617554
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+151500
+151600
+
+ -------------
+
+Train Loss: 0.17786264419555664
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.5% 5 way one-shot learning accuracy
+
+151700
+151800
+
+ -------------
+
+Train Loss: 0.15694358944892883
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+151900
+152000
+
+ -------------
+
+Train Loss: 0.16406354308128357
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.3% 5 way one-shot learning accuracy
+
+152100
+152200
+
+ -------------
+
+Train Loss: 0.17686748504638672
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+152300
+152400
+
+ -------------
+
+Train Loss: 0.1708051711320877
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.1% 5 way one-shot learning accuracy
+
+152500
+152600
+
+ -------------
+
+Train Loss: 0.2499701976776123
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.3% 5 way one-shot learning accuracy
+
+152700
+152800
+
+ -------------
+
+Train Loss: 0.1449754536151886
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+152900
+153000
+
+ -------------
+
+Train Loss: 0.2006205916404724
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.8% 5 way one-shot learning accuracy
+
+153100
+153200
+
+ -------------
+
+Train Loss: 0.19709613919258118
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+153300
+153400
+
+ -------------
+
+Train Loss: 0.2018955647945404
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+153500
+153600
+
+ -------------
+
+Train Loss: 0.20506002008914948
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.2% 5 way one-shot learning accuracy
+
+153700
+153800
+
+ -------------
+
+Train Loss: 0.189802348613739
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+153900
+154000
+
+ -------------
+
+Train Loss: 0.15856428444385529
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.0% 5 way one-shot learning accuracy
+
+154100
+154200
+
+ -------------
+
+Train Loss: 0.2000323235988617
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+154300
+154400
+
+ -------------
+
+Train Loss: 0.1995532065629959
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+154500
+154600
+
+ -------------
+
+Train Loss: 0.22563959658145905
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+154700
+154800
+
+ -------------
+
+Train Loss: 0.13387006521224976
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+154900
+155000
+
+ -------------
+
+Train Loss: 0.15062394738197327
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.1% 5 way one-shot learning accuracy
+
+155100
+155200
+
+ -------------
+
+Train Loss: 0.16281558573246002
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+155300
+155400
+
+ -------------
+
+Train Loss: 0.1703025996685028
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+155500
+155600
+
+ -------------
+
+Train Loss: 0.23321262001991272
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+155700
+155800
+
+ -------------
+
+Train Loss: 0.1578638106584549
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+155900
+156000
+
+ -------------
+
+Train Loss: 0.14864008128643036
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+156100
+156200
+
+ -------------
+
+Train Loss: 0.21659037470817566
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+156300
+156400
+
+ -------------
+
+Train Loss: 0.22009170055389404
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.6% 5 way one-shot learning accuracy
+
+156500
+156600
+
+ -------------
+
+Train Loss: 0.19616147875785828
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+156700
+156800
+
+ -------------
+
+Train Loss: 0.18406464159488678
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+156900
+157000
+
+ -------------
+
+Train Loss: 0.2109529972076416
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+157100
+157200
+
+ -------------
+
+Train Loss: 0.213522270321846
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+157300
+157400
+
+ -------------
+
+Train Loss: 0.13916745781898499
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+157500
+157600
+
+ -------------
+
+Train Loss: 0.12073346972465515
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+157700
+157800
+
+ -------------
+
+Train Loss: 0.1881020963191986
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+157900
+158000
+
+ -------------
+
+Train Loss: 0.17401675879955292
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+158100
+158200
+
+ -------------
+
+Train Loss: 0.20159783959388733
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+158300
+158400
+
+ -------------
+
+Train Loss: 0.1695447713136673
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+158500
+158600
+
+ -------------
+
+Train Loss: 0.15973050892353058
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+158700
+158800
+
+ -------------
+
+Train Loss: 0.18635541200637817
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+158900
+159000
+
+ -------------
+
+Train Loss: 0.172809436917305
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+159100
+159200
+
+ -------------
+
+Train Loss: 0.17593994736671448
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+159300
+159400
+
+ -------------
+
+Train Loss: 0.14843714237213135
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+159500
+159600
+
+ -------------
+
+Train Loss: 0.20577506721019745
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+159700
+159800
+
+ -------------
+
+Train Loss: 0.17389117181301117
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.3% 5 way one-shot learning accuracy
+
+Current best: 88.3, previous best: 88.3
+159800
+Model saved!
+159900
+160000
+
+ -------------
+
+Train Loss: 0.19409586489200592
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+160100
+160200
+
+ -------------
+
+Train Loss: 0.145797997713089
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+160300
+160400
+
+ -------------
+
+Train Loss: 0.2274283766746521
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+160500
+160600
+
+ -------------
+
+Train Loss: 0.2040206342935562
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+160700
+160800
+
+ -------------
+
+Train Loss: 0.1474342942237854
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+160900
+161000
+
+ -------------
+
+Train Loss: 0.1678292155265808
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.9% 5 way one-shot learning accuracy
+
+161100
+161200
+
+ -------------
+
+Train Loss: 0.1149962842464447
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.1% 5 way one-shot learning accuracy
+
+161300
+161400
+
+ -------------
+
+Train Loss: 0.16613325476646423
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.7% 5 way one-shot learning accuracy
+
+161500
+161600
+
+ -------------
+
+Train Loss: 0.19485238194465637
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+161700
+161800
+
+ -------------
+
+Train Loss: 0.19437584280967712
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+161900
+162000
+
+ -------------
+
+Train Loss: 0.2044307440519333
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+162100
+162200
+
+ -------------
+
+Train Loss: 0.15064992010593414
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.4% 5 way one-shot learning accuracy
+
+162300
+162400
+
+ -------------
+
+Train Loss: 0.1565767228603363
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+162500
+162600
+
+ -------------
+
+Train Loss: 0.18292555212974548
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+162700
+162800
+
+ -------------
+
+Train Loss: 0.18025797605514526
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.7% 5 way one-shot learning accuracy
+
+162900
+163000
+
+ -------------
+
+Train Loss: 0.19465374946594238
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.2% 5 way one-shot learning accuracy
+
+163100
+163200
+
+ -------------
+
+Train Loss: 0.2114790678024292
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+163300
+163400
+
+ -------------
+
+Train Loss: 0.19059942662715912
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+163500
+163600
+
+ -------------
+
+Train Loss: 0.22124800086021423
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+163700
+163800
+
+ -------------
+
+Train Loss: 0.1811726838350296
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+163900
+164000
+
+ -------------
+
+Train Loss: 0.16081777215003967
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+164100
+164200
+
+ -------------
+
+Train Loss: 0.16133034229278564
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+164300
+164400
+
+ -------------
+
+Train Loss: 0.279209703207016
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.9% 5 way one-shot learning accuracy
+
+164500
+164600
+
+ -------------
+
+Train Loss: 0.19116759300231934
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+164700
+164800
+
+ -------------
+
+Train Loss: 0.23226799070835114
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+164900
+165000
+
+ -------------
+
+Train Loss: 0.17843900620937347
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+165100
+165200
+
+ -------------
+
+Train Loss: 0.14135341346263885
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.9% 5 way one-shot learning accuracy
+
+165300
+165400
+
+ -------------
+
+Train Loss: 0.24919351935386658
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.1% 5 way one-shot learning accuracy
+
+165500
+165600
+
+ -------------
+
+Train Loss: 0.17863957583904266
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+165700
+165800
+
+ -------------
+
+Train Loss: 0.15601012110710144
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+165900
+166000
+
+ -------------
+
+Train Loss: 0.12007652223110199
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.2% 5 way one-shot learning accuracy
+
+166100
+166200
+
+ -------------
+
+Train Loss: 0.1890636533498764
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+166300
+166400
+
+ -------------
+
+Train Loss: 0.22532032430171967
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.2% 5 way one-shot learning accuracy
+
+166500
+166600
+
+ -------------
+
+Train Loss: 0.2210085541009903
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+166700
+166800
+
+ -------------
+
+Train Loss: 0.16115950047969818
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+166900
+167000
+
+ -------------
+
+Train Loss: 0.1618203967809677
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+167100
+167200
+
+ -------------
+
+Train Loss: 0.17806270718574524
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+167300
+167400
+
+ -------------
+
+Train Loss: 0.1969413310289383
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+167500
+167600
+
+ -------------
+
+Train Loss: 0.16583967208862305
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+167700
+167800
+
+ -------------
+
+Train Loss: 0.1906282752752304
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.6% 5 way one-shot learning accuracy
+
+Current best: 88.6, previous best: 88.3
+167800
+Model saved!
+167900
+168000
+
+ -------------
+
+Train Loss: 0.17258334159851074
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+168100
+168200
+
+ -------------
+
+Train Loss: 0.2520219385623932
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+168300
+168400
+
+ -------------
+
+Train Loss: 0.1799997091293335
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+168500
+168600
+
+ -------------
+
+Train Loss: 0.23891325294971466
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.1% 5 way one-shot learning accuracy
+
+168700
+168800
+
+ -------------
+
+Train Loss: 0.21863126754760742
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+168900
+169000
+
+ -------------
+
+Train Loss: 0.21601787209510803
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+169100
+169200
+
+ -------------
+
+Train Loss: 0.225644052028656
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.3% 5 way one-shot learning accuracy
+
+169300
+169400
+
+ -------------
+
+Train Loss: 0.23167835175991058
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.6% 5 way one-shot learning accuracy
+
+169500
+169600
+
+ -------------
+
+Train Loss: 0.2163764089345932
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.4% 5 way one-shot learning accuracy
+
+169700
+169800
+
+ -------------
+
+Train Loss: 0.15048708021640778
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+169900
+170000
+
+ -------------
+
+Train Loss: 0.16515503823757172
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+170100
+170200
+
+ -------------
+
+Train Loss: 0.16704025864601135
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.9% 5 way one-shot learning accuracy
+
+Current best: 88.9, previous best: 88.6
+170200
+Model saved!
+170300
+170400
+
+ -------------
+
+Train Loss: 0.2218964397907257
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.3% 5 way one-shot learning accuracy
+
+170500
+170600
+
+ -------------
+
+Train Loss: 0.21701066195964813
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+170700
+170800
+
+ -------------
+
+Train Loss: 0.18957111239433289
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.8% 5 way one-shot learning accuracy
+
+170900
+171000
+
+ -------------
+
+Train Loss: 0.26269179582595825
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.7% 5 way one-shot learning accuracy
+
+171100
+171200
+
+ -------------
+
+Train Loss: 0.17551887035369873
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.9% 5 way one-shot learning accuracy
+
+171300
+171400
+
+ -------------
+
+Train Loss: 0.1267779916524887
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+171500
+171600
+
+ -------------
+
+Train Loss: 0.18501336872577667
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+171700
+171800
+
+ -------------
+
+Train Loss: 0.20718194544315338
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.0% 5 way one-shot learning accuracy
+
+171900
+172000
+
+ -------------
+
+Train Loss: 0.1798623949289322
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+172100
+172200
+
+ -------------
+
+Train Loss: 0.17880849540233612
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.1% 5 way one-shot learning accuracy
+
+172300
+172400
+
+ -------------
+
+Train Loss: 0.2046096920967102
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+172500
+172600
+
+ -------------
+
+Train Loss: 0.1271069198846817
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.3% 5 way one-shot learning accuracy
+
+172700
+172800
+
+ -------------
+
+Train Loss: 0.18071728944778442
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+172900
+173000
+
+ -------------
+
+Train Loss: 0.15490815043449402
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.4% 5 way one-shot learning accuracy
+
+173100
+173200
+
+ -------------
+
+Train Loss: 0.19568124413490295
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+173300
+173400
+
+ -------------
+
+Train Loss: 0.14959782361984253
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.8% 5 way one-shot learning accuracy
+
+173500
+173600
+
+ -------------
+
+Train Loss: 0.16475579142570496
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+173700
+173800
+
+ -------------
+
+Train Loss: 0.200147807598114
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+173900
+174000
+
+ -------------
+
+Train Loss: 0.18074961006641388
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+174100
+174200
+
+ -------------
+
+Train Loss: 0.1636163890361786
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+174300
+174400
+
+ -------------
+
+Train Loss: 0.1717739999294281
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.6% 5 way one-shot learning accuracy
+
+174500
+174600
+
+ -------------
+
+Train Loss: 0.21474221348762512
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.6% 5 way one-shot learning accuracy
+
+174700
+174800
+
+ -------------
+
+Train Loss: 0.2021898329257965
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+174900
+175000
+
+ -------------
+
+Train Loss: 0.1939123272895813
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+175100
+175200
+
+ -------------
+
+Train Loss: 0.21306851506233215
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.5% 5 way one-shot learning accuracy
+
+175300
+175400
+
+ -------------
+
+Train Loss: 0.17645776271820068
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.2% 5 way one-shot learning accuracy
+
+175500
+175600
+
+ -------------
+
+Train Loss: 0.17215129733085632
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.8% 5 way one-shot learning accuracy
+
+175700
+175800
+
+ -------------
+
+Train Loss: 0.21680934727191925
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+175900
+176000
+
+ -------------
+
+Train Loss: 0.19936196506023407
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 83.8% 5 way one-shot learning accuracy
+
+176100
+176200
+
+ -------------
+
+Train Loss: 0.20640137791633606
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+176300
+176400
+
+ -------------
+
+Train Loss: 0.20799434185028076
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+176500
+176600
+
+ -------------
+
+Train Loss: 0.1423404961824417
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+176700
+176800
+
+ -------------
+
+Train Loss: 0.2067183405160904
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.6% 5 way one-shot learning accuracy
+
+176900
+177000
+
+ -------------
+
+Train Loss: 0.18746107816696167
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.3% 5 way one-shot learning accuracy
+
+177100
+177200
+
+ -------------
+
+Train Loss: 0.17241856455802917
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.7% 5 way one-shot learning accuracy
+
+177300
+177400
+
+ -------------
+
+Train Loss: 0.12901419401168823
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+177500
+177600
+
+ -------------
+
+Train Loss: 0.1806069016456604
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.5% 5 way one-shot learning accuracy
+
+177700
+177800
+
+ -------------
+
+Train Loss: 0.18114596605300903
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 88.7% 5 way one-shot learning accuracy
+
+177900
+178000
+
+ -------------
+
+Train Loss: 0.22309750318527222
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+178100
+178200
+
+ -------------
+
+Train Loss: 0.20529881119728088
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.6% 5 way one-shot learning accuracy
+
+178300
+178400
+
+ -------------
+
+Train Loss: 0.17624154686927795
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 84.3% 5 way one-shot learning accuracy
+
+178500
+178600
+
+ -------------
+
+Train Loss: 0.22392012178897858
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.8% 5 way one-shot learning accuracy
+
+178700
+178800
+
+ -------------
+
+Train Loss: 0.1997658610343933
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+178900
+179000
+
+ -------------
+
+Train Loss: 0.1351630985736847
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.5% 5 way one-shot learning accuracy
+
+179100
+179200
+
+ -------------
+
+Train Loss: 0.1978602260351181
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.7% 5 way one-shot learning accuracy
+
+179300
+179400
+
+ -------------
+
+Train Loss: 0.15205609798431396
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.4% 5 way one-shot learning accuracy
+
+179500
+179600
+
+ -------------
+
+Train Loss: 0.17931634187698364
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.0% 5 way one-shot learning accuracy
+
+179700
+179800
+
+ -------------
+
+Train Loss: 0.17383404076099396
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+179900
+180000
+
+ -------------
+
+Train Loss: 0.1475660800933838
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.2% 5 way one-shot learning accuracy
+
+180100
+180200
+
+ -------------
+
+Train Loss: 0.25759270787239075
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.2% 5 way one-shot learning accuracy
+
+180300
+180400
+
+ -------------
+
+Train Loss: 0.17653816938400269
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+180500
+180600
+
+ -------------
+
+Train Loss: 0.22202980518341064
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.1% 5 way one-shot learning accuracy
+
+180700
+180800
+
+ -------------
+
+Train Loss: 0.16440580785274506
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.6% 5 way one-shot learning accuracy
+
+180900
+181000
+
+ -------------
+
+Train Loss: 0.1584065705537796
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.8% 5 way one-shot learning accuracy
+
+181100
+181200
+
+ -------------
+
+Train Loss: 0.14318419992923737
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.5% 5 way one-shot learning accuracy
+
+181300
+181400
+
+ -------------
+
+Train Loss: 0.17313086986541748
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 85.9% 5 way one-shot learning accuracy
+
+181500
+181600
+
+ -------------
+
+Train Loss: 0.19005939364433289
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 86.4% 5 way one-shot learning accuracy
+
+181700
+181800
+
+ -------------
+
+Train Loss: 0.19991350173950195
+Evaluating model on 1000 random 5 way one-shot learning tasks ...
+
+Got an average of 87.0% 5 way one-shot learning accuracy
+
+181900
+182000
+
+ -------------
