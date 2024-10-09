@@ -8,7 +8,7 @@ from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 from tensorflow.keras.layers import Input, Dense, Lambda, Dropout, Conv1D, Flatten, MaxPooling1D
-from tensorflow.keras.models import Model
+from tensorflow.keras.models import Model, load_model
 
 
 def initialize_bias(shape, name=None, dtype=None):
@@ -179,6 +179,12 @@ def indices_save(dataset):
 
 def siamese_network(risultati_siamese, dataset, input_shape, features_len, attack_type):
     siamese_model = get_siamese_model(input_shape)
+
+    '''
+    siamese_model = load_model("path", custom_objects={'initialize_bias': initialize_bias, 'last_layer': last_layer}, 
+                                safe_mode=False)
+    '''
+
     siamese_model.summary()
 
     optimizer = Adam(learning_rate=0.000005)
