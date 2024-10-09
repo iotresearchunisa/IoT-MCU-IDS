@@ -48,6 +48,9 @@ def process_csv(input_file_path, output_file_path):
     # List of hexadecimal columns to convert to float64
     hex_columns = ['MQTT_ConFlags', 'MQTT_ConAck_Flags']
 
+    # Columns to convert to string
+    string_columns = ['type_attack', 'Protocol_Type']
+
     # Create the output directory if it doesn't exist
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
 
@@ -61,39 +64,44 @@ def process_csv(input_file_path, output_file_path):
     with open(output_file_path, 'w', newline='', encoding='utf-8') as f_output:
         # Read the CSV file in chunks
         for chunk in pd.read_csv(input_file_path, delimiter=';', chunksize=chunksize, low_memory=False):
-            # Remove the column 'MQTT_Proto_Name' if it exists
+            # Rimuove la colonna 'MQTT_Proto_Name' se esiste
             if 'MQTT_Proto_Name' in chunk.columns:
                 chunk.drop(columns=['MQTT_Proto_Name'], inplace=True)
 
-            # Convert the hexadecimal columns to float64
+            # Converti le colonne esadecimali a float64
             for col in hex_columns:
                 if col in chunk.columns:
                     chunk[col] = chunk[col].apply(hex_to_float)
 
-            # Convert the specified columns to float64, if they exist
+            # Converti le colonne specificate a float64, se esistono e non sono già float64
             for col in columns_to_convert:
                 if col in chunk.columns and chunk[col].dtype != 'float64':
                     chunk[col] = pd.to_numeric(chunk[col], errors='coerce').astype('float64')
 
-            # Write the chunk to the output CSV file
+            # Converti le colonne specificate a string, indipendentemente dal loro tipo attuale
+            for col in string_columns:
+                if col in chunk.columns:
+                    chunk[col] = chunk[col].astype(str)
+
+            # Scrivi il chunk nel file CSV di output
             chunk.to_csv(f_output, index=False, sep=';', header=write_header, mode='a')
-            write_header = False  # Only write the header for the first chunk
+            write_header = False  # Scrivi l'intestazione solo per il primo chunk
 
     print(f"Processed: {input_file_path}")
 
 
 def process_all_csvs(input_root, output_root):
-    # Traverse all directories and files in the input_root
+    # Traversata di tutte le directory e file in input_root
     for root, dirs, files in os.walk(input_root):
         for file in files:
             if file.endswith('.csv'):
                 input_file_path = str(os.path.join(root, file))
 
-                # Create the corresponding output file path
+                # Crea il percorso del file di output corrispondente
                 relative_path = os.path.relpath(input_file_path, input_root)
                 output_file_path = os.path.join(output_root, relative_path)
 
-                # Process the CSV file and save the output
+                # Processa il file CSV e salva l'output
                 process_csv(input_file_path, output_file_path)
 
 

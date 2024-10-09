@@ -34,8 +34,8 @@ def process_csv_files(root_dir, replacement_string, output_csv):
 
 
 if __name__ == "__main__":
-    root_dir = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_2/normal_attack/password_normal"
-    replacement_string = "password"
-    output_csv = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_3/normal_attack/password.csv"
+    root_dir = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_2/normal_attack/normal_scanning"
+    replacement_string = "scanning"
+    output_csv = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_3/normal_attack/scanning.csv"
 
     process_csv_files(root_dir, replacement_string, output_csv)

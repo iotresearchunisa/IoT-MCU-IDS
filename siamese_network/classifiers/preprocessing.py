@@ -19,7 +19,7 @@ def load_and_preprocess_data(csv_file, test_size=0.2):
     print(f"Training Set Size: {len(train_df)}")
     print(f"Test Set Size: {len(test_df)}")
 
-    return X_train, y_train, X_test, y_test, label_encoder
+    return X_train, y_train, X_test, y_test, scaler, label_encoder
 
 
 # ==========================================================

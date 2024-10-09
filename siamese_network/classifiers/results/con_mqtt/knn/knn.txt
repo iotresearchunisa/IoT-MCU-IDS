@@ -1,0 +1,36 @@
+Training Set Size: 138404
+Test Set Size: 34601
+Modello e pre-processing salvati come 'results/con_mqtt/knn/knn.pkl'.
+
+Training Results with KNN:
+Training Accuracy: 0.9442
+Training Precision: 0.9442
+Training Recall: 0.9442
+Training F1 Score: 0.9441
+
+Test Results with KNN:
+Test Accuracy: 0.9233
+Test Precision: 0.9233
+Test Recall: 0.9233
+Test F1 Score: 0.9232
+
+Confusion Matrix on Test Set:
+[[6810   22   24    9   55]
+ [  18 5585    1 1309    8]
+ [   2    0 6900   17    1]
+ [  21 1018   69 5804    8]
+ [  41   20    0   11 6848]]
+['benign' 'brute_force' 'dos' 'mqtt_attack' 'recon']
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.99      0.98      0.99      6920
+ brute_force       0.84      0.81      0.82      6921
+         dos       0.99      1.00      0.99      6920
+ mqtt_attack       0.81      0.84      0.83      6920
+       recon       0.99      0.99      0.99      6920
+
+    accuracy                           0.92     34601
+   macro avg       0.92      0.92      0.92     34601
+weighted avg       0.92      0.92      0.92     34601

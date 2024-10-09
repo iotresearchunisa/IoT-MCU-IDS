@@ -1,0 +1,33 @@
+Training Set Size: 110723
+Test Set Size: 27681
+Modello e pre-processing salvati come 'results/senza_mqtt/random_forest/random_forest.pkl'.
+
+Risultati sul Training:
+Accuracy del Training: 0.9987
+Precisione del Training: 0.9987
+Recall del Training: 0.9987
+F1 Score del Training: 0.9987
+
+Risultati sul Test:
+Accuracy del Test: 0.9927
+Precisione del Test: 0.9927
+Recall del Test: 0.9927
+F1 Score del Test: 0.9927
+
+Matrice di Confusione sul Test:
+[[6817   23   24   57]
+ [  18 6899    2    1]
+ [  11    0 6904    5]
+ [  58    1    2 6859]]
+
+Report di Classificazione:
+              precision    recall  f1-score   support
+
+      benign       0.99      0.98      0.99      6921
+ brute_force       1.00      1.00      1.00      6920
+         dos       1.00      1.00      1.00      6920
+       recon       0.99      0.99      0.99      6920
+
+    accuracy                           0.99     27681
+   macro avg       0.99      0.99      0.99     27681
+weighted avg       0.99      0.99      0.99     27681
