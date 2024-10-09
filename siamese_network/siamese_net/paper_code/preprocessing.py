@@ -38,7 +38,7 @@ def load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.2):
     print(f"Validation Set Size: {len(val_df)}")
     print(f"Test Set Size: {len(test_df)}")
 
-    return X_train, y_train, X_val, y_val, X_test, y_test
+    return X_train, y_train, X_val, y_val, X_test, y_test, scaler, label_encoder
 
 
 # ==========================================================
