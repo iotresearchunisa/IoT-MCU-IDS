@@ -5,9 +5,19 @@ import pandas as pd
 
 def preprocess_data(df):
     # Rimozione delle righe con 'Protocol_Type' non nella mappa
-    protocol_map = {'TCP': 1, 'UDP': 2, 'ICMP': 3, 'ARP': 4, 'MQTT': 5,
+    # mio dataset
+    '''protocol_map = {'TCP': 1, 'UDP': 2, 'ICMP': 3, 'ARP': 4, 'MQTT': 5,
                     'SNA': 6, 'SSH': 7, 'SSHv2': 8, 'HPEXT': 9,
-                    'DNS': 10, 'WiMax': 11, 'NTP': 12}
+                    'DNS': 10, 'WiMax': 11, 'NTP': 12}'''
+
+    # TON_IoT dataset
+    protocol_map = {'TCP': 1, 'UDP': 2, 'ICMP': 3, 'ARP': 4, 'MQTT': 5, 'SSH': 7, 'SSHv2': 8,
+                    'DNS': 10, 'NTP': 12, "0xc0a8": 13, "HTTP": 14, "TLSv1": 15, "WebSocket": 16,
+                    "TLSv1.2": 17, "RPCAP": 18, "HTTP/XML": 19, "SMTP": 20, "HTTP/JSON": 21, "SSDP": 22,
+                    "FTP": 23, "TLSv1.1": 24, "MDNS": 25, "SSLv3": 26, "IMAP": 27, "IGMPv2": 28, "POP": 29,
+                    "SMB": 30, "LLMNR": 31, "NBNS": 32, "RDP": 33, "IGMPv3": 34, "WHOIS": 35, "BROWSER": 36,
+                    "FTP-DATA": 37, "TLSv1.3": 38, "SMB2": 39, "DCERPC": 40, "EPM": 41, "OCSP": 42,
+                    "DHCPv6": 43, "BJNP": 44}
 
     valid_protocols = protocol_map.keys()
     valid_rows = df['Protocol_Type'].isin(valid_protocols)

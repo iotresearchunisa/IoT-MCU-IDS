@@ -1,0 +1,20 @@
+2024-10-09 15:46:47,656 - Inizio del conteggio dei campioni per classe.
+
+2024-10-09 15:56:34,517 - Totale campioni per classe:
+2024-10-09 15:56:34,517 - Classe 'benign': 31205096 campioni (16.92%)
+2024-10-09 15:56:34,517 - Classe 'backdoor': 2094278 campioni (1.14%)
+2024-10-09 15:56:34,517 - Classe 'ddos': 48803148 campioni (26.47%)
+2024-10-09 15:56:34,517 - Classe 'dos': 27258952 campioni (14.78%)
+2024-10-09 15:56:34,517 - Classe 'injection': 3534193 campioni (1.92%)
+2024-10-09 15:56:34,517 - Classe 'mitm': 10324322 campioni (5.60%)
+2024-10-09 15:56:34,517 - Classe 'password': 6344791 campioni (3.44%)
+2024-10-09 15:56:34,517 - Classe 'ransomware': 2255968 campioni (1.22%)
+2024-10-09 15:56:34,517 - Classe 'scanning': 30109397 campioni (16.33%)
+2024-10-09 15:56:34,517 - Classe 'xss': 22472425 campioni (12.19%)
+
+2024-10-09 15:56:34,517 - Totale campioni: 184402570
+2024-10-09 15:56:34,527 - Numero minimo di campioni tra le classi per il bilanciamento: 2094278
+
+-----------------------------------------------------------------------------------------
+Ho preso solo 34601 campioni per ogni classe (benign, dos, password, scanning)
+-----------------------------------------------------------------------------------------

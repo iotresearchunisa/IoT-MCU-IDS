@@ -3,7 +3,7 @@ import logging
 import matplotlib.pyplot as plt
 
 
-log_file_path = '../datasets/mio/dataset_binario_info.txt'
+log_file_path = '../../datasets/TON_IoT/dataset_info.txt'
 logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s - %(message)s')
 
 
@@ -103,12 +103,12 @@ def create_balanced_dataset(csv_file_path, output_file_path, chunk_size=500000, 
 
 
 def main():
-    csv_file_path = '/media/alberto/DATA/Tesi/dataset_filtered.csv'
-    balanced_csv_file_path = '../datasets/mio/dataset_binario_bilanciato.csv'
+    csv_file_path = '/mnt/FE9090E39090A3A5/Tesi/TON_IoT/ton_iot_dataset_filtered.csv'
+    balanced_csv_file_path = '/mnt/FE9090E39090A3A5/Tesi/TON_IoT/dataset.csv'
 
     print("Scegli un'opzione:")
     print("1. Contare i campioni per classe")
-    print("2. Bilanciare il datasets")
+    print("2. Bilanciare il dataset")
     print("3. Mostra il numero di campioni per classe")
 
     scelta = input("Inserisci il numero della tua scelta: ")
@@ -118,7 +118,7 @@ def main():
     elif scelta == "2":
         create_balanced_dataset(csv_file_path, balanced_csv_file_path)
     elif scelta == "3":
-        data_path = "../datasets/dataset_attacchi_bilanciato_con_MQTT.csv"
+        data_path = "../../datasets/TON_IoT/dataset.csv"
         data = pd.read_csv(data_path, delimiter=';')
         plot_type_attack(data)
     else:

@@ -1,0 +1,34 @@
+Training Set Size: 110723
+Test Set Size: 27681
+Modello e pre-processing salvati come 'results/TON_IoT/knn/knn.pkl'.
+
+Training Results with KNN:
+Training Accuracy: 0.9419
+Training Precision: 0.9426
+Training Recall: 0.9419
+Training F1 Score: 0.9422
+
+Test Results with KNN:
+Test Accuracy: 0.9312
+Test Precision: 0.9319
+Test Recall: 0.9312
+Test F1 Score: 0.9314
+
+Confusion Matrix on Test Set:
+[[6608  271    7   34]
+ [ 197 6317   97  310]
+ [   9  154 6549  208]
+ [  46  439  133 6302]]
+['benign' 'brute_force' 'dos' 'recon']
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.96      0.95      0.96      6920
+ brute_force       0.88      0.91      0.90      6921
+         dos       0.97      0.95      0.96      6920
+       recon       0.92      0.91      0.92      6920
+
+    accuracy                           0.93     27681
+   macro avg       0.93      0.93      0.93     27681
+weighted avg       0.93      0.93      0.93     27681

@@ -101,7 +101,7 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
         print("Pairs are generated!\n")
 
         siamese_model = (SiameseNet(input_shape=(X_test.shape[1], 1))).load_saved_model(result_path + "siamese_model.h5")
-        print(f"Modello caricato da {result_path}!")
+        print(f"Modello caricato da {result_path}")
 
     # Evaluate the model on unseen test data
     test_loss, test_accuracy = siamese_model.evaluate([test_pairs[:, 0], test_pairs[:, 1]], test_labels)
@@ -116,11 +116,11 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
 
 
 if __name__ == "__main__":
-    csv_file = '../../datasets/mio/dataset_attacchi_bilanciato.csv'
+    csv_file = '../../datasets/TON_IoT/dataset.csv'
     result_path = "../results/paper_code/senza_mqtt/"
     train = False
 
     # Train - Val - Test
-    num_pairs = [1000000, 1000000, 10000]
+    num_pairs = [1000000, 1000000, 20000]
 
     train_siamese_network(csv_file, result_path, train, num_pairs)

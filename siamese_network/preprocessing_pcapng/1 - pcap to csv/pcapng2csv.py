@@ -74,9 +74,9 @@ def generate_csv(pcapng_file, output_file):
         'tcp.len': 'TCP_Length',
         'mqtt.conack.flags': 'MQTT_ConAck_Flags',
         'mqtt.conflag.cleansess': 'MQTT_CleanSession',
-        'mqtt.conflag.qos': 'MQTT_Conflag_QoS',
+        'mqtt.qos': 'MQTT_QoS',
         'mqtt.conflag.reserved': 'MQTT_Reserved',
-        'mqtt.conflag.retain': 'MQTT_Conflag_Retain',
+        'mqtt.retain': 'MQTT_Retain',
         'mqtt.conflag.willflag': 'MQTT_WillFlag',
         'mqtt.conflags': 'MQTT_ConFlags',
         'mqtt.dupflag': 'MQTT_DupFlag',
@@ -85,8 +85,8 @@ def generate_csv(pcapng_file, output_file):
         'mqtt.len': 'MQTT_Length',
         'mqtt.msgtype': 'MQTT_MessageType',
         'mqtt.proto_len': 'MQTT_Proto_Length',
-        'mqtt.qos': 'MQTT_QoS',
-        'mqtt.retain': 'MQTT_Retain',
+        'mqtt.conflag.qos': 'MQTT_Conflag_QoS',
+        'mqtt.conflag.retain': 'MQTT_Conflag_Retain',
         'mqtt.ver': 'MQTT_Version'
     }
 
