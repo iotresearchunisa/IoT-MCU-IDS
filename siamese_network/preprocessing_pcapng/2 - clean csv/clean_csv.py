@@ -20,17 +20,10 @@ import sys
 
 
 def clean_csv(input_csv, output_csv):
-    """
-    Function to remove rows where 'Protocol_Type' is in the list of unwanted protocols.
-    Also converts "True" to 1, "False" to 0, and empty cells to NaN. Additionally, removes rows where 'rate' is 0 and marks
-    MQTT Ping, Keep-Alive, and PUBLISH messages as benign, as well as TCP packets immediately following those messages.
-
-    :param input_csv: Path to the input CSV file.
-    :param output_csv: Path to the output cleaned CSV file.
-    """
     try:
-        # Load the input CSV into a DataFrame
-        df = pd.read_csv(input_csv, delimiter=';', low_memory=False)
+        # Initialize variables
+        chunksize = 300000  # Adjust this number based on your system's memory capacity
+        header_written = False  # Flag to ensure header is written only once
 
         # Protocols to remove
         protocols_to_remove = [
@@ -38,56 +31,62 @@ def clean_csv(input_csv, output_csv):
             'DLR', 'ISO', 'MIPv6', 'CLNP', 'IGRP', 'RSVP', 'UDP-Lite', 'ICMPv6'
         ]
 
-        # Remove rows where 'Protocol_Type' is in protocols_to_remove
-        df = df[~df['Protocol_Type'].isin(protocols_to_remove)]
-
-        # Convert boolean values True to 1 and False to 0
-        df.replace({True: 1, False: 0, "True": 1, "False": 0}, inplace=True)
-
-        # Assign 0 to empty cells
-        df.fillna(0, inplace=True)
-
-        # Remove rows where the 'rate' column has a value of 0
-        if 'rate' in df.columns:
-            df = df[df['rate'] != 0]
-
-        # Reset indices after row removal
-        df.reset_index(drop=True, inplace=True)
-
-        # Identify MQTT Ping, Keep-Alive, and PUBLISH packets and assign 'benign'
+        # MQTT flags column
         mqtt_flags = 'MQTT_HeaderFlags'  # Replace with the correct column in your dataset
-        if mqtt_flags in df.columns:
-            # Convert hexadecimal string values to integers if applicable
-            df[mqtt_flags] = df[mqtt_flags].apply(
-                lambda x: int(x, 16) if isinstance(x, str) and '0x' in x else x
-            )
 
-            # Assign "benign" to packets with specific MQTT flags
-            df['type_attack'] = df.apply(
-                lambda row: 'benign' if row[mqtt_flags] in [0xC0, 0xD0, 0x30] else row['type_attack'],
-                axis=1
-            )
+        # Read and process the CSV in chunks
+        for chunk in pd.read_csv(input_csv, delimiter=';', low_memory=False, chunksize=chunksize):
+            # Remove rows where 'Protocol_Type' is in protocols_to_remove
+            chunk = chunk[~chunk['Protocol_Type'].isin(protocols_to_remove)]
 
-        # Find TCP packets immediately following MQTT Ping, Keep-Alive, and PUBLISH packets
-        mqtt_indices = df.index[df["Protocol_Type"] == "MQTT"].tolist()
-        for idx in mqtt_indices:
-            # Get the next two packets after the MQTT packet
-            next_two_rows = df.iloc[idx + 1:idx + 3]
+            # Convert boolean values True to 1 and False to 0
+            chunk.replace({True: 1, False: 0, "True": 1, "False": 0}, inplace=True)
 
-            # Check if there is a first packet
-            if len(next_two_rows) > 0:
-                # If the first packet is TCP, classify it as benign
-                if next_two_rows.iloc[0]['Protocol_Type'] == 'TCP':
-                    df.loc[next_two_rows.index[0], 'type_attack'] = 'benign'
+            # Assign 0 to empty cells
+            chunk.fillna(0, inplace=True)
 
-            # Check if there is a second packet
-            if len(next_two_rows) > 1:
-                # If the second packet is TCP, classify it as benign
-                if next_two_rows.iloc[1]['Protocol_Type'] == 'TCP':
-                    df.loc[next_two_rows.index[1], 'type_attack'] = 'benign'
+            # Remove rows where the 'rate' column has a value of 0
+            if 'rate' in chunk.columns:
+                chunk = chunk[chunk['rate'] != 0]
 
-        # Save the cleaned DataFrame to the output CSV file
-        df.to_csv(output_csv, sep=';', index=False)
+            # Reset indices after row removal
+            chunk.reset_index(drop=True, inplace=True)
+
+            # Ensure 'type_attack' column exists and is of string type
+            if 'type_attack' in chunk.columns:
+                chunk['type_attack'] = chunk['type_attack'].astype(str)
+            else:
+                # If 'type_attack' does not exist, create it as a string column
+                chunk['type_attack'] = ''
+
+            # Convert hexadecimal string values to integers in mqtt_flags column
+            if mqtt_flags in chunk.columns:
+                chunk[mqtt_flags] = chunk[mqtt_flags].apply(
+                    lambda x: int(x, 16) if isinstance(x, str) and '0x' in x else x
+                )
+
+                # Assign "benign" to packets with specific MQTT flags
+                chunk['type_attack'] = chunk.apply(
+                    lambda row: 'benign' if row[mqtt_flags] in [0xC0, 0xD0, 0x30] else row['type_attack'],
+                    axis=1
+                )
+
+            # Find MQTT packet indices
+            mqtt_indices = chunk.index[chunk["Protocol_Type"] == "MQTT"].tolist()
+
+            # For each MQTT packet, mark the next two TCP packets as 'benign'
+            for idx in mqtt_indices:
+                next_indices = [idx + 1, idx + 2]
+                for next_idx in next_indices:
+                    if next_idx < len(chunk) and chunk.at[next_idx, 'Protocol_Type'] == 'TCP':
+                        chunk.at[next_idx, 'type_attack'] = 'benign'
+
+            # Write the processed chunk to the output CSV file
+            if not header_written:
+                chunk.to_csv(output_csv, sep=';', index=False, mode='w')
+                header_written = True
+            else:
+                chunk.to_csv(output_csv, sep=';', index=False, mode='a', header=False)
 
         print(f"Cleaned CSV saved to {output_csv}")
 

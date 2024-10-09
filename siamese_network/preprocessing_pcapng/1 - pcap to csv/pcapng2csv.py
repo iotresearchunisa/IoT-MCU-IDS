@@ -21,32 +21,12 @@ import time
 
 
 def calculate_rate(time_delta, min_time_diff=1e-6):
-    """
-    Calculate the rate (packets per second) based on the time difference.
-
-    Args:
-        time_delta (float): The time difference between packets.
-        min_time_diff (float): Minimum time difference to avoid division by zero.
-
-    Returns:
-        float: Calculated rate or 0 if time_delta is too small.
-    """
     if time_delta < min_time_diff:
         return 0  # Avoid division by zero
     return 1 / time_delta
 
 
 def validate_pcap_file(pcapng_file):
-    """
-    Validate that the PCAPNG file exists and has a correct extension.
-
-    Args:
-        pcapng_file (str): Path to the PCAPNG file.
-
-    Raises:
-        FileNotFoundError: If the file does not exist.
-        ValueError: If the file does not have a .pcap or .pcapng extension.
-    """
     try:
         if not os.path.isfile(pcapng_file):
             raise FileNotFoundError(f"Error: The file '{pcapng_file}' does not exist.")
@@ -68,13 +48,6 @@ def validate_pcap_file(pcapng_file):
 
 
 def generate_csv(pcapng_file, output_file):
-    """
-    Generate a CSV file from the PCAPNG data using tshark with custom headers.
-
-    Args:
-        pcapng_file (str): Path to the input PCAPNG file.
-        output_file (str): Path to the output CSV file.
-    """
     fields = [
         'ip.ttl', 'ip.hdr_len', '_ws.col.Protocol', 'tcp.flags.fin', 'tcp.flags.syn', 'tcp.flags.reset',
         'tcp.flags.push', 'tcp.flags.ack', 'tcp.flags.ece', 'tcp.flags.cwr', 'frame.len', 'frame.time_delta',
@@ -161,9 +134,6 @@ def generate_csv(pcapng_file, output_file):
 
 
 def main():
-    """
-    Main function to parse arguments and process PCAPNG files.
-    """
     parser = argparse.ArgumentParser(
         description="Convert PCAPNG files to CSV with selected fields and custom headers.",
         formatter_class=argparse.RawTextHelpFormatter
@@ -198,7 +168,6 @@ def main():
 
     output_dir = str(args.output)
 
-    # If input is a directory, process all PCAPNG files within
     if len(args.input) == 1 and os.path.isdir(args.input[0]):
         pcapng_files = glob.glob(os.path.join(args.input[0], '*.pcapng'))
         if not pcapng_files:

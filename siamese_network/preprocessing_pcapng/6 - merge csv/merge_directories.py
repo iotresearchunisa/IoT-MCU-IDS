@@ -15,15 +15,6 @@ import pandas as pd
 import sys
 
 def find_csv_files(root_dir):
-    """
-    Recursively find all CSV files in the given root directory.
-
-    Args:
-        root_dir (str): Path to the root directory.
-
-    Returns:
-        list: Sorted list of CSV file paths.
-    """
     csv_files = []
     for dirpath, _, filenames in os.walk(root_dir):
         for filename in filenames:
@@ -33,15 +24,7 @@ def find_csv_files(root_dir):
     csv_files.sort()
     return csv_files
 
-def consolidate_csv_files(csv_files, output_file, chunksize=100000):
-    """
-    Consolidate multiple CSV files into a single CSV file.
-
-    Args:
-        csv_files (list): List of CSV file paths to consolidate.
-        output_file (str): Path to the output CSV file.
-        chunksize (int, optional): Number of rows per chunk. Defaults to 100000.
-    """
+def consolidate_csv_files(csv_files, output_file, chunksize=300000):
     header_saved = False
 
     for file in csv_files:
@@ -65,14 +48,11 @@ def consolidate_csv_files(csv_files, output_file, chunksize=100000):
     print(f"\nAll files have been consolidated into {output_file}.")
 
 def main():
-    """
-    Main function to execute the CSV consolidation process.
-    """
     # Define the root directory containing CSV files
-    root_dir = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_4'
+    root_dir = '/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_4'
 
     # Define the output CSV file path
-    output_file = '/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/dataset.csv'
+    output_file = '/mnt/FE9090E39090A3A5/Tesi/TON_IoT/ton_iot_dataset.csv'
 
     # Find all CSV files in the root directory
     csv_files = find_csv_files(root_dir)

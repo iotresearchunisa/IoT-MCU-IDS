@@ -35,7 +35,7 @@ import os
 
 def extract_second_value(cell):
     if pd.isna(cell) or cell == '':
-        return cell  # Ignore empty values
+        return cell
     if ',' in cell:
         value = cell.split(',')[1]
 
@@ -47,12 +47,12 @@ def extract_second_value(cell):
         return 0
     return cell
 
+
 def process_csv_in_chunks(input_file_path, output_file_path, chunk_size=100000):
     total_rows_with_multiple_values = 0
 
     chunk_iterator = pd.read_csv(input_file_path, delimiter=';', low_memory=False, chunksize=chunk_size)
 
-    # Crea il file di output svuotato
     with open(output_file_path, 'w', newline='') as output_file:
         for i, chunk in enumerate(chunk_iterator):
             rows_with_multiple_values = (chunk.astype(str).apply(lambda row: row.str.contains(',')).any(axis=1)).sum()
@@ -65,8 +65,8 @@ def process_csv_in_chunks(input_file_path, output_file_path, chunk_size=100000):
     print(f"The transformed CSV has been saved as {output_file_path}")
     print(f"Total number of rows with more than one comma-separated value: {total_rows_with_multiple_values}")
 
+
 def process_all_csvs(input_root, output_root, chunk_size=100000):
-    # Walk through all directories and files in the input_root
     for root, dirs, files in os.walk(input_root):
         for file in files:
             if file.endswith('.csv'):
@@ -82,8 +82,9 @@ def process_all_csvs(input_root, output_root, chunk_size=100000):
                 # Process the CSV file in chunks and save the output
                 process_csv_in_chunks(input_file_path, output_file_path, chunk_size)
 
-if __name__ == "__main__":
-    input_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned/attacks/dos/UDP_Fragmentation/"
-    output_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_2/attacks/dos/UDP_Fragmentation/"
 
-    process_all_csvs(input_root, output_root, chunk_size=100000)
+if __name__ == "__main__":
+    input_root = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv/normal_attack/pp/"
+    output_root = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned/normal_attack/"
+
+    process_all_csvs(input_root, output_root, chunk_size=300000)

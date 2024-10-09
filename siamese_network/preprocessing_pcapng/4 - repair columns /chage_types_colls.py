@@ -23,8 +23,8 @@ in the input directory and saves the transformed files in the output directory.
 import os
 import pandas as pd
 
+
 def hex_to_float(cell):
-    """Converts a hexadecimal string (e.g. '0x00') to a float."""
     try:
         if isinstance(cell, str) and cell.startswith('0x'):
             return float(int(cell, 16))
@@ -32,10 +32,8 @@ def hex_to_float(cell):
     except ValueError:
         return pd.NA
 
-def process_csv(input_file_path, output_file_path):
-    # Load the CSV file
-    df = pd.read_csv(input_file_path, delimiter=';', low_memory=False)
 
+def process_csv(input_file_path, output_file_path):
     # List of columns to convert to float64
     columns_to_convert = [
         'Time_To_Leave', 'Header_Length', 'Packet_Fragments', 'rate',
@@ -50,27 +48,39 @@ def process_csv(input_file_path, output_file_path):
     # List of hexadecimal columns to convert to float64
     hex_columns = ['MQTT_ConFlags', 'MQTT_ConAck_Flags']
 
-    # Remove the column 'MQTT_Proto_Name' if it exists
-    if 'MQTT_Proto_Name' in df.columns:
-        df.drop(columns=['MQTT_Proto_Name'], inplace=True)
-
-    # Convert the hexadecimal columns to float64
-    for col in hex_columns:
-        if col in df.columns:
-            df[col] = df[col].apply(hex_to_float)
-
-    # Convert the specified columns to float64, if they exist
-    for col in columns_to_convert:
-        if col in df.columns and df[col].dtype != 'float64':
-            df[col] = pd.to_numeric(df[col], errors='coerce').astype('float64')
-
     # Create the output directory if it doesn't exist
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
 
-    # Save the transformed CSV file
-    df.to_csv(output_file_path, index=False, sep=';')
+    # Define the chunksize
+    chunksize = 300000
+
+    # Initialize the write_header flag
+    write_header = True
+
+    # Open the output file for writing
+    with open(output_file_path, 'w', newline='', encoding='utf-8') as f_output:
+        # Read the CSV file in chunks
+        for chunk in pd.read_csv(input_file_path, delimiter=';', chunksize=chunksize, low_memory=False):
+            # Remove the column 'MQTT_Proto_Name' if it exists
+            if 'MQTT_Proto_Name' in chunk.columns:
+                chunk.drop(columns=['MQTT_Proto_Name'], inplace=True)
+
+            # Convert the hexadecimal columns to float64
+            for col in hex_columns:
+                if col in chunk.columns:
+                    chunk[col] = chunk[col].apply(hex_to_float)
+
+            # Convert the specified columns to float64, if they exist
+            for col in columns_to_convert:
+                if col in chunk.columns and chunk[col].dtype != 'float64':
+                    chunk[col] = pd.to_numeric(chunk[col], errors='coerce').astype('float64')
+
+            # Write the chunk to the output CSV file
+            chunk.to_csv(f_output, index=False, sep=';', header=write_header, mode='a')
+            write_header = False  # Only write the header for the first chunk
 
     print(f"Processed: {input_file_path}")
+
 
 def process_all_csvs(input_root, output_root):
     # Traverse all directories and files in the input_root
@@ -86,10 +96,9 @@ def process_all_csvs(input_root, output_root):
                 # Process the CSV file and save the output
                 process_csv(input_file_path, output_file_path)
 
-if __name__ == "__main__":
-    # Specify the root directory for input and output
-    input_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_3"
-    output_root = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/dataset/csv_cleaned_4"
 
-    # Execute the process on all CSV files
+if __name__ == "__main__":
+    input_root = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_3"
+    output_root = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_4"
+
     process_all_csvs(input_root, output_root)

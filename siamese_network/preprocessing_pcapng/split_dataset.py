@@ -1,11 +1,31 @@
 import pandas as pd
 import logging
+import matplotlib.pyplot as plt
 
-log_file_path = '../dataset_attacchi_info.txt'
+
+log_file_path = '../datasets/mio/dataset_binario_info.txt'
 logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s - %(message)s')
 
+
+def plot_type_attack(df):
+    counts = df['type_attack'].value_counts()
+
+    ax = counts.plot(kind='bar', figsize=(10, 6), color='skyblue')
+    plt.xlabel('Tipo di Attacco')
+    plt.ylabel('Numero di Occorrenze')
+    plt.title('Distribuzione delle Categorie in type_attack')
+    plt.xticks(rotation=45, ha='right')
+
+    # Annotazioni per il numero di campioni su ogni barra
+    for i, count in enumerate(counts):
+        ax.text(i, count + 5, str(count), ha='center', va='bottom')
+
+    plt.tight_layout()
+    plt.show()
+
+
 # Funzione per il conteggio dei campioni per classe nella colonna 'type_attack'
-def count_samples(csv_file_path, chunk_size=200000, delimiter=';'):
+def count_samples(csv_file_path, chunk_size=500000, delimiter=';'):
     class_counts = {}
     total_samples = 0
 
@@ -33,8 +53,9 @@ def count_samples(csv_file_path, chunk_size=200000, delimiter=';'):
 
     return class_counts
 
-# Funzione per creare un dataset bilanciato tra più classi
-def create_balanced_dataset(csv_file_path, output_file_path, chunk_size=100000, delimiter=';'):
+
+# Funzione per creare un datasets bilanciato tra più classi
+def create_balanced_dataset(csv_file_path, output_file_path, chunk_size=500000, delimiter=';'):
     # Prima, conta i campioni per classe
     class_counts = count_samples(csv_file_path, chunk_size, delimiter)
 
@@ -78,13 +99,17 @@ def create_balanced_dataset(csv_file_path, output_file_path, chunk_size=100000, 
     print(f"Dataset bilanciato creato con {min_samples} campioni per classe.")
     print(f"Dataset bilanciato salvato in: {output_file_path}")
 
+    plot_type_attack(combined_dataset)
+
+
 def main():
-    csv_file_path = '/media/alberto/DATA/Tesi/dataset_attacchi.csv'
-    balanced_csv_file_path = '../dataset_attacchi_bilanciato.csv'
+    csv_file_path = '/media/alberto/DATA/Tesi/dataset_filtered.csv'
+    balanced_csv_file_path = '../datasets/mio/dataset_binario_bilanciato.csv'
 
     print("Scegli un'opzione:")
     print("1. Contare i campioni per classe")
-    print("2. Bilanciare il dataset")
+    print("2. Bilanciare il datasets")
+    print("3. Mostra il numero di campioni per classe")
 
     scelta = input("Inserisci il numero della tua scelta: ")
 
@@ -92,8 +117,13 @@ def main():
         count_samples(csv_file_path)
     elif scelta == "2":
         create_balanced_dataset(csv_file_path, balanced_csv_file_path)
+    elif scelta == "3":
+        data_path = "../datasets/dataset_attacchi_bilanciato_con_MQTT.csv"
+        data = pd.read_csv(data_path, delimiter=';')
+        plot_type_attack(data)
     else:
         print("Scelta non valida. Riprova.")
+
 
 if __name__ == "__main__":
     main()
