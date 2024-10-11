@@ -75,8 +75,8 @@ def train_random_forest(csv_file, model_filename, train):
     print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
 
 if __name__ == "__main__":
-    csv_file = '../datasets/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
-    model_filename = 'results/con_mqtt/random_forest/random_forest.pkl'
-    train = True
+    csv_file = '../datasets/TON_IoT/dataset.csv'
+    model_filename = 'results/train_test/mio/con_mqtt/random_forest/random_forest.pkl'
+    train = False
 
     train_random_forest(csv_file, model_filename, train)

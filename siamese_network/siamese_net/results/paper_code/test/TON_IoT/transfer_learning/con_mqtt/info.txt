@@ -1,0 +1,140 @@
+Preprocessing caricato da ../results/paper_code/train_test/con_mqtt/preprocessing.pkl
+
+Training Set Size: 88578
+Validation Set Size: 22145
+Test Set Size: 27681
+Data are preprocessed!
+
+Classes: 4
+Total pairs generated: 1000000
+Total duplicate attempts: 2732
+Duplicates over total attempts: 2732/1000000
+
+Classes: 4
+Total pairs generated: 1000000
+Total duplicate attempts: 2713
+Duplicates over total attempts: 2713/1000000
+
+Classes: 4
+Total pairs generated: 50000
+Total duplicate attempts: 7
+Duplicates over total attempts: 7/50000
+
+Pairs are generated!
+
+Siamese Network Created:
+
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to
+==================================================================================================
+ input_1 (InputLayer)        [(None, 31, 1)]              0         []
+
+ input_2 (InputLayer)        [(None, 31, 1)]              0         []
+
+ sequential (Sequential)     (None, 32)                   453728    ['input_1[0][0]',
+                                                                     'input_2[0][0]']
+
+ lambda (Lambda)             (None, 1)                    0         ['sequential[0][0]',
+                                                                     'sequential[1][0]']
+
+==================================================================================================
+Total params: 453728 (1.73 MB)
+Trainable params: 453728 (1.73 MB)
+Non-trainable params: 0 (0.00 Byte)
+__________________________________________________________________________________________________
+Epoch 1/40
+3907/3907 [==============================] - 279s 68ms/step - loss: 0.0989 - accuracy: 0.8639 - val_loss: 0.0858 - val_accuracy: 0.8858
+Epoch 2/40
+3907/3907 [==============================] - 224s 57ms/step - loss: 0.0810 - accuracy: 0.8905 - val_loss: 0.0787 - val_accuracy: 0.8931
+Epoch 3/40
+3907/3907 [==============================] - 224s 57ms/step - loss: 0.0759 - accuracy: 0.8957 - val_loss: 0.0747 - val_accuracy: 0.8939
+Epoch 4/40
+3907/3907 [==============================] - 224s 57ms/step - loss: 0.0711 - accuracy: 0.9035 - val_loss: 0.0675 - val_accuracy: 0.9103
+Epoch 5/40
+3907/3907 [==============================] - 224s 57ms/step - loss: 0.0657 - accuracy: 0.9127 - val_loss: 0.0647 - val_accuracy: 0.9155
+Epoch 6/40
+3907/3907 [==============================] - 225s 58ms/step - loss: 0.0633 - accuracy: 0.9158 - val_loss: 0.0638 - val_accuracy: 0.9150
+Epoch 7/40
+3907/3907 [==============================] - 225s 58ms/step - loss: 0.0617 - accuracy: 0.9179 - val_loss: 0.0609 - val_accuracy: 0.9199
+Epoch 8/40
+3907/3907 [==============================] - 225s 58ms/step - loss: 0.0609 - accuracy: 0.9189 - val_loss: 0.0606 - val_accuracy: 0.9190
+Epoch 9/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0600 - accuracy: 0.9202 - val_loss: 0.0603 - val_accuracy: 0.9194
+Epoch 10/40
+3907/3907 [==============================] - 225s 58ms/step - loss: 0.0594 - accuracy: 0.9209 - val_loss: 0.0639 - val_accuracy: 0.9170
+Epoch 11/40
+3907/3907 [==============================] - 225s 58ms/step - loss: 0.0588 - accuracy: 0.9216 - val_loss: 0.0581 - val_accuracy: 0.9239
+Epoch 12/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0582 - accuracy: 0.9224 - val_loss: 0.0592 - val_accuracy: 0.9205
+Epoch 13/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0580 - accuracy: 0.9225 - val_loss: 0.0579 - val_accuracy: 0.9217
+Epoch 14/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0574 - accuracy: 0.9236 - val_loss: 0.0569 - val_accuracy: 0.9241
+Epoch 15/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0570 - accuracy: 0.9239 - val_loss: 0.0567 - val_accuracy: 0.9240
+Epoch 16/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0566 - accuracy: 0.9244 - val_loss: 0.0565 - val_accuracy: 0.9252
+Epoch 17/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0562 - accuracy: 0.9247 - val_loss: 0.0563 - val_accuracy: 0.9238
+Epoch 18/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0560 - accuracy: 0.9251 - val_loss: 0.0554 - val_accuracy: 0.9250
+Epoch 19/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0556 - accuracy: 0.9256 - val_loss: 0.0555 - val_accuracy: 0.9261
+Epoch 20/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0552 - accuracy: 0.9263 - val_loss: 0.0548 - val_accuracy: 0.9266
+Epoch 21/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0550 - accuracy: 0.9264 - val_loss: 0.0562 - val_accuracy: 0.9244
+Epoch 22/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0547 - accuracy: 0.9270 - val_loss: 0.0541 - val_accuracy: 0.9277
+Epoch 23/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0545 - accuracy: 0.9272 - val_loss: 0.0550 - val_accuracy: 0.9266
+Epoch 24/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0542 - accuracy: 0.9275 - val_loss: 0.0543 - val_accuracy: 0.9265
+Epoch 25/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0539 - accuracy: 0.9280 - val_loss: 0.0538 - val_accuracy: 0.9294
+Epoch 26/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0538 - accuracy: 0.9282 - val_loss: 0.0545 - val_accuracy: 0.9275
+Epoch 27/40
+3907/3907 [==============================] - 226s 58ms/step - loss: 0.0535 - accuracy: 0.9286 - val_loss: 0.0534 - val_accuracy: 0.9276
+Epoch 28/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0534 - accuracy: 0.9287 - val_loss: 0.0533 - val_accuracy: 0.9281
+Epoch 29/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0531 - accuracy: 0.9292 - val_loss: 0.0534 - val_accuracy: 0.9278
+Epoch 30/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0529 - accuracy: 0.9294 - val_loss: 0.0533 - val_accuracy: 0.9291
+Epoch 31/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0527 - accuracy: 0.9296 - val_loss: 0.0532 - val_accuracy: 0.9284
+Epoch 32/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0526 - accuracy: 0.9299 - val_loss: 0.0523 - val_accuracy: 0.9296
+Epoch 33/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0524 - accuracy: 0.9301 - val_loss: 0.0525 - val_accuracy: 0.9287
+Epoch 34/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0521 - accuracy: 0.9305 - val_loss: 0.0520 - val_accuracy: 0.9299
+Epoch 35/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0521 - accuracy: 0.9306 - val_loss: 0.0540 - val_accuracy: 0.9282
+Epoch 36/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0519 - accuracy: 0.9308 - val_loss: 0.0548 - val_accuracy: 0.9277
+Epoch 37/40
+3907/3907 [==============================] - 228s 58ms/step - loss: 0.0518 - accuracy: 0.9310 - val_loss: 0.0518 - val_accuracy: 0.9293
+Epoch 38/40
+3907/3907 [==============================] - 228s 58ms/step - loss: 0.0516 - accuracy: 0.9312 - val_loss: 0.0507 - val_accuracy: 0.9320
+Epoch 39/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0514 - accuracy: 0.9317 - val_loss: 0.0519 - val_accuracy: 0.9317
+Epoch 40/40
+3907/3907 [==============================] - 227s 58ms/step - loss: 0.0513 - accuracy: 0.9318 - val_loss: 0.0516 - val_accuracy: 0.9319
+
+Modello salvato in ../results/paper_code/test/TON_IoT/transfer_learning/con_mqtt/
+Pre-processing salvato!
+
+1563/1563 [==============================] - 7s 4ms/step - loss: 0.0603 - accuracy: 0.9182
+Test Loss: 0.0603, Test Accuracy: 0.9182
+1563/1563 [==============================] - 5s 3ms/step
+              precision    recall  f1-score   support
+
+           0       0.89      0.95      0.92     25000
+           1       0.95      0.89      0.92     25000
+
+    accuracy                           0.92     50000
+   macro avg       0.92      0.92      0.92     50000
+weighted avg       0.92      0.92      0.92     50000

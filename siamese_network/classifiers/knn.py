@@ -71,13 +71,12 @@ def train_knn(csv_file, model_filename, train):
 
     # Display the classification report
     class_names = label_encoder.classes_
-    print(class_names)
     print("\nClassification Report:")
     print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
 
 if __name__ == "__main__":
-    csv_file = '../datasets/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
-    model_filename = 'results/con_mqtt/knn/knn.pkl'
-    train = True
+    csv_file = '../datasets/TON_IoT/dataset.csv'
+    model_filename = 'results/train_test/mio/con_mqtt/knn/knn.pkl'
+    train = False
 
     train_knn(csv_file, model_filename, train)

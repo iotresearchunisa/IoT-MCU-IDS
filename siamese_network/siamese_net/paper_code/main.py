@@ -61,13 +61,13 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
         siamese_model = (SiameseNet(input_shape=(X_train.shape[1], 1))).get()
 
         # Define early stopping to avoid overfitting
-        early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
+        early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 
         # Train the model
         history = siamese_model.fit([train_pairs[:, 0], train_pairs[:, 1]], train_labels,
                                     validation_data=([val_pairs[:, 0], val_pairs[:, 1]], val_labels),
                                     batch_size=256,
-                                    epochs=1000,
+                                    epochs=100,
                                     callbacks=[early_stopping])
 
         # Save components
@@ -117,10 +117,10 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
 
 if __name__ == "__main__":
     csv_file = '../../datasets/TON_IoT/dataset.csv'
-    result_path = "../results/paper_code/senza_mqtt/"
+    result_path = "../results/paper_code/test/TON_IoT/transfer_learning/senza_mqtt/"
     train = False
 
     # Train - Val - Test
-    num_pairs = [1000000, 1000000, 20000]
+    num_pairs = [1000000, 1000000, 50000]
 
     train_siamese_network(csv_file, result_path, train, num_pairs)

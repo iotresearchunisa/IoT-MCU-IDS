@@ -1,0 +1,25 @@
+Modello caricato da 'results/train_test/mio/senza_mqtt/svm/svm.pkl'.
+
+Risultati sul Test:
+Accuracy del Test: 0.1351
+Precisione del Test: 0.1846
+Recall del Test: 0.1351
+F1 Score del Test: 0.1363
+
+Matrice di Confusione sul Test:
+[[ 3504 30317   211   569]
+ [21490  9429  2447  1235]
+ [29821   230    35  4515]
+ [22750  5652   469  5730]]
+
+Report di Classificazione:
+              precision    recall  f1-score   support
+
+      benign       0.05      0.10      0.06     34601
+ brute_force       0.21      0.27      0.24     34601
+         dos       0.01      0.00      0.00     34601
+       recon       0.48      0.17      0.25     34601
+
+    accuracy                           0.14    138404
+   macro avg       0.18      0.14      0.14    138404
+weighted avg       0.18      0.14      0.14    138404

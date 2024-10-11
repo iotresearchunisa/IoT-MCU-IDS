@@ -11,7 +11,7 @@ class SiameseNet:
         self.right_input = Input(input_shape)
         self.convnet = Sequential()
 
-        lr = 0.0001 # prima era 0.000005
+        lr = 0.0001 # metti 0.000001 per il transfer learning
         self.convnet.add(Conv1D(filters=256, kernel_size=50, strides=1, activation='relu', padding='same', input_shape=input_shape))
         self.convnet.add(Conv1D(filters=128, kernel_size=10, strides=1, activation='relu', padding='same'))
         self.convnet.add(MaxPooling1D(pool_size=2))
