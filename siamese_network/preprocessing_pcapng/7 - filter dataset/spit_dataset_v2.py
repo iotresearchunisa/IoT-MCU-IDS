@@ -107,8 +107,8 @@ def process_csv_fixed_sample(input_file, output_file, chunk_size=100000, target_
 
 
 if __name__ == "__main__":
-    input_path = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/ton_iot_dataset_filtered.csv"
-    output_pat = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/siamese_network/datasets/TON_IoT/dataset.csv"
+    input_path = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/ton_iot_dataset_filtered.csv"
+    output_pat = "/home/alberto/Documenti/GitHub/Thesis-IoT_Cloud_based/siamese_network/datasets/mio - TON_IoT/dataset.csv"
     chunk_size = 300000
 
     # Verifica che il file di input esista

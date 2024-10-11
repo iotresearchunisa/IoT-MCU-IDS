@@ -84,7 +84,7 @@ def process_all_csvs(input_root, output_root, chunk_size=100000):
 
 
 if __name__ == "__main__":
-    input_root = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv/normal_attack/pp/"
-    output_root = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned/normal_attack/"
+    input_root = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv/normal_attack/pp/"
+    output_root = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv_cleaned/normal_attack/"
 
     process_all_csvs(input_root, output_root, chunk_size=300000)

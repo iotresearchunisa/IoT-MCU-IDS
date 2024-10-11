@@ -93,5 +93,5 @@ def analyze_csv_files(root_directory):
         print("\nThere are no columns that are empty or contain only zeros, NaNs, or False in all the analyzed CSVs.")
 
 if __name__ == "__main__":
-    root_directory = "/mnt/FE9090E39090A3A5/Tesi/TON_IoT/csv_cleaned_4"
+    root_directory = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv_cleaned_4"
     analyze_csv_files(root_directory)

@@ -21,4 +21,4 @@ def process_csv_in_chunks(file_path, chunk_size=10000):
 
 
 # Specifica il percorso del file CSV e la dimensione del chunk
-process_csv_in_chunks('/mnt/FE9090E39090A3A5/Tesi/TON_IoT/ton_iot_dataset.csv', chunk_size=300000)
+process_csv_in_chunks('/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/ton_iot_dataset.csv', chunk_size=300000)

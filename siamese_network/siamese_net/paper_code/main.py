@@ -116,8 +116,8 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
 
 
 if __name__ == "__main__":
-    csv_file = '../../datasets/TON_IoT/dataset.csv'
-    result_path = "../results/paper_code/test/TON_IoT/transfer_learning/senza_mqtt/"
+    csv_file = '../../datasets/mio/dataset_attacchi_bilanciato.csv'
+    result_path = "../results/paper_code/train_test/TON_IoT/"
     train = False
 
     # Train - Val - Test
