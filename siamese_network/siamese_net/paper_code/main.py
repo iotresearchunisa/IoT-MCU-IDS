@@ -92,7 +92,7 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
     else:
         # Load and preprocess the datasets
         df = pd.read_csv(csv_file, sep=";")
-        scaler, label_encoder = load_components(result_path)
+        scaler, label_encoder = load_components(path_results)
         X_test, y_test, _, _ = preprocess_dataset(df, train=False, scaler=scaler, label_encoder=label_encoder)
         print("Data are preprocessed!\n")
 
@@ -100,8 +100,8 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
         test_pairs, test_labels = generate_balanced_siamese_pairs(X_test, y_test, num_pairs=num_pairs[2])
         print("Pairs are generated!\n")
 
-        siamese_model = (SiameseNet(input_shape=(X_test.shape[1], 1))).load_saved_model(result_path + "siamese_model.h5")
-        print(f"Modello caricato da {result_path}")
+        siamese_model = (SiameseNet(input_shape=(X_test.shape[1], 1))).load_saved_model(path_results + "siamese_model.h5")
+        print(f"Modello caricato da {path_results}")
 
     # Evaluate the model on unseen test data
     test_loss, test_accuracy = siamese_model.evaluate([test_pairs[:, 0], test_pairs[:, 1]], test_labels)
