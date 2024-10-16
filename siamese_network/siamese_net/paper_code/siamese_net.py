@@ -1,7 +1,7 @@
 from keras.models import Model, Sequential
 from keras import backend as K
 from keras.optimizers import Adam
-from tensorflow.keras.layers import Input, Lambda, Conv1D, Flatten, MaxPooling1D
+from tensorflow.keras.layers import Input, Lambda, MaxPooling2D, Conv2D, Flatten
 from keras.models import load_model
 
 
@@ -12,20 +12,20 @@ class SiameseNet:
         self.convnet = Sequential()
 
         lr = 0.0001 # metti 0.000001 per il transfer learning
-        self.convnet.add(Conv1D(filters=256, kernel_size=50, strides=1, activation='relu', padding='same', input_shape=input_shape))
-        self.convnet.add(Conv1D(filters=128, kernel_size=10, strides=1, activation='relu', padding='same'))
-        self.convnet.add(MaxPooling1D(pool_size=2))
+        self.convnet.add(Conv2D(filters=256, kernel_size=(50, 1), strides=(1, 1), activation='relu', padding='same', input_shape=input_shape))
+        self.convnet.add(Conv2D(filters=128, kernel_size=(10, 1), strides=(1, 1), activation='relu', padding='same'))
+        self.convnet.add(MaxPooling2D(pool_size=(2, 1)))
 
-        self.convnet.add(Conv1D(filters=128, kernel_size=5, strides=1, activation='sigmoid', padding='same'))
-        self.convnet.add(MaxPooling1D(pool_size=2))
+        self.convnet.add(Conv2D(filters=128, kernel_size=(5, 1), strides=(1, 1), activation='sigmoid', padding='same'))
+        self.convnet.add(MaxPooling2D(pool_size=(2, 1)))
 
         #######################################################################################
         # Ulterior 2 layers
-        self.convnet.add(Conv1D(filters=64, kernel_size=3, strides=1, activation='sigmoid', padding='same'))
-        self.convnet.add(MaxPooling1D(pool_size=2))
+        self.convnet.add(Conv2D(filters=64, kernel_size=(3, 1), strides=(1, 1), activation='sigmoid', padding='same'))
+        self.convnet.add(MaxPooling2D(pool_size=(2, 1)))
 
-        self.convnet.add(Conv1D(filters=32, kernel_size=3, strides=1, activation='sigmoid', padding='same'))
-        self.convnet.add(MaxPooling1D(pool_size=2))
+        self.convnet.add(Conv2D(filters=32, kernel_size=(3, 1), strides=(1, 1), activation='sigmoid', padding='same'))
+        self.convnet.add(MaxPooling2D(pool_size=(2, 1)))
         #######################################################################################
 
         self.convnet.add(Flatten())

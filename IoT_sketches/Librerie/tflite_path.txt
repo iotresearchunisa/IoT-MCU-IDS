@@ -1,0 +1,1 @@
+/home/alberto/.arduino15/packages/esp32/hardware/esp32/3.0.5/libraries/TFLiteMicro/examples/hello_world/hello_world.ino
