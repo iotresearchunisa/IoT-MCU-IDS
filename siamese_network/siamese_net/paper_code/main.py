@@ -82,7 +82,7 @@ def train_siamese_network(csv_file, path_results, train, num_pairs, convert_mode
         history = siamese_model.fit([train_a, train_b], train_labels,
                                     validation_data=([val_a, val_b], val_labels),
                                     batch_size=256,
-                                    epochs=1000,
+                                    epochs=100,
                                     callbacks=[early_stopping])
 
         # Save components
@@ -181,14 +181,14 @@ def train_siamese_network(csv_file, path_results, train, num_pairs, convert_mode
 
 
 if __name__ == "__main__":
-    csv_file = '../../datasets/mio/dataset_attacchi_bilanciato.csv'
-    result_path = "../../tensorflow_lite/Conv2D/"
+    csv_file = '../../datasets/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
+    result_path = "../../tensorflow_lite/Conv2D_con_mqtt/"
 
-    train = False
-    convert_model = False
+    train = True
+    convert_model = True
     save_pairs = True
 
     # Train - Val - Test
-    num_pairs = [1000000, 1000000, 6000]
+    num_pairs = [1000000, 1000000, 200000]
 
     train_siamese_network(csv_file, result_path, train, num_pairs, convert_model, save_pairs)

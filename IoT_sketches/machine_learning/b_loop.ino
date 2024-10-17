@@ -2,41 +2,50 @@ void loop() {
   int correct_predictions = 0;
   int total_predictions = 0;
 
+  // Calcolo dei tempi
+  total_time = 0;
+  squared_time = 0;
+  load_time = 0;
+  inference_time = 0;
+  postprocess_time = 0;
+
   for (int i = 0; i < NUM_PAIRS; i++) {
-      // Carica gli input della coppia corrente
-      load_inputs(i);
+    unsigned long pair_start_time = micros();
 
-      // Esegui l'inferenza
-      float similarity = run_inference();
+    // Carica gli input della coppia corrente
+    load_inputs(i);
 
-      // Ottieni la label reale
-      int real_label = SIAMESE_MODEL_LABELS[i];
+    // Esegui l'inferenza
+    float similarity = run_inference();
 
-      // Decidi una soglia per classificare come simile o diverso
-      int predicted_label = (similarity < 0.5f) ? 1 : 0;
+    // Ottieni la label reale
+    int real_label = SIAMESE_MODEL_LABELS[i];
 
-      // Verifica se la predizione è corretta
-      if (predicted_label == real_label) {
-          correct_predictions++;
-      }
+    // Decidi una soglia per classificare come simile o diverso
+    int predicted_label = (similarity < 0.5f) ? 1 : 0;
 
-      total_predictions++;
+    // Verifica se la predizione è corretta
+    if (predicted_label == real_label) {
+        correct_predictions++;
+    }
 
-      // Stampa i risultati
-      Serial.print("Coppia ");
-      Serial.print(i);
-      Serial.print(": Similarità = ");
-      Serial.print(similarity, 6);
-      Serial.print(" | Predizione = ");
-      Serial.print(predicted_label);
-      Serial.print(" | Reale = ");
-      Serial.println(real_label);
+    total_predictions++;
 
-      // Reset degli input per sicurezza (opzionale)
-      // memset(input1->data.f, 0, input1->bytes);
-      // memset(input2->data.f, 0, input2->bytes);
+    // Stampa i risultati
+    Serial.print("Coppia ");
+    Serial.print(i);
+    Serial.print(": Similarità = ");
+    Serial.print(similarity, 6);
+    Serial.print(" | Predizione = ");
+    Serial.print(predicted_label);
+    Serial.print(" | Reale = ");
+    Serial.println(real_label);
 
-      delay(500);
+    // Reset degli input per sicurezza (opzionale)
+    // memset(input1->data.f, 0, input1->bytes);
+    // memset(input2->data.f, 0, input2->bytes);
+
+    delay(500);
   }
 
   // Calcola e stampa l'accuratezza
