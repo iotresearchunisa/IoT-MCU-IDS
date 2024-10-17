@@ -5,6 +5,7 @@
 
 #include "model.h"
 #include "test_pairs.h" 
+#include "timing_utils.h"
 
 
 namespace {
@@ -18,6 +19,14 @@ namespace {
   constexpr int kTensorArenaSize = 60 * 1024;
   uint8_t tensor_arena[kTensorArenaSize];
 }
+
+// Variabili per le statistiche generali
+TimingStats total_stats;
+
+// Variabili per le statistiche specifiche delle operazioni
+TimingStats load_stats;
+TimingStats inference_stats;
+TimingStats postprocess_stats;
 
 void setup_model();
 void load_inputs(int);

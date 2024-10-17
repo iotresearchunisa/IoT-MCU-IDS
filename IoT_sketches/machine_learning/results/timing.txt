@@ -1,0 +1,123 @@
+00:12:27.639 -> Inizializzazione del modello Siamese...
+00:12:27.639 -> Modello inizializzato correttamente!
+00:12:35.162 -> Coppia 0: Similarità = 0.003882 | Predizione = 1 | Reale = 1
+00:12:42.649 -> Coppia 1: Similarità = 0.000316 | Predizione = 1 | Reale = 1
+00:12:50.156 -> Coppia 2: Similarità = 1.393511 | Predizione = 0 | Reale = 0
+00:12:57.674 -> Coppia 3: Similarità = 0.968475 | Predizione = 0 | Reale = 0
+00:13:05.171 -> Coppia 4: Similarità = 0.004387 | Predizione = 1 | Reale = 1
+00:13:12.677 -> Coppia 5: Similarità = 1.363031 | Predizione = 0 | Reale = 0
+00:13:20.167 -> Coppia 6: Similarità = 1.372970 | Predizione = 0 | Reale = 0
+00:13:27.681 -> Coppia 7: Similarità = 0.972112 | Predizione = 0 | Reale = 0
+00:13:35.189 -> Coppia 8: Similarità = 0.394564 | Predizione = 1 | Reale = 0
+00:13:42.699 -> Coppia 9: Similarità = 0.001478 | Predizione = 1 | Reale = 1
+00:13:50.202 -> Coppia 10: Similarità = 0.005274 | Predizione = 1 | Reale = 1
+00:13:57.682 -> Coppia 11: Similarità = 0.000650 | Predizione = 1 | Reale = 1
+00:14:05.209 -> Coppia 12: Similarità = 0.000316 | Predizione = 1 | Reale = 1
+00:14:12.702 -> Coppia 13: Similarità = 1.400469 | Predizione = 0 | Reale = 0
+00:14:20.204 -> Coppia 14: Similarità = 0.993477 | Predizione = 0 | Reale = 0
+00:14:27.720 -> Coppia 15: Similarità = 0.002110 | Predizione = 1 | Reale = 1
+00:14:35.229 -> Coppia 16: Similarità = 0.003662 | Predizione = 1 | Reale = 1
+00:14:42.725 -> Coppia 17: Similarità = 0.001940 | Predizione = 1 | Reale = 1
+00:14:50.214 -> Coppia 18: Similarità = 0.012342 | Predizione = 1 | Reale = 1
+00:14:57.715 -> Coppia 19: Similarità = 0.001295 | Predizione = 1 | Reale = 1
+00:15:05.238 -> Coppia 20: Similarità = 0.005072 | Predizione = 1 | Reale = 1
+00:15:12.749 -> Coppia 21: Similarità = 1.395471 | Predizione = 0 | Reale = 0
+00:15:20.261 -> Coppia 22: Similarità = 0.003607 | Predizione = 1 | Reale = 1
+00:15:27.748 -> Coppia 23: Similarità = 1.409903 | Predizione = 0 | Reale = 0
+00:15:35.255 -> Coppia 24: Similarità = 0.005920 | Predizione = 1 | Reale = 1
+00:15:42.750 -> Coppia 25: Similarità = 0.021539 | Predizione = 1 | Reale = 1
+00:15:50.258 -> Coppia 26: Similarità = 0.994559 | Predizione = 0 | Reale = 0
+00:15:57.771 -> Coppia 27: Similarità = 0.009144 | Predizione = 1 | Reale = 1
+00:16:05.280 -> Coppia 28: Similarità = 1.391670 | Predizione = 0 | Reale = 0
+00:16:12.781 -> Coppia 29: Similarità = 1.403851 | Predizione = 0 | Reale = 0
+00:16:20.278 -> Coppia 30: Similarità = 0.990995 | Predizione = 0 | Reale = 0
+00:16:27.789 -> Coppia 31: Similarità = 1.392538 | Predizione = 0 | Reale = 0
+00:16:35.275 -> Coppia 32: Similarità = 1.332622 | Predizione = 0 | Reale = 0
+00:16:42.802 -> Coppia 33: Similarità = 1.392808 | Predizione = 0 | Reale = 0
+00:16:50.297 -> Coppia 34: Similarità = 0.994022 | Predizione = 0 | Reale = 0
+00:16:57.815 -> Coppia 35: Similarità = 0.991591 | Predizione = 0 | Reale = 0
+00:17:05.304 -> Coppia 36: Similarità = 0.001290 | Predizione = 1 | Reale = 1
+00:17:12.826 -> Coppia 37: Similarità = 1.390707 | Predizione = 0 | Reale = 0
+00:17:20.338 -> Coppia 38: Similarità = 1.360374 | Predizione = 0 | Reale = 0
+00:17:27.820 -> Coppia 39: Similarità = 0.002186 | Predizione = 1 | Reale = 1
+00:17:35.344 -> Coppia 40: Similarità = 0.978491 | Predizione = 0 | Reale = 0
+00:17:42.827 -> Coppia 41: Similarità = 0.000316 | Predizione = 1 | Reale = 1
+00:17:50.345 -> Coppia 42: Similarità = 0.020322 | Predizione = 1 | Reale = 1
+00:17:57.849 -> Coppia 43: Similarità = 0.000707 | Predizione = 1 | Reale = 1
+00:18:05.338 -> Coppia 44: Similarità = 0.000873 | Predizione = 1 | Reale = 1
+00:18:12.855 -> Coppia 45: Similarità = 0.005163 | Predizione = 1 | Reale = 1
+00:18:20.370 -> Coppia 46: Similarità = 0.004981 | Predizione = 1 | Reale = 1
+00:18:27.871 -> Coppia 47: Similarità = 1.396458 | Predizione = 0 | Reale = 0
+00:18:35.359 -> Coppia 48: Similarità = 0.008337 | Predizione = 1 | Reale = 1
+00:18:42.874 -> Coppia 49: Similarità = 1.392522 | Predizione = 0 | Reale = 0
+00:18:50.380 -> Coppia 50: Similarità = 1.403320 | Predizione = 0 | Reale = 0
+00:18:57.898 -> Coppia 51: Similarità = 0.007577 | Predizione = 1 | Reale = 1
+00:19:05.382 -> Coppia 52: Similarità = 0.942296 | Predizione = 0 | Reale = 0
+00:19:12.895 -> Coppia 53: Similarità = 0.008385 | Predizione = 1 | Reale = 1
+00:19:20.383 -> Coppia 54: Similarità = 1.392385 | Predizione = 0 | Reale = 0
+00:19:27.896 -> Coppia 55: Similarità = 0.008742 | Predizione = 1 | Reale = 1
+00:19:35.418 -> Coppia 56: Similarità = 0.002129 | Predizione = 1 | Reale = 1
+00:19:42.900 -> Coppia 57: Similarità = 1.015018 | Predizione = 0 | Reale = 0
+00:19:50.399 -> Coppia 58: Similarità = 1.372109 | Predizione = 0 | Reale = 0
+00:19:57.923 -> Coppia 59: Similarità = 0.010413 | Predizione = 1 | Reale = 1
+00:20:05.416 -> Coppia 60: Similarità = 0.012968 | Predizione = 1 | Reale = 1
+00:20:12.943 -> Coppia 61: Similarità = 0.995623 | Predizione = 0 | Reale = 0
+00:20:20.434 -> Coppia 62: Similarità = 1.393679 | Predizione = 0 | Reale = 0
+00:20:27.920 -> Coppia 63: Similarità = 0.002307 | Predizione = 1 | Reale = 1
+00:20:35.433 -> Coppia 64: Similarità = 1.400258 | Predizione = 0 | Reale = 0
+00:20:42.938 -> Coppia 65: Similarità = 1.394766 | Predizione = 0 | Reale = 0
+00:20:50.438 -> Coppia 66: Similarità = 1.382987 | Predizione = 0 | Reale = 0
+00:20:57.939 -> Coppia 67: Similarità = 0.000596 | Predizione = 1 | Reale = 1
+00:21:05.450 -> Coppia 68: Similarità = 0.976523 | Predizione = 0 | Reale = 0
+00:21:12.952 -> Coppia 69: Similarità = 0.001380 | Predizione = 1 | Reale = 1
+00:21:20.456 -> Coppia 70: Similarità = 0.024731 | Predizione = 1 | Reale = 1
+00:21:27.964 -> Coppia 71: Similarità = 0.007561 | Predizione = 1 | Reale = 1
+00:21:35.482 -> Coppia 72: Similarità = 1.273458 | Predizione = 0 | Reale = 0
+00:21:42.969 -> Coppia 73: Similarità = 1.393010 | Predizione = 0 | Reale = 0
+00:21:50.487 -> Coppia 74: Similarità = 0.000316 | Predizione = 1 | Reale = 1
+00:21:57.982 -> Coppia 75: Similarità = 1.393870 | Predizione = 0 | Reale = 0
+00:22:05.501 -> Coppia 76: Similarità = 0.002319 | Predizione = 1 | Reale = 1
+00:22:12.986 -> Coppia 77: Similarità = 0.995801 | Predizione = 0 | Reale = 0
+00:22:20.508 -> Coppia 78: Similarità = 0.015706 | Predizione = 1 | Reale = 1
+00:22:28.003 -> Coppia 79: Similarità = 0.061513 | Predizione = 1 | Reale = 1
+00:22:35.519 -> Coppia 80: Similarità = 0.003517 | Predizione = 1 | Reale = 1
+00:22:43.033 -> Coppia 81: Similarità = 1.394231 | Predizione = 0 | Reale = 0
+00:22:50.517 -> Coppia 82: Similarità = 0.001710 | Predizione = 1 | Reale = 1
+00:22:58.012 -> Coppia 83: Similarità = 0.017961 | Predizione = 1 | Reale = 1
+00:23:05.528 -> Coppia 84: Similarità = 1.390735 | Predizione = 0 | Reale = 0
+00:23:13.044 -> Coppia 85: Similarità = 1.395663 | Predizione = 0 | Reale = 0
+00:23:20.549 -> Coppia 86: Similarità = 1.404777 | Predizione = 0 | Reale = 0
+00:23:28.054 -> Coppia 87: Similarità = 0.968940 | Predizione = 0 | Reale = 0
+00:23:35.550 -> Coppia 88: Similarità = 0.001139 | Predizione = 1 | Reale = 1
+00:23:43.057 -> Coppia 89: Similarità = 0.007263 | Predizione = 1 | Reale = 1
+00:23:50.544 -> Coppia 90: Similarità = 1.393071 | Predizione = 0 | Reale = 0
+00:23:58.071 -> Coppia 91: Similarità = 0.991837 | Predizione = 0 | Reale = 0
+00:24:05.553 -> Coppia 92: Similarità = 0.994433 | Predizione = 0 | Reale = 0
+00:24:13.072 -> Coppia 93: Similarità = 1.389578 | Predizione = 0 | Reale = 0
+00:24:20.575 -> Coppia 94: Similarità = 0.004668 | Predizione = 1 | Reale = 1
+00:24:28.086 -> Coppia 95: Similarità = 1.405255 | Predizione = 0 | Reale = 0
+00:24:35.588 -> Coppia 96: Similarità = 0.006093 | Predizione = 1 | Reale = 1
+00:24:43.083 -> Coppia 97: Similarità = 1.397666 | Predizione = 0 | Reale = 0
+00:24:50.597 -> Coppia 98: Similarità = 0.001649 | Predizione = 1 | Reale = 1
+00:24:58.080 -> Coppia 99: Similarità = 0.004368 | Predizione = 1 | Reale = 1
+
+00:24:58.117 -> Accuracy: 99.00%
+
+00:24:58.117 -> Tempo medio per predizione: 7.50355700 sec | Std Dev: 0.00000000 sec | Min: 7.50273400 sec | Max: 7.50404100 sec
+00:24:58.117 -> Tempo medio di caricamento: 0.00002908 sec | Std Dev: 0.00000114 sec | Min: 0.00002800 sec | Max: 0.00003400 sec
+00:24:58.117 -> Tempo medio di inferenza: 7.50350850 sec | Std Dev: 0.00000000 sec | Min: 7.50268700 sec | Max: 7.50399300 sec
+00:24:58.144 -> Tempo medio di post-elaborazione: 0.00000673 sec | Std Dev: 0.00000044 sec | Min: 0.00000600 sec | Max: 0.00000700 sec
+
+00:24:58.144 -> Tempo minimo per predizione: 7.50273400 secondi
+00:24:58.144 -> Tempo massimo per predizione: 7.50404100 secondi
+
+00:24:58.144 -> Tempo minimo di caricamento: 0.00002800 secondi
+00:24:58.144 -> Tempo massimo di caricamento: 0.00003400 secondi
+
+00:24:58.144 -> Tempo minimo di inferenza: 7.50268700 secondi
+00:24:58.175 -> Tempo massimo di inferenza: 7.50399300 secondi
+
+00:24:58.175 -> Tempo minimo di post-elaborazione: 0.00000600 secondi
+00:24:58.175 -> Tempo massimo di post-elaborazione: 0.00000700 secondi
+00:24:58.175 -> Test completato.
+
