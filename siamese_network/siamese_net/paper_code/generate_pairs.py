@@ -1,5 +1,6 @@
 import random
 import numpy as np
+from sklearn.utils import shuffle
 
 
 # ==========================================================
@@ -32,7 +33,7 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs):
         return tuple(sorted((int(idx1), int(idx2))))
 
     # Maximum number of failed attempts to prevent infinite loops
-    max_attempts = num_pairs * 10  # Adjust as needed
+    max_attempts = num_pairs * 1000  # Adjust as needed
 
     # Generate positive pairs
     positive_pairs_generated = 0
@@ -99,7 +100,11 @@ def generate_balanced_siamese_pairs(data, labels, num_pairs):
     print(f"Total duplicate attempts: {duplicate_attempts}")
     print(f"Duplicates over total attempts: {duplicate_attempts}/{total_pairs_generated}\n")
 
-    # Convert pairs to a numpy array with the correct shape
+    # Converti coppie in array NumPy
     pairs_array = np.array(pairs)
+    pair_labels = np.array(pair_labels)
 
-    return pairs_array, np.array(pair_labels)
+    # Utilizza sklearn.utils.shuffle per uno shuffle più avanzato
+    pairs_array, pair_labels = shuffle(pairs_array, pair_labels, random_state=None)
+
+    return pairs_array, pair_labels

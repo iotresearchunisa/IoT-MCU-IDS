@@ -59,8 +59,22 @@ def save_pairs_to_header(pairs_a, pairs_b, labels, filename, subset='SIAMESE'):
         f.write('};\n\n')
 
         # Salva le etichette come array unidimensionale
-        labels_str = ', '.join(map(str, labels))
-        f.write(f'const int {subset.upper()}_MODEL_LABELS[NUM_PAIRS] = {{{labels_str}}};\n\n')
+        f.write(f'const int {subset.upper()}_MODEL_LABELS[NUM_PAIRS] = {{\n')
+
+        # Parametri per la formattazione
+        labels_per_line = 30  # Numero di etichette per riga
+        label_lines = []
+
+        # Suddividi le etichette in chunk di 30
+        for i in range(0, len(labels), labels_per_line):
+            chunk = labels[i:i + labels_per_line]
+            # Converti il chunk in stringhe separate da virgole
+            chunk_str = ', '.join(map(str, chunk))
+            label_lines.append(f'  {chunk_str}')
+
+        # Combina i chunk con un salto di riga
+        labels_str = ',\n'.join(label_lines)
+        f.write(f'{labels_str}\n}};\n\n')
 
         # Fine dell'header guard
         f.write(f'#endif // {header_guard}\n')

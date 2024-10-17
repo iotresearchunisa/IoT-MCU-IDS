@@ -24,7 +24,7 @@ else:
 # ==========================================================
 #  Main training function
 # ==========================================================
-def train_siamese_network(csv_file, path_results, train, num_pairs):
+def train_siamese_network(csv_file, path_results, train, num_pairs, convert_model, save_pairs):
     if train:
         ################################################################################################################
         print("\n================= [STEP 1.0] Load and preprocess the datasets =================")
@@ -35,8 +35,8 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
 
 
         ################################################################################################################
-        print("\n================= [STEP 2.0] Generation of pairs =================")
         # Generation of pairs
+        print("\n================= [STEP 2.0] Generation of pairs =================")
         train_pairs, train_labels = generate_balanced_siamese_pairs(X_train, y_train, num_pairs=num_pairs[0])
         val_pairs, val_labels = generate_balanced_siamese_pairs(X_val, y_val, num_pairs=num_pairs[1])
         test_pairs, test_labels = generate_balanced_siamese_pairs(X_test, y_test, num_pairs=num_pairs[2])
@@ -63,9 +63,10 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
         print("Pairs are reshaped!")
 
         # Save pairs in test_pairs.h
-        print("\n================= [STEP 2.3] Save pairs in 'test_pairs.h' =================")
-        save_pairs_to_header(test_a, test_b, test_labels, path_results + 'test_pairs.h')
-        print(f"Pairs are saved in {path_results}test_pairs.h")
+        if save_pairs:
+            print("\n================= [STEP 2.3] Save pairs in 'test_pairs.h' =================")
+            save_pairs_to_header(test_a, test_b, test_labels, path_results + 'test_pairs.h')
+            print(f"Pairs are saved in {path_results}test_pairs.h")
         ################################################################################################################
 
 
@@ -108,8 +109,8 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
         ################################################################################################################
     else:
         ################################################################################################################
-        print("\n================= [STEP 1.0] Load and preprocess the datasets =================")
         # Load and preprocess the datasets
+        print("\n================= [STEP 1.0] Load and preprocess the datasets =================")
         df = pd.read_csv(csv_file, sep=";")
         scaler, label_encoder = load_components(path_results)
         X_test, y_test, _, _ = preprocess_dataset(df, train=False, scaler=scaler, label_encoder=label_encoder)
@@ -135,9 +136,10 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
         print("Pairs are reshaped!")
 
         # Save pairs in test_pairs.h
-        print("\n================= [STEP 2.3] Save pairs in 'test_pairs.h' =================")
-        save_pairs_to_header(test_a, test_b, test_labels, path_results + 'test_pairs.h')
-        print(f"Pairs are saved in {path_results}test_pairs.h")
+        if save_pairs:
+            print("\n================= [STEP 2.3] Save pairs in 'test_pairs.h' =================")
+            save_pairs_to_header(test_a, test_b, test_labels, path_results + 'test_pairs.h')
+            print(f"Pairs are saved in {path_results}test_pairs.h")
         ################################################################################################################
 
 
@@ -165,24 +167,28 @@ def train_siamese_network(csv_file, path_results, train, num_pairs):
 
 
     ################################################################################################################
-    print("\n================= [STEP 5.0] Model conversion =================")
-    # Convert the model.
-    converter = tf.lite.TFLiteConverter.from_keras_model(siamese_model)
-    tflite_model = converter.convert()
+    if convert_model:
+        print("\n================= [STEP 5.0] Model conversion =================")
+        # Convert the model.
+        converter = tf.lite.TFLiteConverter.from_keras_model(siamese_model)
+        tflite_model = converter.convert()
 
-    # Save the model.
-    with open(path_results + 'model.tflite', 'wb') as f:
-        f.write(tflite_model)
-    print("Model converted!")
+        # Save the model.
+        with open(path_results + 'model.tflite', 'wb') as f:
+            f.write(tflite_model)
+        print("Model converted!")
     ################################################################################################################
 
 
 if __name__ == "__main__":
     csv_file = '../../datasets/mio/dataset_attacchi_bilanciato.csv'
     result_path = "../../tensorflow_lite/Conv2D/"
-    train = True
+
+    train = False
+    convert_model = False
+    save_pairs = True
 
     # Train - Val - Test
-    num_pairs = [1000000, 1000000, 50000]
+    num_pairs = [1000000, 1000000, 6000]
 
-    train_siamese_network(csv_file, result_path, train, num_pairs)
+    train_siamese_network(csv_file, result_path, train, num_pairs, convert_model, save_pairs)
