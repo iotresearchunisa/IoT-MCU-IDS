@@ -356,7 +356,7 @@ Sets acl file post and subscribe only to certain topics:
 sudo nano /etc/mosquitto/aclfile
 ```
 ```
-ser broker
+user broker
 topic readwrite rasberry/topic
 
 user esp8266
