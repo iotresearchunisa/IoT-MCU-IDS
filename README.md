@@ -5,6 +5,7 @@ Another important objective of this thesis is to design and test a Siamese neura
 
 ## Table of Contents
 - [Folder Structure](#folder-structure)
+- [Datasets](#datasets)
 - [Architecture](#architecture)
   - [Physical Devices](#physical-devices)
   - [Physical Sensors](#physical-sensors)
@@ -21,6 +22,14 @@ This repository contains the code and documentation for an dataset of cyber atta
 - **[IoT_sketches](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/IoT_sketches)**: scripts to develop the different boards
 - **[documents](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/documents)**: contains the datasheet of boards and sensors and the papers reviewed
 - **[siamese_network](https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/siamese_network)**: contains the Siamese network and classifier codes, as well as the dataset and results
+
+## Datasets
+The datasets used for the experiments can be found in the <a href="https://github.com/Alberto-00/Thesis-IoT_Cloud_based/tree/main/siamese_network/datasets">siamese_network/datasets</a> folder and include:
+<ul>
+  <li><b>Mio</b>: the dataset created specifically for this work, which is available in two versions. The first includes 4 attack classes, while the second extends the number to 5 classes, with the addition of the <code>mqtt_attack</code> class.</li>
+  <li><b>TON_IoT</b>: the standard TON_IoT dataset, used for comparison and benchmarking.</li>
+</ul>
+Both datasets were balanced to ensure an equivalent number of samples for each class of attack, thus improving the reliability and fairness of the results. To access the complete, pre-processed datasets, click <a href="https://drive.google.com/drive/folders/1eudKghSMOHXe3gJIG3n5iYRCLLYA9REq?usp=sharing">here</a>.
 
 ## Architecture
 The IoT Cloud-based architecture we are going to consider represents the configuration of a domotic door that allows access into the home via a fingerprint reader and proximity sensor: it detects the presence of strangers. 
