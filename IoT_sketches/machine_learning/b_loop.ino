@@ -107,44 +107,11 @@ void loop() {
   Serial.print(accuracy, 2);
   Serial.println("%");
 
-  // Stampa delle statistiche temporali in secondi con 4 cifre decimali
+  // Stampa delle statistiche temporali in secondi con 8 cifre decimali
   printTimingStats("Tempo medio per predizione", total_stats);
   printTimingStats("Tempo medio di caricamento", load_stats);
   printTimingStats("Tempo medio di inferenza", inference_stats);
   printTimingStats("Tempo medio di post-elaborazione", postprocess_stats);
-
-  // Stampa dei tempi minimo e massimo separatamente per maggiore chiarezza
-  Serial.print("Tempo minimo per predizione: ");
-  Serial.print(total_stats.min_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo massimo per predizione: ");
-  Serial.print(total_stats.max_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo minimo di caricamento: ");
-  Serial.print(load_stats.min_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo massimo di caricamento: ");
-  Serial.print(load_stats.max_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo minimo di inferenza: ");
-  Serial.print(inference_stats.min_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo massimo di inferenza: ");
-  Serial.print(inference_stats.max_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo minimo di post-elaborazione: ");
-  Serial.print(postprocess_stats.min_time / 1000000.0, 8);
-  Serial.println(" secondi");
-
-  Serial.print("Tempo massimo di post-elaborazione: ");
-  Serial.print(postprocess_stats.max_time / 1000000.0, 8);
-  Serial.println(" secondi");
 
   Serial.println("Test completato.");
   while(true){}

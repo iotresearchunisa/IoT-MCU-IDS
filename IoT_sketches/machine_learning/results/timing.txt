@@ -108,16 +108,5 @@
 00:24:58.117 -> Tempo medio di inferenza: 7.50350850 sec | Std Dev: 0.00000000 sec | Min: 7.50268700 sec | Max: 7.50399300 sec
 00:24:58.144 -> Tempo medio di post-elaborazione: 0.00000673 sec | Std Dev: 0.00000044 sec | Min: 0.00000600 sec | Max: 0.00000700 sec
 
-00:24:58.144 -> Tempo minimo per predizione: 7.50273400 secondi
-00:24:58.144 -> Tempo massimo per predizione: 7.50404100 secondi
-
-00:24:58.144 -> Tempo minimo di caricamento: 0.00002800 secondi
-00:24:58.144 -> Tempo massimo di caricamento: 0.00003400 secondi
-
-00:24:58.144 -> Tempo minimo di inferenza: 7.50268700 secondi
-00:24:58.175 -> Tempo massimo di inferenza: 7.50399300 secondi
-
-00:24:58.175 -> Tempo minimo di post-elaborazione: 0.00000600 secondi
-00:24:58.175 -> Tempo massimo di post-elaborazione: 0.00000700 secondi
 00:24:58.175 -> Test completato.
 

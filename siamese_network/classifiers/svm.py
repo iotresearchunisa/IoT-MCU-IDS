@@ -12,10 +12,10 @@ def train_svm(csv_file, model_filename, train):
         # Carica e preprocessa il datasets
         X_train, y_train, X_test, y_test, scaler, label_encoder = load_and_preprocess_data(csv_file, test_size=0.2)
 
-        # Inizializza il classificatore Random Forest
+        # Inizializza il classificatore SVM
         svm_classifier = SVC()
 
-        # Addestra il classificatore Random Forest
+        # Addestra il classificatore SVM
         svm_classifier.fit(X_train, y_train)
 
         # Salvataggio del modello addestrato e del label encoder
