@@ -1,0 +1,25 @@
+Modello caricato da 'results/train_test/TON_IoT/svm/svm.pkl'.
+
+Risultati sul Test:
+Accuracy del Test: 0.4300
+Precisione del Test: 0.4676
+Recall del Test: 0.4300
+F1 Score del Test: 0.3091
+
+Matrice di Confusione sul Test:
+[[  817 13366   218 20200]
+ [   38 33032   868   663]
+ [    0 18866     0 15735]
+ [    2   177  8761 25661]]
+
+Report di Classificazione:
+              precision    recall  f1-score   support
+
+      benign       0.95      0.02      0.05     34601
+ brute_force       0.50      0.95      0.66     34601
+         dos       0.00      0.00      0.00     34601
+       recon       0.41      0.74      0.53     34601
+
+    accuracy                           0.43    138404
+   macro avg       0.47      0.43      0.31    138404
+weighted avg       0.47      0.43      0.31    138404

@@ -6,5 +6,7 @@ Contains the results of the classifiers that were trained and then tested on the
 This folder includes the performance of each model for evaluation on each reference dataset.
 
 ## `test` folder
-Contains the results of the classifiers pre-trained on my dataset, available in 4- and 5-class versions, 
-and then tested on the TON_IoT dataset.
+Contains:
+- `mio - TON_IoT`: the results of the classifiers pre-trained on my dataset, available in 4- and 5-class versions, 
+and then tested on the TON_IoT dataset
+- `TON_IoT - mio`: the results of the classifiers pre-trained on TON_IoT and then tested on my dataset with 4 classes.
