@@ -1,0 +1,35 @@
+Training Set Size: 121103
+Test Set Size: 51902
+Modello e pre-processing salvati come 'results/train_reduced/mio/con_mqtt/_10/svm/svm.pkl'.
+
+Risultati sul Training:
+Accuracy del Training: 0.8830
+Precisione del Training: 0.8844
+Recall del Training: 0.8830
+F1 Score del Training: 0.8820
+
+Risultati sul Test:
+Accuracy del Test: 0.8821
+Precisione del Test: 0.8837
+Recall del Test: 0.8821
+F1 Score del Test: 0.8810
+
+Matrice di Confusione sul Test:
+[[ 9612   413   218     3   134]
+ [   19  8761   224  1122   255]
+ [  277     1 10100     2     0]
+ [  140  2271   343  7497   130]
+ [  519    36     2    11  9812]]
+
+Report di Classificazione:
+              precision    recall  f1-score   support
+
+      benign       0.91      0.93      0.92     10380
+ brute_force       0.76      0.84      0.80     10381
+         dos       0.93      0.97      0.95     10380
+ mqtt_attack       0.87      0.72      0.79     10381
+       recon       0.95      0.95      0.95     10380
+
+    accuracy                           0.88     51902
+   macro avg       0.88      0.88      0.88     51902
+weighted avg       0.88      0.88      0.88     51902

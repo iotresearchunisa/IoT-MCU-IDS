@@ -1,0 +1,35 @@
+Training Set Size: 121103
+Test Set Size: 51902
+Modello e pre-processing salvati come 'results/train_reduced/mio/con_mqtt/_10/random_forest/random_forest.pkl'.
+
+Risultati sul Training:
+Accuracy del Training: 0.9627
+Precisione del Training: 0.9628
+Recall del Training: 0.9627
+F1 Score del Training: 0.9627
+
+Risultati sul Test:
+Accuracy del Test: 0.9228
+Precisione del Test: 0.9229
+Recall del Test: 0.9228
+F1 Score del Test: 0.9228
+
+Matrice di Confusione sul Test:
+[[10182    40    37    33    89]
+ [   25  8439     0  1908     8]
+ [   24     0 10301    51     4]
+ [   41  1566    94  8676     4]
+ [   67     4     3     7 10299]]
+
+Report di Classificazione:
+              precision    recall  f1-score   support
+
+      benign       0.98      0.98      0.98     10381
+ brute_force       0.84      0.81      0.83     10380
+         dos       0.99      0.99      0.99     10380
+ mqtt_attack       0.81      0.84      0.82     10381
+       recon       0.99      0.99      0.99     10380
+
+    accuracy                           0.92     51902
+   macro avg       0.92      0.92      0.92     51902
+weighted avg       0.92      0.92      0.92     51902

@@ -10,7 +10,7 @@ import pickle
 def train_knn(csv_file, model_filename, train):
     if train:
         # PRE-PROCESSING
-        X_train, y_train, X_test, y_test, scaler, label_encoder = load_and_preprocess_data(csv_file, test_size=0.2)
+        X_train, y_train, X_test, y_test, scaler, label_encoder = load_and_preprocess_data(csv_file, test_size=0.40)
 
         # TRAINING
         knn_classifier = KNeighborsClassifier(n_neighbors=5)
@@ -75,8 +75,8 @@ def train_knn(csv_file, model_filename, train):
     print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
 
 if __name__ == "__main__":
-    csv_file = '../datasets/TON_IoT/dataset.csv'
-    model_filename = 'results/train_test/mio/con_mqtt/knn/knn.pkl'
-    train = False
+    csv_file = '../datasets/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
+    model_filename = 'results/train_reduced/mio/con_mqtt/_20/knn/knn.pkl'
+    train = True
 
     train_knn(csv_file, model_filename, train)

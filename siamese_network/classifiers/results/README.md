@@ -9,4 +9,16 @@ This folder includes the performance of each model for evaluation on each refere
 Contains:
 - `mio - TON_IoT`: the results of the classifiers pre-trained on my dataset, available in 4- and 5-class versions, 
 and then tested on the TON_IoT dataset
+
+
 - `TON_IoT - mio`: the results of the classifiers pre-trained on TON_IoT and then tested on my dataset with 4 classes.
+
+## `train_reduced` folder
+Contains the results of models trained on a train set reduced of `N%`. 
+- `_5`: 75% Train - 25% Test
+- `_10`: 70% Train - 30% Test
+- `_15`: 65% Train - 35% Test
+- `_20`: 60% Train - 40% Test
+
+## `plot` folder
+Contains the plots of models trained on a train set reduced of `N%`.

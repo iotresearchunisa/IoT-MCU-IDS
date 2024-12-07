@@ -1,0 +1,33 @@
+Training Set Size: 89962
+Test Set Size: 48442
+Modello e pre-processing salvati come 'results/train_reduced/mio/senza_mqtt/_15/knn/knn.pkl'.
+
+Training Results with KNN:
+Training Accuracy: 0.9937
+Training Precision: 0.9937
+Training Recall: 0.9937
+Training F1 Score: 0.9937
+
+Test Results with KNN:
+Test Accuracy: 0.9927
+Test Precision: 0.9927
+Test Recall: 0.9927
+Test F1 Score: 0.9926
+
+Confusion Matrix on Test Set:
+[[11917    47    52    94]
+ [   26 12051     1    33]
+ [    4     0 12105     2]
+ [   50    41     6 12013]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.99      0.98      0.99     12110
+ brute_force       0.99      1.00      0.99     12111
+         dos       1.00      1.00      1.00     12111
+       recon       0.99      0.99      0.99     12110
+
+    accuracy                           0.99     48442
+   macro avg       0.99      0.99      0.99     48442
+weighted avg       0.99      0.99      0.99     48442

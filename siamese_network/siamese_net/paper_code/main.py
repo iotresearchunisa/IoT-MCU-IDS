@@ -29,7 +29,7 @@ def train_siamese_network(csv_file, path_results, train, num_pairs, convert_mode
         ################################################################################################################
         print("\n================= [STEP 1.0] Load and preprocess the datasets =================")
         # Load and preprocess the datasets
-        X_train, y_train, X_val, y_val, X_test, y_test, scaler, label_encoder = load_and_preprocess_data(csv_file, test_size=0.2, val_size=0.2)
+        X_train, y_train, X_val, y_val, X_test, y_test, scaler, label_encoder = load_and_preprocess_data(csv_file, test_size=0.30, val_size=0.2)
         print("Data are preprocessed!")
         ################################################################################################################
 
@@ -182,11 +182,11 @@ def train_siamese_network(csv_file, path_results, train, num_pairs, convert_mode
 
 if __name__ == "__main__":
     csv_file = '../../datasets/mio/dataset_attacchi_con_MQTT_bilanciato.csv'
-    result_path = "../../tensorflow_lite/Conv2D_con_mqtt/"
+    result_path = "../results/paper_code/train_reduced/con_mqtt/_10/"
 
     train = True
-    convert_model = True
-    save_pairs = True
+    convert_model = False
+    save_pairs = False
 
     # Train - Val - Test
     num_pairs = [1000000, 1000000, 200000]
