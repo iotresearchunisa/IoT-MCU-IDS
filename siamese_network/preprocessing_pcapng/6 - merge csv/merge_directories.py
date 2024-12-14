@@ -49,10 +49,10 @@ def consolidate_csv_files(csv_files, output_file, chunksize=300000):
 
 def main():
     # Define the root directory containing CSV files
-    root_dir = '/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv_cleaned_4'
+    root_dir = '/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/csv_cleaned_4'
 
     # Define the output CSV file path
-    output_file = '/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/ton_iot_dataset.csv'
+    output_file = '/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/ton_iot_dataset.csv'
 
     # Find all CSV files in the root directory
     csv_files = find_csv_files(root_dir)

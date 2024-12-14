@@ -1,0 +1,92 @@
+Parametri CNN = 453253
+Parametri SNN = 453728
+
+Dataset "Few_Shot-IoT" samples totali = 173005
+Dataset "TON_IoT" samples totali = 138404 (che in realtà non sono questi se consideriamo 10 classi)
+
+========================================================================================================================
+Esperimento 1:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 500000 coppie)
+Dataset                  = Few_Shot-IoT
+Samples Train            = 110723
+% dati del dataset usati = 64 %
+
+Esperimento 2:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 300000 coppie)
+Dataset                  = Few_Shot-IoT
+Samples Train            = 83042
+% dati del dataset usati = 48 %
+
+Esperimento 3:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 100000 coppie)
+Dataset                  = Few_Shot-IoT
+Samples Train            = 6920
+% dati del dataset usati = 4 %
+
+
+Esperimento 4:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 2000 coppie)
+Dataset                  = Few_Shot-IoT
+Samples Train            = 138
+% dati del dataset usati = 0,07 %
+
+========================================================================================================================
+
+
+Esperimento 5:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 500000 coppie)
+Dataset                  = TON_IoT
+Samples Train            = 88578
+% dati del dataset usati = 64 %
+
+Esperimento 6:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 300000 coppie)
+Dataset                  = TON_IoT
+Samples Train            = 66433
+% dati del dataset usati = 48 %
+
+Esperimento 7:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 100000 coppie)
+Dataset                  = TON_IoT
+Samples Train            = 5536
+% dati del dataset usati = 4 %
+
+Esperimento 8:
+Model                    = KNN
+Model                    = SVM
+Model                    = RF
+Model                    = CNN
+Model                    = SNN (con questi campioni ho generato 2000 coppie)
+Dataset                  = Few_Shot-IoT
+Samples Train            = 110
+% dati del dataset usati = 0,07 %
+
+========================================================================================================================

@@ -103,8 +103,8 @@ def create_balanced_dataset(csv_file_path, output_file_path, chunk_size=500000, 
 
 
 def main():
-    csv_file_path = '/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/ton_iot_dataset_filtered.csv'
-    balanced_csv_file_path = '/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/dataset.csv'
+    csv_file_path = '/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/ton_iot_dataset_filtered.csv'
+    balanced_csv_file_path = '/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/dataset.csv'
 
     print("Scegli un'opzione:")
     print("1. Contare i campioni per classe")

@@ -1,0 +1,34 @@
+Training Set Size: 6920
+Test Set Size: 166085
+
+Training Results with KNN (K-Fold Cross-Validation):
+Average Accuracy: 0.9010 ± 0.0131
+Average Precision: 0.9010 ± 0.0125
+Average Recall: 0.9011 ± 0.0127
+Average F1 Score: 0.9009 ± 0.0128
+
+Test Results with Random Forest:
+Test Accuracy: 0.9066
+Test Precision: 0.9065
+Test Recall: 0.9066
+Test F1 Score: 0.9065
+
+Confusion Matrix on Test Set:
+[[32635   140   133    36   273]
+ [   95 26540     3  6560    19]
+ [   96     0 32852   266     3]
+ [  183  7017   259 25744    14]
+ [  390    10    10     6 32801]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.98      0.98      0.98     33217
+ brute_force       0.79      0.80      0.79     33217
+         dos       0.99      0.99      0.99     33217
+ mqtt_attack       0.79      0.78      0.78     33217
+       recon       0.99      0.99      0.99     33217
+
+    accuracy                           0.91    166085
+   macro avg       0.91      0.91      0.91    166085
+weighted avg       0.91      0.91      0.91    166085

@@ -106,7 +106,7 @@ def process_all_csvs(input_root, output_root):
 
 
 if __name__ == "__main__":
-    input_root = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv_cleaned_3"
-    output_root = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv_cleaned_4"
+    input_root = "/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/csv_cleaned_3"
+    output_root = "/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/csv_cleaned_4"
 
     process_all_csvs(input_root, output_root)

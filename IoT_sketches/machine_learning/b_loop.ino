@@ -35,28 +35,29 @@ void loop() {
   inference_stats = TimingStats();
   postprocess_stats = TimingStats();
 
+  digitalWrite(PIN, HIGH);
 
   for (int i = 0; i < NUM_PAIRS; i++) {
     unsigned long pair_start_time = micros(); //Inizio della predizione
 
     // Misura il tempo di caricamento degli input
-    unsigned long load_start = micros();
+    //unsigned long load_start = micros();
     load_inputs(i);
-    unsigned long load_end = micros();
-    unsigned long load_duration = load_end - load_start;
-    updateTimingStats(load_stats, load_duration);
+    //unsigned long load_end = micros();
+    //unsigned long load_duration = load_end - load_start;
+    //updateTimingStats(load_stats, load_duration);
 
 
     // Misura il tempo di inferenza
-    unsigned long inference_start = micros();
+    //unsigned long inference_start = micros();
     float similarity = run_inference();
-    unsigned long inference_end = micros(); 
-    unsigned long inference_duration = inference_end - inference_start;
-    updateTimingStats(inference_stats, inference_duration);
+    //unsigned long inference_end = micros(); 
+    //unsigned long inference_duration = inference_end - inference_start;
+    //updateTimingStats(inference_stats, inference_duration);
 
 
     // Misura il tempo di post-elaborazione (calcolo della predizione e verifica)
-    unsigned long postprocess_start = micros();
+    //unsigned long postprocess_start = micros();
     int real_label = SIAMESE_MODEL_LABELS[i];
     int predicted_label = (similarity < 0.5f) ? 1 : 0;
 
@@ -64,7 +65,9 @@ void loop() {
         correct_predictions++;
     }
 
-    total_predictions++;
+    digitalWrite(PIN, HIGH);
+
+    /*total_predictions++;
     unsigned long postprocess_end = micros();
     unsigned long postprocess_duration = postprocess_end - postprocess_start;
     updateTimingStats(postprocess_stats, postprocess_duration);
@@ -73,7 +76,7 @@ void loop() {
     // Calcolo del tempo totale per questa coppia
     unsigned long pair_end_time = micros();
     unsigned long pair_duration = pair_end_time - pair_start_time;
-    updateTimingStats(total_stats, pair_duration);
+    updateTimingStats(total_stats, pair_duration);*/
 
 
     // Stampa i risultati
@@ -94,7 +97,7 @@ void loop() {
   }
 
   // Calcola le statistiche generali
-  calculateStatistics(total_stats, NUM_PAIRS);
+ /* calculateStatistics(total_stats, NUM_PAIRS);
 
   // Calcola le statistiche specifiche delle operazioni
   calculateStatistics(load_stats, NUM_PAIRS);
@@ -111,7 +114,7 @@ void loop() {
   printTimingStats("Tempo medio per predizione", total_stats);
   printTimingStats("Tempo medio di caricamento", load_stats);
   printTimingStats("Tempo medio di inferenza", inference_stats);
-  printTimingStats("Tempo medio di post-elaborazione", postprocess_stats);
+  printTimingStats("Tempo medio di post-elaborazione", postprocess_stats);*/
 
   Serial.println("Test completato.");
   while(true){}

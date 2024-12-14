@@ -89,8 +89,8 @@ def filter_and_save_csv(original_csv, filtered_csv, filtered_protocols, chunk_si
 
 
 if __name__ == "__main__":
-    csv_file_path = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/ton_iot_dataset.csv"
-    filtered_csv = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/ton_iot_dataset_filtered.csv"
+    csv_file_path = "/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/ton_iot_dataset.csv"
+    filtered_csv = "/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/ton_iot_dataset_filtered.csv"
     chunk_size = 3000000
     threshold = 1000
     output_json_full = "json_full.json"

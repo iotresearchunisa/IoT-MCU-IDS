@@ -75,5 +75,5 @@ def check_column_types_consistency(input_root):
 
 
 if __name__ == "__main__":
-    input_root = "/mnt/FE9090E39090A3A5/Tesi/mio - TON_IoT/csv_cleaned_4"
+    input_root = "/mnt/FE9090E39090A3A5/Tesi/Few-Shot_IoT - TON_IoT/csv_cleaned_4"
     check_column_types_consistency(input_root)

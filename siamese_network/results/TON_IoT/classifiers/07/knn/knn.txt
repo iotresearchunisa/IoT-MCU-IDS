@@ -1,0 +1,32 @@
+Training Set Size: 110
+Test Set Size: 138294
+
+Training Results with KNN (K-Fold Cross-Validation):
+Average Accuracy: 0.7727 ± 0.1016
+Average Precision: 0.7196 ± 0.1565
+Average Recall: 0.7813 ± 0.1050
+Average F1 Score: 0.7221 ± 0.1233
+
+Test Results with KNN:
+Test Accuracy: 0.7977
+Test Precision: 0.8059
+Test Recall: 0.7977
+Test F1 Score: 0.7947
+
+Confusion Matrix on Test Set:
+[[29785  4657    14   117]
+ [  405 27861  2935  3373]
+ [  261   636 32370  1306]
+ [ 1806  8191  4277 20300]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.92      0.86      0.89     34573
+ brute_force       0.67      0.81      0.73     34574
+         dos       0.82      0.94      0.87     34573
+       recon       0.81      0.59      0.68     34574
+
+    accuracy                           0.80    138294
+   macro avg       0.81      0.80      0.79    138294
+weighted avg       0.81      0.80      0.79    138294

@@ -7,6 +7,8 @@
 #include "test_pairs.h" 
 #include "timing_utils.h"
 
+#define PIN 4 
+
 
 namespace {
   const tflite::Model *model = nullptr;

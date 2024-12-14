@@ -50,7 +50,7 @@ def test_tflite_model():
 
 
 if __name__ == "__main__":
-    model_path = '../siamese_net/results/paper_code/train_test/con_mqtt/siamese_model.h5'
+    model_path = '../models/siamese_net/results/paper_code/train_test/con_mqtt/siamese_model.h5'
 
     load_and_convert_model(model_path)
     test_tflite_model()
