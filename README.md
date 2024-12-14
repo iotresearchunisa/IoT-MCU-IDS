@@ -73,7 +73,7 @@ The logic of the architecture is divided into several levels:
 
 <br>
 <p align="center">
-  <img src="documents/img/architecture.png" alt="Architecture IoT" width="600">
+  <img src="documents/img/architecture.png" alt="Architecture IoT">
 </p>
 
 ## Setup Raspberry Pi 3 Model B
