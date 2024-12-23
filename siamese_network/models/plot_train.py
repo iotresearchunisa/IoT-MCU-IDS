@@ -25,10 +25,11 @@ def plot_snn_cnn_classifiers():
 
 
     ################# PLOT NO MQTT #################
-    plt.figure(figsize=(8, 5))
+    plt.rcParams.update({'font.size': 18})
+    plt.figure(figsize=(10, 6))
     plt.plot(x_values, accuracies_snn_si_mio, marker='p', linestyle='-', color='orange', label='SNN')
-    #for x, y in zip(x_values, accuracies_snn_si_mio):
-        #plt.text(x, y + 0.1, f'{y:.2f}', ha='center', va='bottom', color='orange', fontsize=8)
+    # for x, y in zip(x_values, accuracies_snn_si_mio):
+        # plt.text(x, y + 0.1, f'{y:.2f}', ha='center', va='bottom', color='orange', fontsize=8)
 
     plt.plot(x_values, accuracies_cnn_mio, marker='+', linestyle='-', color='purple', label='CNN')
 
@@ -44,13 +45,14 @@ def plot_snn_cnn_classifiers():
     plt.ylim([60, 100])
     plt.grid(True)
     plt.legend()
-    plt.savefig("results/plot/few-shot_iot_split.png")
+    plt.savefig("../results/plot/few-shot_iot_split.png", bbox_inches='tight', dpi=300)
     plt.show()
 
     ################# PLOT SI MQTT #################
+    plt.figure(figsize=(10, 6))
     plt.plot(x_values, accuracies_snn_tonIot, marker='p', linestyle='-', color='orange', label='SNN')
-    #for x, y in zip(x_values, accuracies_snn_tonIot):
-        #plt.text(x, y + 0.1, f'{y:.2f}', ha='center', va='bottom', color='orange', fontsize=8)
+    # for x, y in zip(x_values, accuracies_snn_tonIot):
+        # plt.text(x, y + 0.1, f'{y:.2f}', ha='center', va='bottom', color='orange', fontsize=8)
 
     plt.plot(x_values, accuracies_cnn_tonIot, marker='+', linestyle='-', color='purple', label='CNN')
 
@@ -66,7 +68,7 @@ def plot_snn_cnn_classifiers():
     plt.ylim([60, 100])
     plt.grid(True)
     plt.legend()
-    plt.savefig("results/plot/ton_iot_split.png")
+    plt.savefig("../results/plot/ton_iot_split.png", bbox_inches='tight', dpi=300)
     plt.show()
 
 
